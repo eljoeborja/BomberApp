@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehiculoComprometidoCreateDlg" widgetVar="VehiculoComprometidoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVehiculoComprometidoTitle}">
+            <h:form id="VehiculoComprometidoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehiculoComprometidoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVehiculoComprometidoLabel_vehcomId}" for="vehcomId" />
+                        <p:inputText id="vehcomId" value="#{vehiculoComprometidoController.selected.vehcomId}" title="#{bundle.CreateVehiculoComprometidoTitle_vehcomId}" required="true" requiredMessage="#{bundle.CreateVehiculoComprometidoRequiredMessage_vehcomId}"/>
+                        <p:outputLabel value="#{bundle.CreateVehiculoComprometidoLabel_vehcomAccId}" for="vehcomAccId" />
+                        <p:selectOneMenu id="vehcomAccId" value="#{vehiculoComprometidoController.selected.vehcomAccId}" required="true" requiredMessage="#{bundle.EditVehiculoComprometidoRequiredMessage_vehcomAccId}">
+                            <f:selectItems value="#{accidenteTransitoController.itemsAvailableSelectOne}"
+                                           var="vehcomAccIdItem"
+                                           itemValue="#{vehcomAccIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateVehiculoComprometidoLabel_vehcomVehId}" for="vehcomVehId" />
+                        <p:selectOneMenu id="vehcomVehId" value="#{vehiculoComprometidoController.selected.vehcomVehId}" required="true" requiredMessage="#{bundle.EditVehiculoComprometidoRequiredMessage_vehcomVehId}">
+                            <f:selectItems value="#{vehiculoController.itemsAvailableSelectOne}"
+                                           var="vehcomVehIdItem"
+                                           itemValue="#{vehcomVehIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vehiculoComprometidoController.create}" value="#{bundle.Save}" update="display,:VehiculoComprometidoListForm:datalist,:growl" oncomplete="handleSubmit(args,'VehiculoComprometidoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VehiculoComprometidoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

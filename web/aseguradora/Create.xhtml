@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AseguradoraCreateDlg" widgetVar="AseguradoraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAseguradoraTitle}">
+            <h:form id="AseguradoraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{aseguradoraController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseNit}" for="aseNit" />
+                        <p:inputText id="aseNit" value="#{aseguradoraController.selected.aseNit}" title="#{bundle.CreateAseguradoraTitle_aseNit}" required="true" requiredMessage="#{bundle.CreateAseguradoraRequiredMessage_aseNit}"/>
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseRazonSocial}" for="aseRazonSocial" />
+                        <p:inputText id="aseRazonSocial" value="#{aseguradoraController.selected.aseRazonSocial}" title="#{bundle.CreateAseguradoraTitle_aseRazonSocial}" required="true" requiredMessage="#{bundle.CreateAseguradoraRequiredMessage_aseRazonSocial}"/>
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseDireccion}" for="aseDireccion" />
+                        <p:inputText id="aseDireccion" value="#{aseguradoraController.selected.aseDireccion}" title="#{bundle.CreateAseguradoraTitle_aseDireccion}" required="true" requiredMessage="#{bundle.CreateAseguradoraRequiredMessage_aseDireccion}"/>
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseTelefono}" for="aseTelefono" />
+                        <p:inputText id="aseTelefono" value="#{aseguradoraController.selected.aseTelefono}" title="#{bundle.CreateAseguradoraTitle_aseTelefono}" required="true" requiredMessage="#{bundle.CreateAseguradoraRequiredMessage_aseTelefono}"/>
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseFax}" for="aseFax" />
+                        <p:inputText id="aseFax" value="#{aseguradoraController.selected.aseFax}" title="#{bundle.CreateAseguradoraTitle_aseFax}" />
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseEmail}" for="aseEmail" />
+                        <p:inputText id="aseEmail" value="#{aseguradoraController.selected.aseEmail}" title="#{bundle.CreateAseguradoraTitle_aseEmail}" required="true" requiredMessage="#{bundle.CreateAseguradoraRequiredMessage_aseEmail}"/>
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_asePaginaWeb}" for="asePaginaWeb" />
+                        <p:inputText id="asePaginaWeb" value="#{aseguradoraController.selected.asePaginaWeb}" title="#{bundle.CreateAseguradoraTitle_asePaginaWeb}" />
+                        <p:outputLabel value="Seleccione el departamento" for="aseDep" />
+                        <p:selectOneMenu id="aseDep" value="">
+                            <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
+                                           var="aseDepIdItem"
+                                           itemValue="#{aseDepIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseMunId}" for="aseMunId" />
+                        <p:selectOneMenu id="aseMunId" value="#{aseguradoraController.selected.aseMunId}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseMunId}">
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                                           var="aseMunIdItem"
+                                           itemValue="#{aseMunIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{aseguradoraController.create}" value="#{bundle.Save}" update="display,:AseguradoraListForm:datalist,:growl" oncomplete="handleSubmit(args,'AseguradoraCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AseguradoraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

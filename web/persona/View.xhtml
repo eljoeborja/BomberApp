@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonaViewDlg" widgetVar="PersonaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPersonaTitle}">
+            <h:form id="PersonaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{personaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perId}"/>
+                        <h:outputText value="#{personaController.selected.perId}" title="#{bundle.ViewPersonaTitle_perId}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perCedula}"/>
+                        <h:outputText value="#{personaController.selected.perCedula}" title="#{bundle.ViewPersonaTitle_perCedula}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perApellidos}"/>
+                        <h:outputText value="#{personaController.selected.perApellidos}" title="#{bundle.ViewPersonaTitle_perApellidos}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perNombres}"/>
+                        <h:outputText value="#{personaController.selected.perNombres}" title="#{bundle.ViewPersonaTitle_perNombres}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perDireccion}"/>
+                        <h:outputText value="#{personaController.selected.perDireccion}" title="#{bundle.ViewPersonaTitle_perDireccion}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perTelefono}"/>
+                        <h:outputText value="#{personaController.selected.perTelefono}" title="#{bundle.ViewPersonaTitle_perTelefono}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perTipo}"/>
+                        <p:selectBooleanCheckbox value="#{personaController.selected.perTipo}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perFechanac}"/>
+                        <h:outputText value="#{personaController.selected.perFechanac}" title="#{bundle.ViewPersonaTitle_perFechanac}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perEstado}"/>
+                        <p:selectBooleanCheckbox value="#{personaController.selected.perEstado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perMunicipio}"/>
+                        <h:outputText value="#{personaController.selected.perMunicipio}" title="#{bundle.ViewPersonaTitle_perMunicipio}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_victimaAccidente}"/>
+                        <h:outputText value="#{personaController.selected.victimaAccidente}" title="#{bundle.ViewPersonaTitle_victimaAccidente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PersonaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

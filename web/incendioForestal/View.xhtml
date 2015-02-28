@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncendioForestalViewDlg" widgetVar="IncendioForestalViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewIncendioForestalTitle}">
+            <h:form id="IncendioForestalViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incendioForestalController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfId}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfId}" title="#{bundle.ViewIncendioForestalTitle_incfId}"/>
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfArea}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfArea}" title="#{bundle.ViewIncendioForestalTitle_incfArea}"/>
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfTipoArea}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfTipoArea}" title="#{bundle.ViewIncendioForestalTitle_incfTipoArea}"/>
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfOtro}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfOtro}" title="#{bundle.ViewIncendioForestalTitle_incfOtro}"/>
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfCanAfectados}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfCanAfectados}" title="#{bundle.ViewIncendioForestalTitle_incfCanAfectados}"/>
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfObservaciones}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfObservaciones}" title="#{bundle.ViewIncendioForestalTitle_incfObservaciones}"/>
+                        <h:outputText value="#{bundle.ViewIncendioForestalLabel_incfEmeId}"/>
+                        <h:outputText value="#{incendioForestalController.selected.incfEmeId}" title="#{bundle.ViewIncendioForestalTitle_incfEmeId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="IncendioForestalViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

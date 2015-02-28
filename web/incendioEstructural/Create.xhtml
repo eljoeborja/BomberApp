@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncendioEstructuralCreateDlg" widgetVar="IncendioEstructuralCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateIncendioEstructuralTitle}">
+            <h:form id="IncendioEstructuralCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incendioEstructuralController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceId}" for="inceId" />
+                        <p:inputText id="inceId" value="#{incendioEstructuralController.selected.inceId}" title="#{bundle.CreateIncendioEstructuralTitle_inceId}" required="true" requiredMessage="#{bundle.CreateIncendioEstructuralRequiredMessage_inceId}"/>
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceDanosm}" for="inceDanosm" />
+                        <p:inputText id="inceDanosm" value="#{incendioEstructuralController.selected.inceDanosm}" title="#{bundle.CreateIncendioEstructuralTitle_inceDanosm}" />
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceInmueble}" for="inceInmueble" />
+                        <p:inputText id="inceInmueble" value="#{incendioEstructuralController.selected.inceInmueble}" title="#{bundle.CreateIncendioEstructuralTitle_inceInmueble}" />
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceMuebles}" for="inceMuebles" />
+                        <p:inputText id="inceMuebles" value="#{incendioEstructuralController.selected.inceMuebles}" title="#{bundle.CreateIncendioEstructuralTitle_inceMuebles}" />
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceCanAfectadas}" for="inceCanAfectadas" />
+                        <p:inputText id="inceCanAfectadas" value="#{incendioEstructuralController.selected.inceCanAfectadas}" title="#{bundle.CreateIncendioEstructuralTitle_inceCanAfectadas}" required="true" requiredMessage="#{bundle.CreateIncendioEstructuralRequiredMessage_inceCanAfectadas}"/>
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceObservaciones}" for="inceObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="inceObservaciones" value="#{incendioEstructuralController.selected.inceObservaciones}" title="#{bundle.CreateIncendioEstructuralTitle_inceObservaciones}" />
+                        <p:outputLabel value="#{bundle.CreateIncendioEstructuralLabel_inceEmeId}" for="inceEmeId" />
+                        <p:selectOneMenu id="inceEmeId" value="#{incendioEstructuralController.selected.inceEmeId}" required="true" requiredMessage="#{bundle.EditIncendioEstructuralRequiredMessage_inceEmeId}">
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="inceEmeIdItem"
+                                           itemValue="#{inceEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{incendioEstructuralController.create}" value="#{bundle.Save}" update="display,:IncendioEstructuralListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncendioEstructuralCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IncendioEstructuralCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

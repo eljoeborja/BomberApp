@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncendioForestalCreateDlg" widgetVar="IncendioForestalCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateIncendioForestalTitle}">
+            <h:form id="IncendioForestalCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incendioForestalController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfId}" for="incfId" />
+                        <p:inputText id="incfId" value="#{incendioForestalController.selected.incfId}" title="#{bundle.CreateIncendioForestalTitle_incfId}" required="true" requiredMessage="#{bundle.CreateIncendioForestalRequiredMessage_incfId}"/>
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfArea}" for="incfArea" />
+                        <p:inputText id="incfArea" value="#{incendioForestalController.selected.incfArea}" title="#{bundle.CreateIncendioForestalTitle_incfArea}" required="true" requiredMessage="#{bundle.CreateIncendioForestalRequiredMessage_incfArea}"/>
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfTipoArea}" for="incfTipoArea" />
+                        <p:inputText id="incfTipoArea" value="#{incendioForestalController.selected.incfTipoArea}" title="#{bundle.CreateIncendioForestalTitle_incfTipoArea}" required="true" requiredMessage="#{bundle.CreateIncendioForestalRequiredMessage_incfTipoArea}"/>
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfOtro}" for="incfOtro" />
+                        <p:inputText id="incfOtro" value="#{incendioForestalController.selected.incfOtro}" title="#{bundle.CreateIncendioForestalTitle_incfOtro}" />
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfCanAfectados}" for="incfCanAfectados" />
+                        <p:inputText id="incfCanAfectados" value="#{incendioForestalController.selected.incfCanAfectados}" title="#{bundle.CreateIncendioForestalTitle_incfCanAfectados}" required="true" requiredMessage="#{bundle.CreateIncendioForestalRequiredMessage_incfCanAfectados}"/>
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfObservaciones}" for="incfObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="incfObservaciones" value="#{incendioForestalController.selected.incfObservaciones}" title="#{bundle.CreateIncendioForestalTitle_incfObservaciones}" />
+                        <p:outputLabel value="#{bundle.CreateIncendioForestalLabel_incfEmeId}" for="incfEmeId" />
+                        <p:selectOneMenu id="incfEmeId" value="#{incendioForestalController.selected.incfEmeId}" >
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="incfEmeIdItem"
+                                           itemValue="#{incfEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{incendioForestalController.create}" value="#{bundle.Save}" update="display,:IncendioForestalListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncendioForestalCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="IncendioForestalCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

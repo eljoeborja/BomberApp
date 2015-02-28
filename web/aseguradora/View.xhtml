@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AseguradoraViewDlg" widgetVar="AseguradoraViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAseguradoraTitle}">
+            <h:form id="AseguradoraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{aseguradoraController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseNit}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseNit}" title="#{bundle.ViewAseguradoraTitle_aseNit}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseRazonSocial}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseRazonSocial}" title="#{bundle.ViewAseguradoraTitle_aseRazonSocial}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseDireccion}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseDireccion}" title="#{bundle.ViewAseguradoraTitle_aseDireccion}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseTelefono}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseTelefono}" title="#{bundle.ViewAseguradoraTitle_aseTelefono}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseFax}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseFax}" title="#{bundle.ViewAseguradoraTitle_aseFax}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseEmail}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseEmail}" title="#{bundle.ViewAseguradoraTitle_aseEmail}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_asePaginaWeb}"/>
+                        <h:outputText value="#{aseguradoraController.selected.asePaginaWeb}" title="#{bundle.ViewAseguradoraTitle_asePaginaWeb}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseMunId}"/>
+                        <h:outputText value="#{aseguradoraController.selected.aseMunId}" title="#{bundle.ViewAseguradoraTitle_aseMunId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AseguradoraViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UnidadCreateDlg" widgetVar="UnidadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUnidadTitle}">
+            <h:form id="UnidadCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{unidadController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniNpib}" for="uniNpib" />
+                        <p:inputText id="uniNpib" value="#{unidadController.selected.uniNpib}" title="#{bundle.CreateUnidadTitle_uniNpib}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniNpib}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniCbv}" for="uniCbv" />
+                        <p:inputText id="uniCbv" value="#{unidadController.selected.uniCbv}" title="#{bundle.CreateUnidadTitle_uniCbv}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniCbv}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniRango}" for="uniRango" />
+                        <p:inputText id="uniRango" value="#{unidadController.selected.uniRango}" title="#{bundle.CreateUnidadTitle_uniRango}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniRango}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniGsrh}" for="uniGsrh" />
+                        <p:inputText id="uniGsrh" value="#{unidadController.selected.uniGsrh}" title="#{bundle.CreateUnidadTitle_uniGsrh}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniGsrh}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniMaquinista}" for="uniMaquinista" />
+                        <p:inputText id="uniMaquinista" value="#{unidadController.selected.uniMaquinista}" title="#{bundle.CreateUnidadTitle_uniMaquinista}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniMaquinista}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniEstado}" for="uniEstado" />
+                        <p:selectBooleanCheckbox id="uniEstado" value="#{unidadController.selected.uniEstado}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_personalEmergancia}" for="personalEmergancia" />
+                        <p:selectOneMenu id="personalEmergancia" value="#{unidadController.selected.personalEmergancia}" >
+                            <f:selectItems value="#{personalEmerganciaController.itemsAvailableSelectOne}"
+                                           var="personalEmerganciaItem"
+                                           itemValue="#{personalEmerganciaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniPerId}" for="uniPerId" />
+                        <p:selectOneMenu id="uniPerId" value="#{unidadController.selected.uniPerId}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniPerId}">
+                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                           var="uniPerIdItem"
+                                           itemValue="#{uniPerIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_usuario}" for="usuario" />
+                        <p:selectOneMenu id="usuario" value="#{unidadController.selected.usuario}" >
+                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
+                                           var="usuarioItem"
+                                           itemValue="#{usuarioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{unidadController.create}" value="#{bundle.Save}" update="display,:UnidadListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UnidadCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

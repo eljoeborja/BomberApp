@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehiculoViewDlg" widgetVar="VehiculoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVehiculoTitle}">
+            <h:form id="VehiculoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehiculoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehId}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehId}" title="#{bundle.ViewVehiculoTitle_vehId}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehClase}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehClase}" title="#{bundle.ViewVehiculoTitle_vehClase}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehPlaca}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehPlaca}" title="#{bundle.ViewVehiculoTitle_vehPlaca}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehModelo}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehModelo}" title="#{bundle.ViewVehiculoTitle_vehModelo}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehPropietario}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehPropietario}" title="#{bundle.ViewVehiculoTitle_vehPropietario}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehSoat}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehSoat}" title="#{bundle.ViewVehiculoTitle_vehSoat}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehServicio}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehServicio}" title="#{bundle.ViewVehiculoTitle_vehServicio}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vahMarca}"/>
+                        <h:outputText value="#{vehiculoController.selected.vahMarca}" title="#{bundle.ViewVehiculoTitle_vahMarca}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehEmpresa}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehEmpresa}" title="#{bundle.ViewVehiculoTitle_vehEmpresa}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehConductor}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehConductor}" title="#{bundle.ViewVehiculoTitle_vehConductor}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehCompaniaSeguro}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehCompaniaSeguro}" title="#{bundle.ViewVehiculoTitle_vehCompaniaSeguro}"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehEstado}"/>
+                        <p:selectBooleanCheckbox value="#{vehiculoController.selected.vehEstado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewVehiculoLabel_vehiculoComprometido}"/>
+                        <h:outputText value="#{vehiculoController.selected.vehiculoComprometido}" title="#{bundle.ViewVehiculoTitle_vehiculoComprometido}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VehiculoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

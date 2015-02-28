@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmergenciaViewDlg" widgetVar="EmergenciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEmergenciaTitle}">
+            <h:form id="EmergenciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{emergenciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeId}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeId}" title="#{bundle.ViewEmergenciaTitle_emeId}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeFecha}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeFecha}" title="#{bundle.ViewEmergenciaTitle_emeFecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeHora}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeHora}" title="#{bundle.ViewEmergenciaTitle_emeHora}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInformacionRecibida}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.ViewEmergenciaTitle_emeInformacionRecibida}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeMedioInformacion}"/>
+                        <p:selectBooleanCheckbox value="#{emergenciaController.selected.emeMedioInformacion}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeDescripcionOtroMedio}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeDescripcionOtroMedio}" title="#{bundle.ViewEmergenciaTitle_emeDescripcionOtroMedio}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emePersonaConfirmacion}"/>
+                        <h:outputText value="#{emergenciaController.selected.emePersonaConfirmacion}" title="#{bundle.ViewEmergenciaTitle_emePersonaConfirmacion}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeMedioConfirmacion}"/>
+                        <p:selectBooleanCheckbox value="#{emergenciaController.selected.emeMedioConfirmacion}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeDescripcionOtroMedioC}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeDescripcionOtroMedioC}" title="#{bundle.ViewEmergenciaTitle_emeDescripcionOtroMedioC}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeDireccion}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeDireccion}" title="#{bundle.ViewEmergenciaTitle_emeDireccion}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmuebleClase}"/>
+                        <p:selectBooleanCheckbox value="#{emergenciaController.selected.emeInmuebleClase}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmueblePropietario}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeInmueblePropietario}" title="#{bundle.ViewEmergenciaTitle_emeInmueblePropietario}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmuebleAdministrador}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeInmuebleAdministrador}" title="#{bundle.ViewEmergenciaTitle_emeInmuebleAdministrador}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmuebleArrendatario}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeInmuebleArrendatario}" title="#{bundle.ViewEmergenciaTitle_emeInmuebleArrendatario}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeNovedades}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeNovedades}" title="#{bundle.ViewEmergenciaTitle_emeNovedades}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeEstado}"/>
+                        <p:selectBooleanCheckbox value="#{emergenciaController.selected.emeEstado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_accidenteTransito}"/>
+                        <h:outputText value="#{emergenciaController.selected.accidenteTransito}" title="#{bundle.ViewEmergenciaTitle_accidenteTransito}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_costo}"/>
+                        <h:outputText value="#{emergenciaController.selected.costo}" title="#{bundle.ViewEmergenciaTitle_costo}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_inundacion}"/>
+                        <h:outputText value="#{emergenciaController.selected.inundacion}" title="#{bundle.ViewEmergenciaTitle_inundacion}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_personalEmergancia}"/>
+                        <h:outputText value="#{emergenciaController.selected.personalEmergancia}" title="#{bundle.ViewEmergenciaTitle_personalEmergancia}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_incendioForestal}"/>
+                        <h:outputText value="#{emergenciaController.selected.incendioForestal}" title="#{bundle.ViewEmergenciaTitle_incendioForestal}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_otrosIncidentes}"/>
+                        <h:outputText value="#{emergenciaController.selected.otrosIncidentes}" title="#{bundle.ViewEmergenciaTitle_otrosIncidentes}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_incendioEstructural}"/>
+                        <h:outputText value="#{emergenciaController.selected.incendioEstructural}" title="#{bundle.ViewEmergenciaTitle_incendioEstructural}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInformante}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeInformante}" title="#{bundle.ViewEmergenciaTitle_emeInformante}"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeComandante}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeComandante}" title="#{bundle.ViewEmergenciaTitle_emeComandante}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EmergenciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEmergenciaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="EmergenciaListForm">
+                <p:panel header="#{bundle.ListEmergenciaTitle}">
+                    <p:dataTable id="datalist" value="#{emergenciaController.items}" var="item"
+                                 selectionMode="single" selection="#{emergenciaController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.emeId}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeFecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeFecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeHora}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeHora}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformacionRecibida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeInformacionRecibida}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeMedioInformacion}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.emeMedioInformacion}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeDescripcionOtroMedio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeDescripcionOtroMedio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emePersonaConfirmacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emePersonaConfirmacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeMedioConfirmacion}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.emeMedioConfirmacion}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeDescripcionOtroMedioC}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeDescripcionOtroMedioC}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeDireccion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeDireccion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleClase}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.emeInmuebleClase}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmueblePropietario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeInmueblePropietario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleAdministrador}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeInmuebleAdministrador}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleArrendatario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeInmuebleArrendatario}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeNovedades}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeNovedades}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeEstado}"/>
+                            </f:facet>
+                            <p:selectBooleanCheckbox value="#{item.emeEstado}" disabled="true"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_accidenteTransito}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.accidenteTransito}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_costo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.costo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_inundacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.inundacion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_personalEmergancia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.personalEmergancia}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_incendioForestal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.incendioForestal}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_otrosIncidentes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otrosIncidentes}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_incendioEstructural}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.incendioEstructural}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeInformante}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeComandante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeComandante}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{emergenciaController.prepareCreate}" update=":EmergenciaCreateForm" oncomplete="PF('EmergenciaCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EmergenciaViewForm" oncomplete="PF('EmergenciaViewDialog').show()" disabled="#{empty emergenciaController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":EmergenciaEditForm" oncomplete="PF('EmergenciaEditDialog').show()" disabled="#{empty emergenciaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{emergenciaController.destroy}" update=":growl,datalist" disabled="#{empty emergenciaController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

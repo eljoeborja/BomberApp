@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CostoCreateDlg" widgetVar="CostoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCostoTitle}">
+            <h:form id="CostoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{costoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoId}" for="costoId" />
+                        <p:inputText id="costoId" value="#{costoController.selected.costoId}" title="#{bundle.CreateCostoTitle_costoId}" required="true" requiredMessage="#{bundle.CreateCostoRequiredMessage_costoId}"/>
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoCombustible}" for="costoCombustible" />
+                        <p:inputText id="costoCombustible" value="#{costoController.selected.costoCombustible}" title="#{bundle.CreateCostoTitle_costoCombustible}" required="true" requiredMessage="#{bundle.CreateCostoRequiredMessage_costoCombustible}"/>
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoGalones}" for="costoGalones" />
+                        <p:inputText id="costoGalones" value="#{costoController.selected.costoGalones}" title="#{bundle.CreateCostoTitle_costoGalones}" />
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoAlimentos}" for="costoAlimentos" />
+                        <p:inputText id="costoAlimentos" value="#{costoController.selected.costoAlimentos}" title="#{bundle.CreateCostoTitle_costoAlimentos}" />
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoDanos}" for="costoDanos" />
+                        <p:inputText id="costoDanos" value="#{costoController.selected.costoDanos}" title="#{bundle.CreateCostoTitle_costoDanos}" />
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoOtrosdes}" for="costoOtrosdes" />
+                        <p:inputTextarea rows="4" cols="30" id="costoOtrosdes" value="#{costoController.selected.costoOtrosdes}" title="#{bundle.CreateCostoTitle_costoOtrosdes}" />
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoOtros}" for="costoOtros" />
+                        <p:inputText id="costoOtros" value="#{costoController.selected.costoOtros}" title="#{bundle.CreateCostoTitle_costoOtros}" />
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoTotal}" for="costoTotal" />
+                        <p:inputText id="costoTotal" value="#{costoController.selected.costoTotal}" title="#{bundle.CreateCostoTitle_costoTotal}" required="true" requiredMessage="#{bundle.CreateCostoRequiredMessage_costoTotal}"/>
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoObservaciones}" for="costoObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="costoObservaciones" value="#{costoController.selected.costoObservaciones}" title="#{bundle.CreateCostoTitle_costoObservaciones}" />
+                        <p:outputLabel value="#{bundle.CreateCostoLabel_costoEmeId}" for="costoEmeId" />
+                        <p:selectOneMenu id="costoEmeId" value="#{costoController.selected.costoEmeId}" >
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="costoEmeIdItem"
+                                           itemValue="#{costoEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{costoController.create}" value="#{bundle.Save}" update="display,:CostoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CostoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CostoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

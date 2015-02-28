@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AseguradoraEditDlg" widgetVar="AseguradoraEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAseguradoraTitle}">
+            <h:form id="AseguradoraEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{aseguradoraController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseNit}" for="aseNit" />
+                        <p:inputText id="aseNit" value="#{aseguradoraController.selected.aseNit}" title="#{bundle.EditAseguradoraTitle_aseNit}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseNit}"/>
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseRazonSocial}" for="aseRazonSocial" />
+                        <p:inputText id="aseRazonSocial" value="#{aseguradoraController.selected.aseRazonSocial}" title="#{bundle.EditAseguradoraTitle_aseRazonSocial}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseRazonSocial}"/>
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseDireccion}" for="aseDireccion" />
+                        <p:inputText id="aseDireccion" value="#{aseguradoraController.selected.aseDireccion}" title="#{bundle.EditAseguradoraTitle_aseDireccion}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseDireccion}"/>
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseTelefono}" for="aseTelefono" />
+                        <p:inputText id="aseTelefono" value="#{aseguradoraController.selected.aseTelefono}" title="#{bundle.EditAseguradoraTitle_aseTelefono}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseTelefono}"/>
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseFax}" for="aseFax" />
+                        <p:inputText id="aseFax" value="#{aseguradoraController.selected.aseFax}" title="#{bundle.EditAseguradoraTitle_aseFax}" />
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseEmail}" for="aseEmail" />
+                        <p:inputText id="aseEmail" value="#{aseguradoraController.selected.aseEmail}" title="#{bundle.EditAseguradoraTitle_aseEmail}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseEmail}"/>
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_asePaginaWeb}" for="asePaginaWeb" />
+                        <p:inputText id="asePaginaWeb" value="#{aseguradoraController.selected.asePaginaWeb}" title="#{bundle.EditAseguradoraTitle_asePaginaWeb}" />
+                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseMunId}" for="aseMunId" />
+                        <p:selectOneMenu id="aseMunId" value="#{aseguradoraController.selected.aseMunId}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseMunId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                                           var="aseMunIdItem"
+                                           itemValue="#{aseMunIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{aseguradoraController.update}" value="#{bundle.Save}" update="display,:AseguradoraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AseguradoraEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AseguradoraEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

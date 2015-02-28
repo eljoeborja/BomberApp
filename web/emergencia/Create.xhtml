@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmergenciaCreateDlg" widgetVar="EmergenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEmergenciaTitle}">
+            <h:form id="EmergenciaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{emergenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeId}" for="emeId" />
+                        <p:inputText id="emeId" value="#{emergenciaController.selected.emeId}" title="#{bundle.CreateEmergenciaTitle_emeId}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeId}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeFecha}" for="emeFecha" />
+                        <p:calendar id="emeFecha" pattern="MM/dd/yyyy" value="#{emergenciaController.selected.emeFecha}" title="#{bundle.EditEmergenciaTitle_emeFecha}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeFecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeHora}" for="emeHora" />
+                        <p:calendar id="emeHora" pattern="HH:mm:ss" value="#{emergenciaController.selected.emeHora}" title="#{bundle.EditEmergenciaTitle_emeHora}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeHora}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformacionRecibida}" for="emeInformacionRecibida" />
+                        <p:inputText id="emeInformacionRecibida" value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.CreateEmergenciaTitle_emeInformacionRecibida}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInformacionRecibida}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioInformacion}" for="emeMedioInformacion" />
+                        <p:selectBooleanCheckbox id="emeMedioInformacion" value="#{emergenciaController.selected.emeMedioInformacion}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioInformacion}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDescripcionOtroMedio}" for="emeDescripcionOtroMedio" />
+                        <p:inputText id="emeDescripcionOtroMedio" value="#{emergenciaController.selected.emeDescripcionOtroMedio}" title="#{bundle.CreateEmergenciaTitle_emeDescripcionOtroMedio}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDescripcionOtroMedio}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emePersonaConfirmacion}" for="emePersonaConfirmacion" />
+                        <p:inputText id="emePersonaConfirmacion" value="#{emergenciaController.selected.emePersonaConfirmacion}" title="#{bundle.CreateEmergenciaTitle_emePersonaConfirmacion}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emePersonaConfirmacion}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioConfirmacion}" for="emeMedioConfirmacion" />
+                        <p:selectBooleanCheckbox id="emeMedioConfirmacion" value="#{emergenciaController.selected.emeMedioConfirmacion}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioConfirmacion}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDescripcionOtroMedioC}" for="emeDescripcionOtroMedioC" />
+                        <p:inputText id="emeDescripcionOtroMedioC" value="#{emergenciaController.selected.emeDescripcionOtroMedioC}" title="#{bundle.CreateEmergenciaTitle_emeDescripcionOtroMedioC}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDescripcionOtroMedioC}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDireccion}" for="emeDireccion" />
+                        <p:inputText id="emeDireccion" value="#{emergenciaController.selected.emeDireccion}" title="#{bundle.CreateEmergenciaTitle_emeDireccion}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDireccion}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInmuebleClase}" for="emeInmuebleClase" />
+                        <p:selectBooleanCheckbox id="emeInmuebleClase" value="#{emergenciaController.selected.emeInmuebleClase}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeInmuebleClase}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInmueblePropietario}" for="emeInmueblePropietario" />
+                        <p:inputText id="emeInmueblePropietario" value="#{emergenciaController.selected.emeInmueblePropietario}" title="#{bundle.CreateEmergenciaTitle_emeInmueblePropietario}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInmueblePropietario}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInmuebleAdministrador}" for="emeInmuebleAdministrador" />
+                        <p:inputText id="emeInmuebleAdministrador" value="#{emergenciaController.selected.emeInmuebleAdministrador}" title="#{bundle.CreateEmergenciaTitle_emeInmuebleAdministrador}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInmuebleAdministrador}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInmuebleArrendatario}" for="emeInmuebleArrendatario" />
+                        <p:inputText id="emeInmuebleArrendatario" value="#{emergenciaController.selected.emeInmuebleArrendatario}" title="#{bundle.CreateEmergenciaTitle_emeInmuebleArrendatario}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInmuebleArrendatario}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeNovedades}" for="emeNovedades" />
+                        <p:inputTextarea rows="4" cols="30" id="emeNovedades" value="#{emergenciaController.selected.emeNovedades}" title="#{bundle.CreateEmergenciaTitle_emeNovedades}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeNovedades}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />
+                        <p:selectBooleanCheckbox id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_accidenteTransito}" for="accidenteTransito" />
+                        <p:selectOneMenu id="accidenteTransito" value="#{emergenciaController.selected.accidenteTransito}" >
+                            <f:selectItems value="#{accidenteTransitoController.itemsAvailableSelectOne}"
+                                           var="accidenteTransitoItem"
+                                           itemValue="#{accidenteTransitoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_costo}" for="costo" />
+                        <p:selectOneMenu id="costo" value="#{emergenciaController.selected.costo}" >
+                            <f:selectItems value="#{costoController.itemsAvailableSelectOne}"
+                                           var="costoItem"
+                                           itemValue="#{costoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_inundacion}" for="inundacion" />
+                        <p:selectOneMenu id="inundacion" value="#{emergenciaController.selected.inundacion}" >
+                            <f:selectItems value="#{inundacionController.itemsAvailableSelectOne}"
+                                           var="inundacionItem"
+                                           itemValue="#{inundacionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_personalEmergancia}" for="personalEmergancia" />
+                        <p:selectOneMenu id="personalEmergancia" value="#{emergenciaController.selected.personalEmergancia}" >
+                            <f:selectItems value="#{personalEmerganciaController.itemsAvailableSelectOne}"
+                                           var="personalEmerganciaItem"
+                                           itemValue="#{personalEmerganciaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_incendioForestal}" for="incendioForestal" />
+                        <p:selectOneMenu id="incendioForestal" value="#{emergenciaController.selected.incendioForestal}" >
+                            <f:selectItems value="#{incendioForestalController.itemsAvailableSelectOne}"
+                                           var="incendioForestalItem"
+                                           itemValue="#{incendioForestalItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_otrosIncidentes}" for="otrosIncidentes" />
+                        <p:selectOneMenu id="otrosIncidentes" value="#{emergenciaController.selected.otrosIncidentes}" >
+                            <f:selectItems value="#{otrosIncidentesController.itemsAvailableSelectOne}"
+                                           var="otrosIncidentesItem"
+                                           itemValue="#{otrosIncidentesItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_incendioEstructural}" for="incendioEstructural" />
+                        <p:selectOneMenu id="incendioEstructural" value="#{emergenciaController.selected.incendioEstructural}" >
+                            <f:selectItems value="#{incendioEstructuralController.itemsAvailableSelectOne}"
+                                           var="incendioEstructuralItem"
+                                           itemValue="#{incendioEstructuralItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformante}" for="emeInformante" />
+                        <p:selectOneMenu id="emeInformante" value="#{emergenciaController.selected.emeInformante}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeInformante}">
+                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
+                                           var="emeInformanteItem"
+                                           itemValue="#{emeInformanteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeComandante}" for="emeComandante" />
+                        <p:selectOneMenu id="emeComandante" value="#{emergenciaController.selected.emeComandante}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeComandante}">
+                            <f:selectItems value="#{unidadController.itemsAvailableSelectOne}"
+                                           var="emeComandanteItem"
+                                           itemValue="#{emeComandanteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{emergenciaController.create}" value="#{bundle.Save}" update="display,:EmergenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmergenciaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EmergenciaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

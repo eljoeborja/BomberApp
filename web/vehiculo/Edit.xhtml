@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VehiculoEditDlg" widgetVar="VehiculoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditVehiculoTitle}">
+            <h:form id="VehiculoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vehiculoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehId}" for="vehId" />
+                        <p:inputText id="vehId" value="#{vehiculoController.selected.vehId}" title="#{bundle.EditVehiculoTitle_vehId}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehId}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehClase}" for="vehClase" />
+                        <p:inputText id="vehClase" value="#{vehiculoController.selected.vehClase}" title="#{bundle.EditVehiculoTitle_vehClase}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehClase}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehPlaca}" for="vehPlaca" />
+                        <p:inputText id="vehPlaca" value="#{vehiculoController.selected.vehPlaca}" title="#{bundle.EditVehiculoTitle_vehPlaca}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehPlaca}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehModelo}" for="vehModelo" />
+                        <p:inputText id="vehModelo" value="#{vehiculoController.selected.vehModelo}" title="#{bundle.EditVehiculoTitle_vehModelo}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehModelo}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehPropietario}" for="vehPropietario" />
+                        <p:inputText id="vehPropietario" value="#{vehiculoController.selected.vehPropietario}" title="#{bundle.EditVehiculoTitle_vehPropietario}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehPropietario}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehSoat}" for="vehSoat" />
+                        <p:inputText id="vehSoat" value="#{vehiculoController.selected.vehSoat}" title="#{bundle.EditVehiculoTitle_vehSoat}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehSoat}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehServicio}" for="vehServicio" />
+                        <p:inputText id="vehServicio" value="#{vehiculoController.selected.vehServicio}" title="#{bundle.EditVehiculoTitle_vehServicio}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehServicio}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vahMarca}" for="vahMarca" />
+                        <p:inputText id="vahMarca" value="#{vehiculoController.selected.vahMarca}" title="#{bundle.EditVehiculoTitle_vahMarca}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vahMarca}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehEmpresa}" for="vehEmpresa" />
+                        <p:inputText id="vehEmpresa" value="#{vehiculoController.selected.vehEmpresa}" title="#{bundle.EditVehiculoTitle_vehEmpresa}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEmpresa}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehConductor}" for="vehConductor" />
+                        <p:inputText id="vehConductor" value="#{vehiculoController.selected.vehConductor}" title="#{bundle.EditVehiculoTitle_vehConductor}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehConductor}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehCompaniaSeguro}" for="vehCompaniaSeguro" />
+                        <p:inputText id="vehCompaniaSeguro" value="#{vehiculoController.selected.vehCompaniaSeguro}" title="#{bundle.EditVehiculoTitle_vehCompaniaSeguro}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehCompaniaSeguro}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehEstado}" for="vehEstado" />
+                        <p:selectBooleanCheckbox id="vehEstado" value="#{vehiculoController.selected.vehEstado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEstado}"/>
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehiculoComprometido}" for="vehiculoComprometido" />
+                        <p:selectOneMenu id="vehiculoComprometido" value="#{vehiculoController.selected.vehiculoComprometido}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{vehiculoComprometidoController.itemsAvailableSelectOne}"
+                                           var="vehiculoComprometidoItem"
+                                           itemValue="#{vehiculoComprometidoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vehiculoController.update}" value="#{bundle.Save}" update="display,:VehiculoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehiculoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VehiculoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

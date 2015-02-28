@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaquinaEmergenciaCreateDlg" widgetVar="MaquinaEmergenciaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMaquinaEmergenciaTitle}">
+            <h:form id="MaquinaEmergenciaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{maquinaEmergenciaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeId}" for="maqEmeId" />
+                        <p:inputText id="maqEmeId" value="#{maquinaEmergenciaController.selected.maqEmeId}" title="#{bundle.CreateMaquinaEmergenciaTitle_maqEmeId}" required="true" requiredMessage="#{bundle.CreateMaquinaEmergenciaRequiredMessage_maqEmeId}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeFechaSalida}" for="maqEmeFechaSalida" />
+                        <p:calendar id="maqEmeFechaSalida" pattern="MM/dd/yyyy" value="#{maquinaEmergenciaController.selected.maqEmeFechaSalida}" title="#{bundle.EditMaquinaEmergenciaTitle_maqEmeFechaSalida}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeFechaSalida}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeHoraSalida}" for="maqEmeHoraSalida" />
+                        <p:calendar id="maqEmeHoraSalida" pattern="HH:mm:ss" value="#{maquinaEmergenciaController.selected.maqEmeHoraSalida}" title="#{bundle.EditMaquinaEmergenciaTitle_maqEmeHoraSalida}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeHoraSalida}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeUnidades}" for="maqEmeUnidades" />
+                        <p:inputText id="maqEmeUnidades" value="#{maquinaEmergenciaController.selected.maqEmeUnidades}" title="#{bundle.CreateMaquinaEmergenciaTitle_maqEmeUnidades}" required="true" requiredMessage="#{bundle.CreateMaquinaEmergenciaRequiredMessage_maqEmeUnidades}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeFechaRegreso}" for="maqEmeFechaRegreso" />
+                        <p:calendar id="maqEmeFechaRegreso" pattern="MM/dd/yyyy" value="#{maquinaEmergenciaController.selected.maqEmeFechaRegreso}" title="#{bundle.EditMaquinaEmergenciaTitle_maqEmeFechaRegreso}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeFechaRegreso}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqHoraRegreso}" for="maqHoraRegreso" />
+                        <p:calendar id="maqHoraRegreso" pattern="HH:mm:ss" value="#{maquinaEmergenciaController.selected.maqHoraRegreso}" title="#{bundle.EditMaquinaEmergenciaTitle_maqHoraRegreso}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqHoraRegreso}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeEstado}" for="maqEmeEstado" />
+                        <p:selectBooleanCheckbox id="maqEmeEstado" value="#{maquinaEmergenciaController.selected.maqEmeEstado}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeEstado}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeEme}" for="maqEmeEme" />
+                        <p:selectOneMenu id="maqEmeEme" value="#{maquinaEmergenciaController.selected.maqEmeEme}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeEme}">
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="maqEmeEmeItem"
+                                           itemValue="#{maqEmeEmeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeNpib}" for="maqEmeNpib" />
+                        <p:selectOneMenu id="maqEmeNpib" value="#{maquinaEmergenciaController.selected.maqEmeNpib}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeNpib}">
+                            <f:selectItems value="#{unidadController.itemsAvailableSelectOne}"
+                                           var="maqEmeNpibItem"
+                                           itemValue="#{maqEmeNpibItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMaquinaEmergenciaLabel_maqEmeMaq}" for="maqEmeMaq" />
+                        <p:selectOneMenu id="maqEmeMaq" value="#{maquinaEmergenciaController.selected.maqEmeMaq}" required="true" requiredMessage="#{bundle.EditMaquinaEmergenciaRequiredMessage_maqEmeMaq}">
+                            <f:selectItems value="#{maquinaController.itemsAvailableSelectOne}"
+                                           var="maqEmeMaqItem"
+                                           itemValue="#{maqEmeMaqItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{maquinaEmergenciaController.create}" value="#{bundle.Save}" update="display,:MaquinaEmergenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'MaquinaEmergenciaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MaquinaEmergenciaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

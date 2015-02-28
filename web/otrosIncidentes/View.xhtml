@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OtrosIncidentesViewDlg" widgetVar="OtrosIncidentesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewOtrosIncidentesTitle}">
+            <h:form id="OtrosIncidentesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{otrosIncidentesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrId}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrId}" title="#{bundle.ViewOtrosIncidentesTitle_otrId}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrClaseIncidente}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrClaseIncidente}" title="#{bundle.ViewOtrosIncidentesTitle_otrClaseIncidente}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrDanos}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrDanos}" title="#{bundle.ViewOtrosIncidentesTitle_otrDanos}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrInmueble}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrInmueble}" title="#{bundle.ViewOtrosIncidentesTitle_otrInmueble}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrMuebles}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrMuebles}" title="#{bundle.ViewOtrosIncidentesTitle_otrMuebles}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrCantAfectados}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrCantAfectados}" title="#{bundle.ViewOtrosIncidentesTitle_otrCantAfectados}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrObservaciones}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrObservaciones}" title="#{bundle.ViewOtrosIncidentesTitle_otrObservaciones}"/>
+                        <h:outputText value="#{bundle.ViewOtrosIncidentesLabel_otrEmeId}"/>
+                        <h:outputText value="#{otrosIncidentesController.selected.otrEmeId}" title="#{bundle.ViewOtrosIncidentesTitle_otrEmeId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="OtrosIncidentesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

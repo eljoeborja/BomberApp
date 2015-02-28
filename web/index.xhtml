@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/template.xhtml">
+        <h:head>
+            <title>CBVRV</title>
+
+            <h:outputStylesheet name="/utils/css/screen.css"/>
+
+            <link href="/utils/css/screen.css" type="text/css" rel="stylesheet" media="screen,projection" />
+        </h:head>
+        <h:body>
+            <div id="layout">
+
+                <div id="header">
+
+                    <h1 id="logo"><a href="#" title="#">CBV<span>Roldanillo</span></a></h1>
+                </div>
+                <div id="main">
+                    <img src="resources/utils/img/banner.jpg" width=""/>          
+                    <div id="tablita">
+
+                        <style type="text/css">
+                            .tg  {border-collapse:collapse;border-spacing:0;}
+                            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:0px 0px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:0px 0px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+                        </style>
+                        <table class="tg" align="center">
+                            <tr>
+                                <th class="tg-031e"><h:link outcome="/emergencia/List" value="Show All Emergencia Items"/></th>
+                                <th class="tg-031e"><h:link outcome="/incendioForestal/List" value="Show All IncendioForestal Items"/></th>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/incendioEstructural/List" value="Show All IncendioEstructural Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/incendioEstructural/List" value="Administrar Incendios Estructurales"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/inundacion/List" value="Show All Inundacion Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/incendioForestal/List" value="Administrar Incendios Forestales"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/otrosIncidentes/List" value="Show All OtrosIncidentes Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/maquinaEmergencia/List" value="Administrar Maquinas Emergencias"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/materialUtilizado/List" value="Administrar Material Utilizado"/></td>
+                                <td class="tg-031e"><h:link outcome="/otrosIncidentes/List" value="Administrar Otros Incidentes"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/maquina/List" value="Show All Maquina Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/maquinaEmergencia/List" value="Show All MaquinaEmergencia Items"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/material/List" value="Show All Material Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/materialUtilizado/List" value="Show All MaterialUtilizado Items"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/persona/List" value="Show All Persona Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/personalEmergancia/List" value="Show All PersonalEmergancia Items"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/usuario/List" value="Show All Usuario Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/vehiculo/List" value="Show All Vehiculo Items"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/vehiculoComprometido/List" value="Show All VehiculoComprometido Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/victimaAccidente/List" value="Show All VictimaAccidente Items"/></td>
+                            </tr>
+                            <tr>
+                                <td class="tg-031e"><h:link outcome="/aseguradora/List" value="Show All Aseguradora Items"/></td>
+                                <td class="tg-031e"><h:link outcome="/costo/List" value="Show All Costo Items"/></td>
+                            </tr>
+                        </table>             
+                    </div>
+                    <p>ADMINISTRACION DE SISTEMAS INFORMATICOS</p>        
+
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footer-inside">
+                    <p id="copyright">&copy; 2015 - <a href="/">intep</a></p>
+
+                    <!-- Please don't delete this. You can use this template for free and this is the only way that you can say thanks to me -->
+                    <p id="dont-delete-this">JOSE EDUARDO BORJA, EDUARDO JOSE PADILLA, MILTON VANEGAS | CBVRV</p>
+                    <!-- Thank you :) -->
+
+                </div><div style="clear: both;"></div></div>
+            <br />               
+
+        </h:body>
+    </ui:composition>
+</html>
+

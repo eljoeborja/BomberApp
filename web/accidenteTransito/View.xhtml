@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AccidenteTransitoViewDlg" widgetVar="AccidenteTransitoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAccidenteTransitoTitle}">
+            <h:form id="AccidenteTransitoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{accidenteTransitoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accId}"/>
+                        <h:outputText value="#{accidenteTransitoController.selected.accId}" title="#{bundle.ViewAccidenteTransitoTitle_accId}"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accDescripcion}"/>
+                        <h:outputText value="#{accidenteTransitoController.selected.accDescripcion}" title="#{bundle.ViewAccidenteTransitoTitle_accDescripcion}"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accColisionObjMov}"/>
+                        <p:selectBooleanCheckbox value="#{accidenteTransitoController.selected.accColisionObjMov}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accColisionObjFijo}"/>
+                        <p:selectBooleanCheckbox value="#{accidenteTransitoController.selected.accColisionObjFijo}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accVolcamiento}"/>
+                        <p:selectBooleanCheckbox value="#{accidenteTransitoController.selected.accVolcamiento}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accPeatonAtropellado}"/>
+                        <p:selectBooleanCheckbox value="#{accidenteTransitoController.selected.accPeatonAtropellado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accCiclistaAtropellado}"/>
+                        <p:selectBooleanCheckbox value="#{accidenteTransitoController.selected.accCiclistaAtropellado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accDescripcionOtros}"/>
+                        <h:outputText value="#{accidenteTransitoController.selected.accDescripcionOtros}" title="#{bundle.ViewAccidenteTransitoTitle_accDescripcionOtros}"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_accEmeId}"/>
+                        <h:outputText value="#{accidenteTransitoController.selected.accEmeId}" title="#{bundle.ViewAccidenteTransitoTitle_accEmeId}"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_vehiculoComprometido}"/>
+                        <h:outputText value="#{accidenteTransitoController.selected.vehiculoComprometido}" title="#{bundle.ViewAccidenteTransitoTitle_vehiculoComprometido}"/>
+                        <h:outputText value="#{bundle.ViewAccidenteTransitoLabel_victimaAccidente}"/>
+                        <h:outputText value="#{accidenteTransitoController.selected.victimaAccidente}" title="#{bundle.ViewAccidenteTransitoTitle_victimaAccidente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AccidenteTransitoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

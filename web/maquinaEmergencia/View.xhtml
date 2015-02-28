@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaquinaEmergenciaViewDlg" widgetVar="MaquinaEmergenciaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMaquinaEmergenciaTitle}">
+            <h:form id="MaquinaEmergenciaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{maquinaEmergenciaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeId}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeId}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeId}"/>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeFechaSalida}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeFechaSalida}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeFechaSalida}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeHoraSalida}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeHoraSalida}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeHoraSalida}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeUnidades}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeUnidades}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeUnidades}"/>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeFechaRegreso}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeFechaRegreso}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeFechaRegreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqHoraRegreso}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqHoraRegreso}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqHoraRegreso}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeEstado}"/>
+                        <p:selectBooleanCheckbox value="#{maquinaEmergenciaController.selected.maqEmeEstado}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeEme}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeEme}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeEme}"/>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeNpib}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeNpib}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeNpib}"/>
+                        <h:outputText value="#{bundle.ViewMaquinaEmergenciaLabel_maqEmeMaq}"/>
+                        <h:outputText value="#{maquinaEmergenciaController.selected.maqEmeMaq}" title="#{bundle.ViewMaquinaEmergenciaTitle_maqEmeMaq}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MaquinaEmergenciaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

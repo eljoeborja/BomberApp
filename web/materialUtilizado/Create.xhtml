@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaterialUtilizadoCreateDlg" widgetVar="MaterialUtilizadoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMaterialUtilizadoTitle}">
+            <h:form id="MaterialUtilizadoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{materialUtilizadoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMaterialUtilizadoLabel_matUtiId}" for="matUtiId" />
+                        <p:inputText id="matUtiId" value="#{materialUtilizadoController.selected.matUtiId}" title="#{bundle.CreateMaterialUtilizadoTitle_matUtiId}" required="true" requiredMessage="#{bundle.CreateMaterialUtilizadoRequiredMessage_matUtiId}"/>
+                        <p:outputLabel value="#{bundle.CreateMaterialUtilizadoLabel_matUtiCant}" for="matUtiCant" />
+                        <p:inputText id="matUtiCant" value="#{materialUtilizadoController.selected.matUtiCant}" title="#{bundle.CreateMaterialUtilizadoTitle_matUtiCant}" required="true" requiredMessage="#{bundle.CreateMaterialUtilizadoRequiredMessage_matUtiCant}"/>
+                        <p:outputLabel value="#{bundle.CreateMaterialUtilizadoLabel_matUtiEstado}" for="matUtiEstado" />
+                        <p:selectBooleanCheckbox id="matUtiEstado" value="#{materialUtilizadoController.selected.matUtiEstado}" required="true" requiredMessage="#{bundle.EditMaterialUtilizadoRequiredMessage_matUtiEstado}"/>
+                        <p:outputLabel value="#{bundle.CreateMaterialUtilizadoLabel_matUtiEmeId}" for="matUtiEmeId" />
+                        <p:selectOneMenu id="matUtiEmeId" value="#{materialUtilizadoController.selected.matUtiEmeId}" required="true" requiredMessage="#{bundle.EditMaterialUtilizadoRequiredMessage_matUtiEmeId}">
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="matUtiEmeIdItem"
+                                           itemValue="#{matUtiEmeIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateMaterialUtilizadoLabel_matUtiMat}" for="matUtiMat" />
+                        <p:selectOneMenu id="matUtiMat" value="#{materialUtilizadoController.selected.matUtiMat}" required="true" requiredMessage="#{bundle.EditMaterialUtilizadoRequiredMessage_matUtiMat}">
+                            <f:selectItems value="#{materialController.itemsAvailableSelectOne}"
+                                           var="matUtiMatItem"
+                                           itemValue="#{matUtiMatItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{materialUtilizadoController.create}" value="#{bundle.Save}" update="display,:MaterialUtilizadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'MaterialUtilizadoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MaterialUtilizadoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

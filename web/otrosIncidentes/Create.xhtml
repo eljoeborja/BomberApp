@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OtrosIncidentesCreateDlg" widgetVar="OtrosIncidentesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateOtrosIncidentesTitle}">
+            <h:form id="OtrosIncidentesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{otrosIncidentesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrId}" for="otrId" />
+                        <p:inputText id="otrId" value="#{otrosIncidentesController.selected.otrId}" title="#{bundle.CreateOtrosIncidentesTitle_otrId}" required="true" requiredMessage="#{bundle.CreateOtrosIncidentesRequiredMessage_otrId}"/>
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrClaseIncidente}" for="otrClaseIncidente" />
+                        <p:inputText id="otrClaseIncidente" value="#{otrosIncidentesController.selected.otrClaseIncidente}" title="#{bundle.CreateOtrosIncidentesTitle_otrClaseIncidente}" required="true" requiredMessage="#{bundle.CreateOtrosIncidentesRequiredMessage_otrClaseIncidente}"/>
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrDanos}" for="otrDanos" />
+                        <p:inputTextarea rows="4" cols="30" id="otrDanos" value="#{otrosIncidentesController.selected.otrDanos}" title="#{bundle.CreateOtrosIncidentesTitle_otrDanos}" required="true" requiredMessage="#{bundle.CreateOtrosIncidentesRequiredMessage_otrDanos}"/>
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrInmueble}" for="otrInmueble" />
+                        <p:inputText id="otrInmueble" value="#{otrosIncidentesController.selected.otrInmueble}" title="#{bundle.CreateOtrosIncidentesTitle_otrInmueble}" />
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrMuebles}" for="otrMuebles" />
+                        <p:inputTextarea rows="4" cols="30" id="otrMuebles" value="#{otrosIncidentesController.selected.otrMuebles}" title="#{bundle.CreateOtrosIncidentesTitle_otrMuebles}" />
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrCantAfectados}" for="otrCantAfectados" />
+                        <p:inputText id="otrCantAfectados" value="#{otrosIncidentesController.selected.otrCantAfectados}" title="#{bundle.CreateOtrosIncidentesTitle_otrCantAfectados}" />
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrObservaciones}" for="otrObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="otrObservaciones" value="#{otrosIncidentesController.selected.otrObservaciones}" title="#{bundle.CreateOtrosIncidentesTitle_otrObservaciones}" />
+                        <p:outputLabel value="#{bundle.CreateOtrosIncidentesLabel_otrEmeId}" for="otrEmeId" />
+                        <p:selectOneMenu id="otrEmeId" value="#{otrosIncidentesController.selected.otrEmeId}" >
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="otrEmeIdItem"
+                                           itemValue="#{otrEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{otrosIncidentesController.create}" value="#{bundle.Save}" update="display,:OtrosIncidentesListForm:datalist,:growl" oncomplete="handleSubmit(args,'OtrosIncidentesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="OtrosIncidentesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

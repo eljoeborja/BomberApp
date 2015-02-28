@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaterialEditDlg" widgetVar="MaterialEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditMaterialTitle}">
+            <h:form id="MaterialEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{materialController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditMaterialLabel_matId}" for="matId" />
+                        <p:inputText id="matId" value="#{materialController.selected.matId}" title="#{bundle.EditMaterialTitle_matId}" required="true" requiredMessage="#{bundle.EditMaterialRequiredMessage_matId}"/>
+                        <p:outputLabel value="#{bundle.EditMaterialLabel_matDescripcion}" for="matDescripcion" />
+                        <p:inputText id="matDescripcion" value="#{materialController.selected.matDescripcion}" title="#{bundle.EditMaterialTitle_matDescripcion}" required="true" requiredMessage="#{bundle.EditMaterialRequiredMessage_matDescripcion}"/>
+                        <p:outputLabel value="#{bundle.EditMaterialLabel_matTipo}" for="matTipo" />
+                        <p:inputText id="matTipo" value="#{materialController.selected.matTipo}" title="#{bundle.EditMaterialTitle_matTipo}" required="true" requiredMessage="#{bundle.EditMaterialRequiredMessage_matTipo}"/>
+                        <p:outputLabel value="#{bundle.EditMaterialLabel_matEstado}" for="matEstado" />
+                        <p:selectBooleanCheckbox id="matEstado" value="#{materialController.selected.matEstado}" required="true" requiredMessage="#{bundle.EditMaterialRequiredMessage_matEstado}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{materialController.update}" value="#{bundle.Save}" update="display,:MaterialListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaterialEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MaterialEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

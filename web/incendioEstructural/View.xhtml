@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="IncendioEstructuralViewDlg" widgetVar="IncendioEstructuralViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewIncendioEstructuralTitle}">
+            <h:form id="IncendioEstructuralViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{incendioEstructuralController.selected != null}">
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceId}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceId}" title="#{bundle.ViewIncendioEstructuralTitle_inceId}"/>
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceDanosm}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceDanosm}" title="#{bundle.ViewIncendioEstructuralTitle_inceDanosm}"/>
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceInmueble}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceInmueble}" title="#{bundle.ViewIncendioEstructuralTitle_inceInmueble}"/>
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceMuebles}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceMuebles}" title="#{bundle.ViewIncendioEstructuralTitle_inceMuebles}"/>
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceCanAfectadas}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceCanAfectadas}" title="#{bundle.ViewIncendioEstructuralTitle_inceCanAfectadas}"/>
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceObservaciones}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceObservaciones}" title="#{bundle.ViewIncendioEstructuralTitle_inceObservaciones}"/>
+                        <h:outputText value="#{bundle.ViewIncendioEstructuralLabel_inceEmeId}"/>
+                        <h:outputText value="#{incendioEstructuralController.selected.inceEmeId}" title="#{bundle.ViewIncendioEstructuralTitle_inceEmeId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="IncendioEstructuralViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

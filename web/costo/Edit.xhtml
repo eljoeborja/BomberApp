@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CostoEditDlg" widgetVar="CostoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCostoTitle}">
+            <h:form id="CostoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{costoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoId}" for="costoId" />
+                        <p:inputText id="costoId" value="#{costoController.selected.costoId}" title="#{bundle.EditCostoTitle_costoId}" required="true" requiredMessage="#{bundle.EditCostoRequiredMessage_costoId}"/>
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoCombustible}" for="costoCombustible" />
+                        <p:inputText id="costoCombustible" value="#{costoController.selected.costoCombustible}" title="#{bundle.EditCostoTitle_costoCombustible}" required="true" requiredMessage="#{bundle.EditCostoRequiredMessage_costoCombustible}"/>
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoGalones}" for="costoGalones" />
+                        <p:inputText id="costoGalones" value="#{costoController.selected.costoGalones}" title="#{bundle.EditCostoTitle_costoGalones}" />
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoAlimentos}" for="costoAlimentos" />
+                        <p:inputText id="costoAlimentos" value="#{costoController.selected.costoAlimentos}" title="#{bundle.EditCostoTitle_costoAlimentos}" />
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoDanos}" for="costoDanos" />
+                        <p:inputText id="costoDanos" value="#{costoController.selected.costoDanos}" title="#{bundle.EditCostoTitle_costoDanos}" />
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoOtrosdes}" for="costoOtrosdes" />
+                        <p:inputTextarea rows="4" cols="30" id="costoOtrosdes" value="#{costoController.selected.costoOtrosdes}" title="#{bundle.EditCostoTitle_costoOtrosdes}" />
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoOtros}" for="costoOtros" />
+                        <p:inputText id="costoOtros" value="#{costoController.selected.costoOtros}" title="#{bundle.EditCostoTitle_costoOtros}" />
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoTotal}" for="costoTotal" />
+                        <p:inputText id="costoTotal" value="#{costoController.selected.costoTotal}" title="#{bundle.EditCostoTitle_costoTotal}" required="true" requiredMessage="#{bundle.EditCostoRequiredMessage_costoTotal}"/>
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoObservaciones}" for="costoObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="costoObservaciones" value="#{costoController.selected.costoObservaciones}" title="#{bundle.EditCostoTitle_costoObservaciones}" />
+                        <p:outputLabel value="#{bundle.EditCostoLabel_costoEmeId}" for="costoEmeId" />
+                        <p:selectOneMenu id="costoEmeId" value="#{costoController.selected.costoEmeId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="costoEmeIdItem"
+                                           itemValue="#{costoEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{costoController.update}" value="#{bundle.Save}" update="display,:CostoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CostoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CostoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OtrosIncidentesEditDlg" widgetVar="OtrosIncidentesEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditOtrosIncidentesTitle}">
+            <h:form id="OtrosIncidentesEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{otrosIncidentesController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrId}" for="otrId" />
+                        <p:inputText id="otrId" value="#{otrosIncidentesController.selected.otrId}" title="#{bundle.EditOtrosIncidentesTitle_otrId}" required="true" requiredMessage="#{bundle.EditOtrosIncidentesRequiredMessage_otrId}"/>
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrClaseIncidente}" for="otrClaseIncidente" />
+                        <p:inputText id="otrClaseIncidente" value="#{otrosIncidentesController.selected.otrClaseIncidente}" title="#{bundle.EditOtrosIncidentesTitle_otrClaseIncidente}" required="true" requiredMessage="#{bundle.EditOtrosIncidentesRequiredMessage_otrClaseIncidente}"/>
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrDanos}" for="otrDanos" />
+                        <p:inputTextarea rows="4" cols="30" id="otrDanos" value="#{otrosIncidentesController.selected.otrDanos}" title="#{bundle.EditOtrosIncidentesTitle_otrDanos}" required="true" requiredMessage="#{bundle.EditOtrosIncidentesRequiredMessage_otrDanos}"/>
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrInmueble}" for="otrInmueble" />
+                        <p:inputText id="otrInmueble" value="#{otrosIncidentesController.selected.otrInmueble}" title="#{bundle.EditOtrosIncidentesTitle_otrInmueble}" />
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrMuebles}" for="otrMuebles" />
+                        <p:inputTextarea rows="4" cols="30" id="otrMuebles" value="#{otrosIncidentesController.selected.otrMuebles}" title="#{bundle.EditOtrosIncidentesTitle_otrMuebles}" />
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrCantAfectados}" for="otrCantAfectados" />
+                        <p:inputText id="otrCantAfectados" value="#{otrosIncidentesController.selected.otrCantAfectados}" title="#{bundle.EditOtrosIncidentesTitle_otrCantAfectados}" />
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrObservaciones}" for="otrObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="otrObservaciones" value="#{otrosIncidentesController.selected.otrObservaciones}" title="#{bundle.EditOtrosIncidentesTitle_otrObservaciones}" />
+                        <p:outputLabel value="#{bundle.EditOtrosIncidentesLabel_otrEmeId}" for="otrEmeId" />
+                        <p:selectOneMenu id="otrEmeId" value="#{otrosIncidentesController.selected.otrEmeId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="otrEmeIdItem"
+                                           itemValue="#{otrEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{otrosIncidentesController.update}" value="#{bundle.Save}" update="display,:OtrosIncidentesListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OtrosIncidentesEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="OtrosIncidentesEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

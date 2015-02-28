@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InundacionEditDlg" widgetVar="InundacionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditInundacionTitle}">
+            <h:form id="InundacionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inundacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuId}" for="inuId" />
+                        <p:inputText id="inuId" value="#{inundacionController.selected.inuId}" title="#{bundle.EditInundacionTitle_inuId}" required="true" requiredMessage="#{bundle.EditInundacionRequiredMessage_inuId}"/>
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuArea}" for="inuArea" />
+                        <p:inputText id="inuArea" value="#{inundacionController.selected.inuArea}" title="#{bundle.EditInundacionTitle_inuArea}" required="true" requiredMessage="#{bundle.EditInundacionRequiredMessage_inuArea}"/>
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuDanos}" for="inuDanos" />
+                        <p:inputTextarea rows="4" cols="30" id="inuDanos" value="#{inundacionController.selected.inuDanos}" title="#{bundle.EditInundacionTitle_inuDanos}" required="true" requiredMessage="#{bundle.EditInundacionRequiredMessage_inuDanos}"/>
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuCantInmuebles}" for="inuCantInmuebles" />
+                        <p:inputText id="inuCantInmuebles" value="#{inundacionController.selected.inuCantInmuebles}" title="#{bundle.EditInundacionTitle_inuCantInmuebles}" />
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuMuebles}" for="inuMuebles" />
+                        <p:inputTextarea rows="4" cols="30" id="inuMuebles" value="#{inundacionController.selected.inuMuebles}" title="#{bundle.EditInundacionTitle_inuMuebles}" />
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuCantAfectados}" for="inuCantAfectados" />
+                        <p:inputText id="inuCantAfectados" value="#{inundacionController.selected.inuCantAfectados}" title="#{bundle.EditInundacionTitle_inuCantAfectados}" />
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuObservaciones}" for="inuObservaciones" />
+                        <p:inputTextarea rows="4" cols="30" id="inuObservaciones" value="#{inundacionController.selected.inuObservaciones}" title="#{bundle.EditInundacionTitle_inuObservaciones}" />
+                        <p:outputLabel value="#{bundle.EditInundacionLabel_inuEmeId}" for="inuEmeId" />
+                        <p:selectOneMenu id="inuEmeId" value="#{inundacionController.selected.inuEmeId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="inuEmeIdItem"
+                                           itemValue="#{inuEmeIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inundacionController.update}" value="#{bundle.Save}" update="display,:InundacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InundacionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="InundacionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
