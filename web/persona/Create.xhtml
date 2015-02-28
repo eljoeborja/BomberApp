@@ -25,7 +25,10 @@
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perTelefono}" for="perTelefono" />
                         <p:inputText id="perTelefono" value="#{personaController.selected.perTelefono}" title="#{bundle.CreatePersonaTitle_perTelefono}" required="true" requiredMessage="#{bundle.CreatePersonaRequiredMessage_perTelefono}"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perTipo}" for="perTipo" />
-                        <p:selectBooleanCheckbox id="perTipo" value="#{personaController.selected.perTipo}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perTipo}"/>
+                        <p:selectOneMenu value="#{personaController.selected.perTipo}" id="perTipo">
+                            <f:selectItem itemLabel="Seleccione el Tipo de Persona"/>
+                            <f:selectItems value="#{personaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perFechanac}" for="perFechanac" />
                         <p:calendar id="perFechanac" pattern="MM/dd/yyyy" value="#{personaController.selected.perFechanac}" title="#{bundle.EditPersonaTitle_perFechanac}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perFechanac}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perEstado}" for="perEstado" />
@@ -37,21 +40,14 @@
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="munDepCodigoItem"
                                            itemValue="#{munDepCodigoItem}"/>
-                        </p:selectOneMenu>
-                        
+                        </p:selectOneMenu>                        
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perMunicipio}" for="perMunicipio" />
                         <p:selectOneMenu id="perMunicipio" value="#{personaController.selected.perMunicipio}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perMunicipio}">
                             <f:selectItem itemLabel="Seleccione el Municipio" itemValue="" noSelectionOption="true"/>
                             <f:selectItems value="#{municipioController.itemsFilter}"
                                            var="perMunicipioItem"
                                            itemValue="#{perMunicipioItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_victimaAccidente}" for="victimaAccidente" />
-                        <p:selectOneMenu id="victimaAccidente" value="#{personaController.selected.victimaAccidente}" >
-                            <f:selectItems value="#{victimaAccidenteController.itemsAvailableSelectOne}"
-                                           var="victimaAccidenteItem"
-                                           itemValue="#{victimaAccidenteItem}"/>
-                        </p:selectOneMenu>
+                        </p:selectOneMenu>                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personaController.create}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PersonaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PersonaCreateDialog.hide()"/>

@@ -6,7 +6,9 @@ import jsf.util.JsfUtil.PersistAction;
 import entities.session.PersonaFacade;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +20,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import jsf.util.TipoPersona;
 
 @Named("personaController")
 @SessionScoped
@@ -160,6 +163,14 @@ public class PersonaController implements Serializable {
             }
         }
 
+    }
+
+    public TipoPersona[] getMapaTipos() {
+        return TipoPersona.values();
+    }
+
+    public String getTipoPersona(int value) {
+        return TipoPersona.getFromValue(value).toString();
     }
 
 }

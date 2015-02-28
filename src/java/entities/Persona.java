@@ -82,7 +82,7 @@ public class Persona implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "per_tipo")
-    private boolean perTipo;
+    private Integer perTipo;
     @Basic(optional = false)
     @NotNull
     @Column(name = "per_fechanac")
@@ -109,7 +109,7 @@ public class Persona implements Serializable {
         this.perId = perId;
     }
 
-    public Persona(String perId, String perCedula, String perApellidos, String perNombres, String perDireccion, String perTelefono, boolean perTipo, Date perFechanac, boolean perEstado) {
+    public Persona(String perId, String perCedula, String perApellidos, String perNombres, String perDireccion, String perTelefono, Integer perTipo, Date perFechanac, boolean perEstado) {
         this.perId = perId;
         this.perCedula = perCedula;
         this.perApellidos = perApellidos;
@@ -169,11 +169,11 @@ public class Persona implements Serializable {
         this.perTelefono = perTelefono;
     }
 
-    public boolean getPerTipo() {
+    public Integer getPerTipo() {
         return perTipo;
     }
 
-    public void setPerTipo(boolean perTipo) {
+    public void setPerTipo(Integer perTipo) {
         this.perTipo = perTipo;
     }
 

@@ -200,5 +200,12 @@ public class MunicipioController implements Serializable {
         }
 
     }
+    public String getNombreMunicipio (Municipio mun){
+        String nombremunicipio=null;
+        nombremunicipio = getFacade().getMunicipioByObj(mun);
+        return nombremunicipio;
+        
+    }
+            
 
 }

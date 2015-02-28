@@ -67,8 +67,8 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPersonaTitle_perTipo}"/>
                             </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.perTipo}" disabled="true"/>
-                        </p:column>
+                            <h:outputText value="#{personaController.getTipoPersona(item.perTipo)}"/>                            
+                        </p:column>                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPersonaTitle_perFechanac}"/>
@@ -87,7 +87,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPersonaTitle_perMunicipio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.perMunicipio}"/>
+                            <h:outputText value="#{municipioController.getNombreMunicipio(item.perMunicipio)}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

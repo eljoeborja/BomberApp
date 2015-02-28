@@ -44,4 +44,16 @@ public class MunicipioFacade extends AbstractFacade<Municipio> {
         }
         return municipios;
     }
+    public String getMunicipioByObj(Municipio municipio){
+        String nombremunicipio = null;
+        try {
+            Query query = em.createQuery("SELECT m FROM Municipio m WHERE m.munId= :id");
+            query.setParameter("id", municipio.getMunId());
+            nombremunicipio = query.getSingleResult().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return nombremunicipio;
+    }
 }

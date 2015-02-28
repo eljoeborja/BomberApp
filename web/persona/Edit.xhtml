@@ -25,7 +25,10 @@
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perTelefono}" for="perTelefono" />
                         <p:inputText id="perTelefono" value="#{personaController.selected.perTelefono}" title="#{bundle.EditPersonaTitle_perTelefono}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perTelefono}"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perTipo}" for="perTipo" />
-                        <p:selectBooleanCheckbox id="perTipo" value="#{personaController.selected.perTipo}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perTipo}"/>
+                        <p:selectOneMenu value="#{personaController.selected.perTipo}" id="perTipo">
+                            <f:selectItem itemLabel="Seleccione el Tipo de Persona"/>
+                            <f:selectItems value="#{personaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perFechanac}" for="perFechanac" />
                         <p:calendar id="perFechanac" pattern="MM/dd/yyyy" value="#{personaController.selected.perFechanac}" title="#{bundle.EditPersonaTitle_perFechanac}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perFechanac}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perEstado}" for="perEstado" />

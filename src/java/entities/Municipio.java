@@ -150,4 +150,5 @@ public class Municipio implements Serializable {
         return this.getMunNombre()+", "+this.getMunDepCodigo().getDepNombre();
     }
     
+    
 }

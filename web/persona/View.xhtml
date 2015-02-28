@@ -25,7 +25,7 @@
                         <h:outputText value="#{bundle.ViewPersonaLabel_perTelefono}"/>
                         <h:outputText value="#{personaController.selected.perTelefono}" title="#{bundle.ViewPersonaTitle_perTelefono}"/>
                         <h:outputText value="#{bundle.ViewPersonaLabel_perTipo}"/>
-                        <p:selectBooleanCheckbox value="#{personaController.selected.perTipo}" disabled="true"/>
+                        <h:outputText value="#{personaController.getTipoPersona(item.perTipo)}"/>                                                    
                         <h:outputText value="#{bundle.ViewPersonaLabel_perFechanac}"/>
                         <h:outputText value="#{personaController.selected.perFechanac}" title="#{bundle.ViewPersonaTitle_perFechanac}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
