@@ -27,12 +27,7 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeId}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeFecha}"/>
@@ -51,39 +46,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformacionRecibida}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeInformacionRecibida}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeMedioInformacion}"/>
                             </f:facet>
                             <p:selectBooleanCheckbox value="#{item.emeMedioInformacion}" disabled="true"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeDescripcionOtroMedio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeDescripcionOtroMedio}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emePersonaConfirmacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emePersonaConfirmacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeMedioConfirmacion}"/>
-                            </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.emeMedioConfirmacion}" disabled="true"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeDescripcionOtroMedioC}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeDescripcionOtroMedioC}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -105,21 +70,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleAdministrador}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeInmuebleAdministrador}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleArrendatario}"/>
                             </f:facet>
                             <h:outputText value="#{item.emeInmuebleArrendatario}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeNovedades}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeNovedades}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -135,21 +88,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_costo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costo}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_inundacion}"/>
                             </f:facet>
                             <h:outputText value="#{item.inundacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_personalEmergancia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.personalEmergancia}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

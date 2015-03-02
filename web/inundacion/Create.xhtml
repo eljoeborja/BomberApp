@@ -12,6 +12,12 @@
             <h:form id="InundacionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{inundacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateInundacionLabel_inuEmeId}" for="inuEmeId" />
+                        <p:selectOneMenu id="inuEmeId" value="#{inundacionController.selected.inuEmeId}" >
+                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
+                                           var="inuEmeIdItem"
+                                           itemValue="#{inuEmeIdItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateInundacionLabel_inuId}" for="inuId" />
                         <p:inputText id="inuId" value="#{inundacionController.selected.inuId}" title="#{bundle.CreateInundacionTitle_inuId}" required="true" requiredMessage="#{bundle.CreateInundacionRequiredMessage_inuId}"/>
                         <p:outputLabel value="#{bundle.CreateInundacionLabel_inuArea}" for="inuArea" />
@@ -26,13 +32,7 @@
                         <p:inputText id="inuCantAfectados" value="#{inundacionController.selected.inuCantAfectados}" title="#{bundle.CreateInundacionTitle_inuCantAfectados}" />
                         <p:outputLabel value="#{bundle.CreateInundacionLabel_inuObservaciones}" for="inuObservaciones" />
                         <p:inputTextarea rows="4" cols="30" id="inuObservaciones" value="#{inundacionController.selected.inuObservaciones}" title="#{bundle.CreateInundacionTitle_inuObservaciones}" />
-                        <p:outputLabel value="#{bundle.CreateInundacionLabel_inuEmeId}" for="inuEmeId" />
-                        <p:selectOneMenu id="inuEmeId" value="#{inundacionController.selected.inuEmeId}" >
-                            <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
-                                           var="inuEmeIdItem"
-                                           itemValue="#{inuEmeIdItem}"/>
-                        </p:selectOneMenu>
-                    </p:panelGrid>
+                        </p:panelGrid>
                     <p:commandButton actionListener="#{inundacionController.create}" value="#{bundle.Save}" update="display,:InundacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'InundacionCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="InundacionCreateDialog.hide()"/>
                 </h:panelGroup>

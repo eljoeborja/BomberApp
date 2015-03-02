@@ -21,8 +21,8 @@
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="vicPerIdItem"
                                            itemValue="#{vicPerIdItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateVictimaAccidenteLabel_vicAccId}" for="vicAccId" />
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{bundle.CreateVictimaAccidenteLabel_vicAccId}" for="vicAccId" />
                         <p:selectOneMenu id="vicAccId" value="#{victimaAccidenteController.selected.vicAccId}" >
                             <f:selectItems value="#{accidenteTransitoController.itemsAvailableSelectOne}"
                                            var="vicAccIdItem"

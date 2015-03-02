@@ -12,7 +12,10 @@
             <h:form id="EmergenciaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{emergenciaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeId}" for="emeId" />
+                        <p:accordionPanel id="accordion">
+				<p:tab title="Datos iniciales de emergencia">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeId}" for="emeId" />
                         <p:inputText id="emeId" value="#{emergenciaController.selected.emeId}" title="#{bundle.CreateEmergenciaTitle_emeId}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeId}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeFecha}" for="emeFecha" />
                         <p:calendar id="emeFecha" pattern="MM/dd/yyyy" value="#{emergenciaController.selected.emeFecha}" title="#{bundle.EditEmergenciaTitle_emeFecha}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeFecha}" showOn="button"/>
@@ -30,7 +33,11 @@
                         <p:selectBooleanCheckbox id="emeMedioConfirmacion" value="#{emergenciaController.selected.emeMedioConfirmacion}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioConfirmacion}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDescripcionOtroMedioC}" for="emeDescripcionOtroMedioC" />
                         <p:inputText id="emeDescripcionOtroMedioC" value="#{emergenciaController.selected.emeDescripcionOtroMedioC}" title="#{bundle.CreateEmergenciaTitle_emeDescripcionOtroMedioC}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDescripcionOtroMedioC}"/>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDireccion}" for="emeDireccion" />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Datos inmueble o predio">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDireccion}" for="emeDireccion" />
                         <p:inputText id="emeDireccion" value="#{emergenciaController.selected.emeDireccion}" title="#{bundle.CreateEmergenciaTitle_emeDireccion}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDireccion}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInmuebleClase}" for="emeInmuebleClase" />
                         <p:selectBooleanCheckbox id="emeInmuebleClase" value="#{emergenciaController.selected.emeInmuebleClase}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeInmuebleClase}"/>
@@ -42,7 +49,11 @@
                         <p:inputText id="emeInmuebleArrendatario" value="#{emergenciaController.selected.emeInmuebleArrendatario}" title="#{bundle.CreateEmergenciaTitle_emeInmuebleArrendatario}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInmuebleArrendatario}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeNovedades}" for="emeNovedades" />
                         <p:inputTextarea rows="4" cols="30" id="emeNovedades" value="#{emergenciaController.selected.emeNovedades}" title="#{bundle.CreateEmergenciaTitle_emeNovedades}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeNovedades}"/>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />
+					</h:panelGrid>
+				</p:tab>
+                        <p:tab title="Datos tipo de incidente">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />
                         <p:selectBooleanCheckbox id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_accidenteTransito}" for="accidenteTransito" />
                         <p:selectOneMenu id="accidenteTransito" value="#{emergenciaController.selected.accidenteTransito}" >
@@ -86,7 +97,11 @@
                                            var="incendioEstructuralItem"
                                            itemValue="#{incendioEstructuralItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformante}" for="emeInformante" />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Datos atencion">
+			<h:panelGrid columns="2" cellpadding="10">
+		        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformante}" for="emeInformante" />
                         <p:selectOneMenu id="emeInformante" value="#{emergenciaController.selected.emeInformante}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeInformante}">
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="emeInformanteItem"
@@ -98,6 +113,10 @@
                                            var="emeComandanteItem"
                                            itemValue="#{emeComandanteItem}"/>
                         </p:selectOneMenu>
+					</h:panelGrid>
+				</p:tab>
+                            
+			</p:accordionPanel>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{emergenciaController.create}" value="#{bundle.Save}" update="display,:EmergenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmergenciaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EmergenciaCreateDialog.hide()"/>
@@ -107,3 +126,4 @@
 
     </ui:composition>
 </html>
+

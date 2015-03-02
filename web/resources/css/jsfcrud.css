@@ -18,7 +18,7 @@
 
 #logo{
     /*background: url("src/logo.jpg");*/
-    background-image: url("http://www.gifs-animados.es/clip-art/profesiones/el-cuerpo-bomberos/gifs-animados-el-cuerpo-bomberos-0332810.jpg");
+    background-image: url("http://localhost:8080/BomberApp/faces/resources/utils/img/banner.jpg");
     background-repeat: no-repeat;
     background-size: auto 40px;
     background-position: center;
