@@ -29,13 +29,11 @@
                         <h:outputText value="#{bundle.ViewPersonaLabel_perFechanac}"/>
                         <h:outputText value="#{personaController.selected.perFechanac}" title="#{bundle.ViewPersonaTitle_perFechanac}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>
+                        </h:outputText>                        
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perMunicipio}"/>
+                        <h:outputText value="#{municipioController.getNombreMunicipio(personaController.selected.perMunicipio)}" title="#{bundle.ViewPersonaTitle_perMunicipio}"/>                        
                         <h:outputText value="#{bundle.ViewPersonaLabel_perEstado}"/>
                         <p:selectBooleanCheckbox value="#{personaController.selected.perEstado}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewPersonaLabel_perMunicipio}"/>
-                        <h:outputText value="#{personaController.selected.perMunicipio}" title="#{bundle.ViewPersonaTitle_perMunicipio}"/>
-                        <h:outputText value="#{bundle.ViewPersonaLabel_victimaAccidente}"/>
-                        <h:outputText value="#{personaController.selected.victimaAccidente}" title="#{bundle.ViewPersonaTitle_victimaAccidente}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PersonaViewDialog.hide()"/>
                 </h:panelGroup>

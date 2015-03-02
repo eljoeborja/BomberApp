@@ -7,7 +7,6 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
         <p:dialog id="PersonaEditDlg" widgetVar="PersonaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPersonaTitle}">
             <h:form id="PersonaEditForm">
                 <h:panelGroup id="display">
@@ -32,27 +31,27 @@
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perFechanac}" for="perFechanac" />
                         <p:calendar id="perFechanac" pattern="MM/dd/yyyy" value="#{personaController.selected.perFechanac}" title="#{bundle.EditPersonaTitle_perFechanac}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perFechanac}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perEstado}" for="perEstado" />
-                        <p:selectBooleanCheckbox id="perEstado" value="#{personaController.selected.perEstado}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perEstado}"/>
+                        <p:selectBooleanCheckbox id="perEstado" value="#{personaController.selected.perEstado}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perEstado}"/>                        
+                         <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseDep}" for="munDepCodigo" />
+                        <p:selectOneMenu id="munDepCodigo" value="#{municipioController.departamento}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_munDepCodigo}">
+                            <p:ajax listener="#{municipioController.getMunicipiosByDepartamento()}" update="perMunicipio"/>
+                            <f:selectItem itemLabel="Seleccione el Departamento" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
+                                           var="munDepCodigoItem"
+                                           itemValue="#{munDepCodigoItem}"/>
+                        </p:selectOneMenu>                        
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perMunicipio}" for="perMunicipio" />
                         <p:selectOneMenu id="perMunicipio" value="#{personaController.selected.perMunicipio}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perMunicipio}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
+                            <f:selectItem itemLabel="Seleccione el Municipio" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{municipioController.itemsFilter}"
                                            var="perMunicipioItem"
                                            itemValue="#{perMunicipioItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditPersonaLabel_victimaAccidente}" for="victimaAccidente" />
-                        <p:selectOneMenu id="victimaAccidente" value="#{personaController.selected.victimaAccidente}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{victimaAccidenteController.itemsAvailableSelectOne}"
-                                           var="victimaAccidenteItem"
-                                           itemValue="#{victimaAccidenteItem}"/>
-                        </p:selectOneMenu>
+                        </p:selectOneMenu>                                                                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personaController.update}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PersonaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PersonaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
-
     </ui:composition>
 </html>

@@ -76,13 +76,7 @@
                             <h:outputText value="#{item.perFechanac}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_perEstado}"/>
-                            </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.perEstado}" disabled="true"/>
-                        </p:column>
+                        </p:column>                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPersonaTitle_perMunicipio}"/>
@@ -91,9 +85,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPersonaTitle_victimaAccidente}"/>
+                                <h:outputText value="#{bundle.ListPersonaTitle_perEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.victimaAccidente}"/>
+                            <p:selectBooleanCheckbox value="#{item.perEstado}" disabled="true"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{personaController.prepareCreate}" update=":PersonaCreateForm" oncomplete="PF('PersonaCreateDialog').show()"/>
