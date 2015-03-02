@@ -103,9 +103,7 @@ public class Vehiculo implements Serializable {
     @NotNull
     @Column(name = "veh_estado")
     private boolean vehEstado;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "vehcomVehId", fetch = FetchType.LAZY)
-    private VehiculoComprometido vehiculoComprometido;
-
+    
     public Vehiculo() {
     }
 
@@ -223,15 +221,7 @@ public class Vehiculo implements Serializable {
     public void setVehEstado(boolean vehEstado) {
         this.vehEstado = vehEstado;
     }
-
-    public VehiculoComprometido getVehiculoComprometido() {
-        return vehiculoComprometido;
-    }
-
-    public void setVehiculoComprometido(VehiculoComprometido vehiculoComprometido) {
-        this.vehiculoComprometido = vehiculoComprometido;
-    }
-
+   
     @Override
     public int hashCode() {
         int hash = 0;

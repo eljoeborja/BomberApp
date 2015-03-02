@@ -35,13 +35,7 @@
                         <p:outputLabel value="#{bundle.CreateVehiculoLabel_vehCompaniaSeguro}" for="vehCompaniaSeguro" />
                         <p:inputText id="vehCompaniaSeguro" value="#{vehiculoController.selected.vehCompaniaSeguro}" title="#{bundle.CreateVehiculoTitle_vehCompaniaSeguro}" required="true" requiredMessage="#{bundle.CreateVehiculoRequiredMessage_vehCompaniaSeguro}"/>
                         <p:outputLabel value="#{bundle.CreateVehiculoLabel_vehEstado}" for="vehEstado" />
-                        <p:selectBooleanCheckbox id="vehEstado" value="#{vehiculoController.selected.vehEstado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEstado}"/>
-                        <p:outputLabel value="#{bundle.CreateVehiculoLabel_vehiculoComprometido}" for="vehiculoComprometido" />
-                        <p:selectOneMenu id="vehiculoComprometido" value="#{vehiculoController.selected.vehiculoComprometido}" >
-                            <f:selectItems value="#{vehiculoComprometidoController.itemsAvailableSelectOne}"
-                                           var="vehiculoComprometidoItem"
-                                           itemValue="#{vehiculoComprometidoItem}"/>
-                        </p:selectOneMenu>
+                        <p:selectBooleanCheckbox id="vehEstado" value="#{vehiculoController.selected.vehEstado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEstado}"/>                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{vehiculoController.create}" value="#{bundle.Save}" update="display,:VehiculoListForm:datalist,:growl" oncomplete="handleSubmit(args,'VehiculoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="VehiculoCreateDialog.hide()"/>
