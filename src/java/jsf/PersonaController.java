@@ -6,6 +6,7 @@ import jsf.util.JsfUtil.PersistAction;
 import entities.session.PersonaFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -172,5 +173,22 @@ public class PersonaController implements Serializable {
     public String getTipoPersona(int value) {
         return TipoPersona.getFromValue(value).toString();
     }
+    //Implementar la busqueda de acuerdo a la query del input y los resultados de la consulta personalizada
+    public List<Persona> completePersona(String query) {
+        List<Persona> allPersons = ejbFacade.getPersonas();
+        List<Persona> filteredPersons = new ArrayList<Persona>();
+         
+        for (int i = 0; i < allPersons.size(); i++) {
+            Persona persona = allPersons.get(i);
+            if(persona.getPerApellidos().toLowerCase().contains(query)) {
+                filteredPersons.add(persona);
+            }
+            if(persona.getPerApellidos().toUpperCase().contains(query)) {
+                filteredPersons.add(persona);
+            }            
+        }         
+        return filteredPersons;
+    }
+            
 
 }

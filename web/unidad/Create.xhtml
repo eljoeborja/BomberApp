@@ -21,27 +21,20 @@
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniGsrh}" for="uniGsrh" />
                         <p:inputText id="uniGsrh" value="#{unidadController.selected.uniGsrh}" title="#{bundle.CreateUnidadTitle_uniGsrh}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniGsrh}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniMaquinista}" for="uniMaquinista" />
-                        <p:inputText id="uniMaquinista" value="#{unidadController.selected.uniMaquinista}" title="#{bundle.CreateUnidadTitle_uniMaquinista}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniMaquinista}"/>
-                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniEstado}" for="uniEstado" />
-                        <p:selectBooleanCheckbox id="uniEstado" value="#{unidadController.selected.uniEstado}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}"/>
-                        <p:outputLabel value="#{bundle.CreateUnidadLabel_personalEmergancia}" for="personalEmergancia" />
-                        <p:selectOneMenu id="personalEmergancia" value="#{unidadController.selected.personalEmergancia}" >
-                            <f:selectItems value="#{personalEmerganciaController.itemsAvailableSelectOne}"
-                                           var="personalEmerganciaItem"
-                                           itemValue="#{personalEmerganciaItem}"/>
-                        </p:selectOneMenu>
+                        <p:inputText id="uniMaquinista" value="#{unidadController.selected.uniMaquinista}" title="#{bundle.CreateUnidadTitle_uniMaquinista}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniMaquinista}"/>                                                
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniPerId}" for="uniPerId" />
+                        <p:autoComplete id="uniPerId" value="#{unidadController.selected.uniPerId}" completeMethod="#{personaController.completePersona(unidadController.selected.uniPerId)}" />
+                        <!--<p:autoComplete id="uniPerId" value="#{personaController.completePersona(unidadController.selected.uniPerId)}" completeMethod="#{personaController.completePersona(query)}" />-->
+                        
+                        
+<!--                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniPerId}" for="uniPerId" />
                         <p:selectOneMenu id="uniPerId" value="#{unidadController.selected.uniPerId}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniPerId}">
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="uniPerIdItem"
                                            itemValue="#{uniPerIdItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateUnidadLabel_usuario}" for="usuario" />
-                        <p:selectOneMenu id="usuario" value="#{unidadController.selected.usuario}" >
-                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
-                                           var="usuarioItem"
-                                           itemValue="#{usuarioItem}"/>
-                        </p:selectOneMenu>
+                        </p:selectOneMenu>                        -->
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniEstado}" for="uniEstado" />
+                        <p:selectBooleanCheckbox id="uniEstado" value="#{unidadController.selected.uniEstado}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{unidadController.create}" value="#{bundle.Save}" update="display,:UnidadListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UnidadCreateDialog.hide()"/>

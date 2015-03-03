@@ -6,9 +6,12 @@
 package entities.session;
 
 import entities.Persona;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,4 +31,17 @@ public class PersonaFacade extends AbstractFacade<Persona> {
         super(Persona.class);
     }
     
+    //Vamos a obtener todas las personas 
+    public List<Persona> getPersonas(){
+        List<Persona> personas =new ArrayList();
+        try{
+            Query query = em.createNamedQuery("Persona.findAll");
+            personas  = query.getResultList();            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;                
+        }
+        return personas;
+    }
+           
 }

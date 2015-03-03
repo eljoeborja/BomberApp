@@ -212,6 +212,5 @@ public class Unidad implements Serializable {
     @Override
     public String toString() {
         return "entities.Unidad[ uniNpib=" + uniNpib + " ]";
-    }
-    
+    }    
 }
