@@ -22,7 +22,7 @@
                         <p:selectBooleanCheckbox id="matEstado" value="#{materialController.selected.matEstado}" required="true" requiredMessage="#{bundle.EditMaterialRequiredMessage_matEstado}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{materialController.update}" value="#{bundle.Save}" update="display,:MaterialListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaterialEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MaterialEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('MaterialEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

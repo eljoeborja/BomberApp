@@ -32,7 +32,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{materialUtilizadoController.create}" value="#{bundle.Save}" update="display,:MaterialUtilizadoListForm:datalist,:growl" oncomplete="handleSubmit(args,'MaterialUtilizadoCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MaterialUtilizadoCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('MaterialUtilizadoCreateDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

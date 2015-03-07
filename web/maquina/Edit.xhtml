@@ -22,7 +22,7 @@
                         <p:selectBooleanCheckbox id="maqEstado" value="#{maquinaController.selected.maqEstado}" required="true" requiredMessage="#{bundle.EditMaquinaRequiredMessage_maqEstado}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{maquinaController.update}" value="#{bundle.Save}" update="display,:MaquinaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'MaquinaEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="MaquinaEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('MaquinaEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
