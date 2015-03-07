@@ -70,23 +70,12 @@
                                            var="accidenteTransitoItem"
                                            itemValue="#{accidenteTransitoItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_costo}" for="costo" />
-                        <p:selectOneMenu id="costo" value="#{emergenciaController.selected.costo}" >
-                            <f:selectItems value="#{costoController.itemsAvailableSelectOne}"
-                                           var="costoItem"
-                                           itemValue="#{costoItem}"/>
-                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_inundacion}" for="inundacion" />
                         <p:selectOneMenu id="inundacion" value="#{emergenciaController.selected.inundacion}" >
                             <f:selectItems value="#{inundacionController.itemsAvailableSelectOne}"
                                            var="inundacionItem"
                                            itemValue="#{inundacionItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_personalEmergancia}" for="personalEmergancia" />
-                        <p:selectOneMenu id="personalEmergancia" value="#{emergenciaController.selected.personalEmergancia}" >
-                            <f:selectItems value="#{personalEmerganciaController.itemsAvailableSelectOne}"
-                                           var="personalEmerganciaItem"
-                                           itemValue="#{personalEmerganciaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_incendioForestal}" for="incendioForestal" />
                         <p:selectOneMenu id="incendioForestal" value="#{emergenciaController.selected.incendioForestal}" >
@@ -115,6 +104,18 @@
                             <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
                                            var="emeInformanteItem"
                                            itemValue="#{emeInformanteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_costo}" for="costo" />
+                        <p:selectOneMenu id="costo" value="#{emergenciaController.selected.costo}" >
+                            <f:selectItems value="#{costoController.itemsAvailableSelectOne}"
+                                           var="costoItem"
+                                           itemValue="#{costoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_personalEmergancia}" for="personalEmergancia" />
+                        <p:selectOneMenu id="personalEmergancia" value="#{emergenciaController.selected.personalEmergancia}" >
+                            <f:selectItems value="#{personalEmerganciaController.itemsAvailableSelectOne}"
+                                           var="personalEmerganciaItem"
+                                           itemValue="#{personalEmerganciaItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeComandante}" for="emeComandante" />
                         <p:selectOneMenu id="emeComandante" value="#{emergenciaController.selected.emeComandante}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeComandante}">
