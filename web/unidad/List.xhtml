@@ -65,21 +65,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUnidadTitle_personalEmergancia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.personalEmergancia}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUnidadTitle_uniPerId}"/>
                             </f:facet>
                             <h:outputText value="#{item.uniPerId}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUnidadTitle_usuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.usuario}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{unidadController.prepareCreate}" update=":UnidadCreateForm" oncomplete="PF('UnidadCreateDialog').show()"/>
