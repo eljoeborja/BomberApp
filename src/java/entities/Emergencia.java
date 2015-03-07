@@ -106,7 +106,7 @@ public class Emergencia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "eme_inmueble_clase")
-    private boolean emeInmuebleClase;
+    private Integer emeInmuebleClase;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -164,7 +164,7 @@ public class Emergencia implements Serializable {
         this.emeId = emeId;
     }
 
-    public Emergencia(String emeId, Date emeFecha, Date emeHora, String emeInformacionRecibida, Integer emeMedioInformacion, String emeDescripcionOtroMedio, String emePersonaConfirmacion, Integer emeMedioConfirmacion, String emeDescripcionOtroMedioC, String emeDireccion, boolean emeInmuebleClase, String emeInmueblePropietario, String emeInmuebleAdministrador, String emeInmuebleArrendatario, String emeNovedades, boolean emeEstado) {
+    public Emergencia(String emeId, Date emeFecha, Date emeHora, String emeInformacionRecibida, Integer emeMedioInformacion, String emeDescripcionOtroMedio, String emePersonaConfirmacion, Integer emeMedioConfirmacion, String emeDescripcionOtroMedioC, String emeDireccion, Integer emeInmuebleClase, String emeInmueblePropietario, String emeInmuebleAdministrador, String emeInmuebleArrendatario, String emeNovedades, boolean emeEstado) {
         this.emeId = emeId;
         this.emeFecha = emeFecha;
         this.emeHora = emeHora;
@@ -263,11 +263,11 @@ public class Emergencia implements Serializable {
         this.emeDireccion = emeDireccion;
     }
 
-    public boolean getEmeInmuebleClase() {
+    public Integer getEmeInmuebleClase() {
         return emeInmuebleClase;
     }
 
-    public void setEmeInmuebleClase(boolean emeInmuebleClase) {
+    public void setEmeInmuebleClase(Integer emeInmuebleClase) {
         this.emeInmuebleClase = emeInmuebleClase;
     }
 

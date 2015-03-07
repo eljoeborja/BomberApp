@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import jsf.util.ClaseInmueble;
 import jsf.util.TipoMedioInformacion;
 
 @Named("emergenciaController")
@@ -168,6 +169,13 @@ public class EmergenciaController implements Serializable {
 
     public String getTipoMedioInformacion(int value) {
         return TipoMedioInformacion.getFromValue(value).toString();
+    }
+    public ClaseInmueble[] getMapaClaseInmueble() {
+        return ClaseInmueble.values();
+    }
+
+    public String getClaseInmueble(int value) {
+        return ClaseInmueble.getFromValue(value).toString();
     }
 
 }
