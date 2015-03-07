@@ -51,7 +51,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{accidenteTransitoController.update}" value="#{bundle.Save}" update="display,:AccidenteTransitoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AccidenteTransitoEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="AccidenteTransitoEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('AccidenteTransitoEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

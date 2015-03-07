@@ -16,6 +16,7 @@
                         <p:selectOneMenu id="inuEmeId" value="#{inundacionController.selected.inuEmeId}" >
                             <f:selectItems value="#{emergenciaController.itemsAvailableSelectOne}"
                                            var="inuEmeIdItem"
+                                           itemLabel="#{inuEmeIdItem.toString()}"
                                            itemValue="#{inuEmeIdItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateInundacionLabel_inuId}" for="inuId" />
