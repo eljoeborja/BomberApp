@@ -244,7 +244,7 @@ public class Vehiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Vehiculo[ vehId=" + vehId + " ]";
+        return "[ Placa: " + vehPlaca + ", Propietario: "+vehPropietario +", Marca: " +vahMarca +" ]";
     }
     
 }

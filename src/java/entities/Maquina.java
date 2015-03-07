@@ -135,7 +135,7 @@ public class Maquina implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Maquina[ maqId=" + maqId + " ]";
+        return "[ Nombre: " + maqDescripcion + " ]";
     }
     
 }

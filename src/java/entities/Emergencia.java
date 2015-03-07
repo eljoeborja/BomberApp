@@ -424,7 +424,7 @@ public class Emergencia implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Emergencia[ emeId=" + emeId + " ]";
+        return "[ Fecha: " + emeFecha +", Hora: "+ emeHora + ", Direccion: "+emeDireccion+" ]";
     }
     
 }

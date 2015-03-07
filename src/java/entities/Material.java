@@ -138,7 +138,7 @@ public class Material implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Material[ matId=" + matId + " ]";
+        return "[" + matDescripcion + " ]";
     }
     
 }
