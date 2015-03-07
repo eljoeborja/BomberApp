@@ -22,9 +22,12 @@
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeHora}" for="emeHora" />
                         <p:calendar id="emeHora" pattern="HH:mm:ss" value="#{emergenciaController.selected.emeHora}" title="#{bundle.EditEmergenciaTitle_emeHora}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeHora}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformacionRecibida}" for="emeInformacionRecibida" />
-                        <p:inputText id="emeInformacionRecibida" value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.CreateEmergenciaTitle_emeInformacionRecibida}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInformacionRecibida}"/>
+                        <p:inputText id="emeInformacionRecibida" value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.CreateEmergenciaTitle_emeInformacionRecibida}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInformacionRecibida}"/>                            
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioInformacion}" for="emeMedioInformacion" />
-                        <p:selectBooleanCheckbox id="emeMedioInformacion" value="#{emergenciaController.selected.emeMedioInformacion}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioInformacion}"/>
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeMedioInformacion}" id="emeMedioInformacion">
+                            <f:selectItem itemLabel="Seleccione el Medio de Informacion"/>
+                            <f:selectItems value="#{emergenciaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDescripcionOtroMedio}" for="emeDescripcionOtroMedio" />
                         <p:inputText id="emeDescripcionOtroMedio" value="#{emergenciaController.selected.emeDescripcionOtroMedio}" title="#{bundle.CreateEmergenciaTitle_emeDescripcionOtroMedio}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDescripcionOtroMedio}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emePersonaConfirmacion}" for="emePersonaConfirmacion" />

@@ -40,14 +40,21 @@
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="munDepCodigoItem"
                                            itemValue="#{munDepCodigoItem}"/>
-                        </p:selectOneMenu>                        
+                        </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perMunicipio}" for="perMunicipio" />
                         <p:selectOneMenu id="perMunicipio" value="#{personaController.selected.perMunicipio}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perMunicipio}">
                             <f:selectItem itemLabel="Seleccione el Municipio" itemValue="" noSelectionOption="true"/>
                             <f:selectItems value="#{municipioController.itemsFilter}"
                                            var="perMunicipioItem"
                                            itemValue="#{perMunicipioItem}"/>
-                        </p:selectOneMenu>                        
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreatePersonaLabel_victimaAccidente}" for="victimaAccidente" />
+                        <p:selectOneMenu id="victimaAccidente" value="#{personaController.selected.victimaAccidente}" >
+                            <f:selectItems value="#{victimaAccidenteController.itemsAvailableSelectOne}"
+                                           var="victimaAccidenteItem"
+                                           itemValue="#{victimaAccidenteItem}"/>
+                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personaController.create}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PersonaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PersonaCreateDialog.hide()"/>

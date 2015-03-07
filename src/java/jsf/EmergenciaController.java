@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import jsf.util.TipoMedioInformacion;
 
 @Named("emergenciaController")
 @SessionScoped
@@ -160,6 +161,13 @@ public class EmergenciaController implements Serializable {
             }
         }
 
+    }
+    public TipoMedioInformacion[] getMapaTipos() {
+        return TipoMedioInformacion.values();
+    }
+
+    public String getTipoMedioInformacion(int value) {
+        return TipoMedioInformacion.getFromValue(value).toString();
     }
 
 }
