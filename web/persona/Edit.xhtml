@@ -49,7 +49,7 @@
                         </p:selectOneMenu>                                                                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personaController.update}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PersonaEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonaEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('PersonaEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -35,7 +35,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{inundacionController.update}" value="#{bundle.Save}" update="display,:InundacionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'InundacionEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="InundacionEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('InundacionEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

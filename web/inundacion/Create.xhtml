@@ -35,7 +35,7 @@
                         <p:inputTextarea rows="4" cols="30" id="inuObservaciones" value="#{inundacionController.selected.inuObservaciones}" title="#{bundle.CreateInundacionTitle_inuObservaciones}" />
                         </p:panelGrid>
                     <p:commandButton actionListener="#{inundacionController.create}" value="#{bundle.Save}" update="display,:InundacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'InundacionCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="InundacionCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('InundacionCreateDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

@@ -33,7 +33,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{incendioForestalController.update}" value="#{bundle.Save}" update="display,:IncendioForestalListForm:datalist,:growl" oncomplete="handleSubmit(args, 'IncendioForestalEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="IncendioForestalEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('IncendioForestalEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

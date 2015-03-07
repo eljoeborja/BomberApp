@@ -32,7 +32,7 @@
                         <p:inputTextarea rows="4" cols="30" id="inceObservaciones" value="#{incendioEstructuralController.selected.inceObservaciones}" title="#{bundle.CreateIncendioEstructuralTitle_inceObservaciones}" />
                         </p:panelGrid>
                     <p:commandButton actionListener="#{incendioEstructuralController.create}" value="#{bundle.Save}" update="display,:IncendioEstructuralListForm:datalist,:growl" oncomplete="handleSubmit(args,'IncendioEstructuralCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="IncendioEstructuralCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('IncendioEstructuralCreateDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

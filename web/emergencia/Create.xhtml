@@ -98,7 +98,7 @@
 			</p:accordionPanel>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{emergenciaController.create}" value="#{bundle.Save}" update="display,:EmergenciaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EmergenciaCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="EmergenciaCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('EmergenciaCreateDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
