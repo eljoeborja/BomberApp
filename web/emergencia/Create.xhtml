@@ -63,38 +63,7 @@
                         <p:tab title="Datos tipo de incidente">
 					<h:panelGrid columns="2" cellpadding="10">
 						<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />
-                        <p:selectBooleanCheckbox id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_accidenteTransito}" for="accidenteTransito" />
-                        <p:selectOneMenu id="accidenteTransito" value="#{emergenciaController.selected.accidenteTransito}" >
-                            <f:selectItems value="#{accidenteTransitoController.itemsAvailableSelectOne}"
-                                           var="accidenteTransitoItem"
-                                           itemValue="#{accidenteTransitoItem}"/>
-                        </p:selectOneMenu>
-                        
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_inundacion}" for="inundacion" />
-                        <p:selectOneMenu id="inundacion" value="#{emergenciaController.selected.inundacion}" >
-                            <f:selectItems value="#{inundacionController.itemsAvailableSelectOne}"
-                                           var="inundacionItem"
-                                           itemValue="#{inundacionItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_incendioForestal}" for="incendioForestal" />
-                        <p:selectOneMenu id="incendioForestal" value="#{emergenciaController.selected.incendioForestal}" >
-                            <f:selectItems value="#{incendioForestalController.itemsAvailableSelectOne}"
-                                           var="incendioForestalItem"
-                                           itemValue="#{incendioForestalItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_otrosIncidentes}" for="otrosIncidentes" />
-                        <p:selectOneMenu id="otrosIncidentes" value="#{emergenciaController.selected.otrosIncidentes}" >
-                            <f:selectItems value="#{otrosIncidentesController.itemsAvailableSelectOne}"
-                                           var="otrosIncidentesItem"
-                                           itemValue="#{otrosIncidentesItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_incendioEstructural}" for="incendioEstructural" />
-                        <p:selectOneMenu id="incendioEstructural" value="#{emergenciaController.selected.incendioEstructural}" >
-                            <f:selectItems value="#{incendioEstructuralController.itemsAvailableSelectOne}"
-                                           var="incendioEstructuralItem"
-                                           itemValue="#{incendioEstructuralItem}"/>
-                        </p:selectOneMenu>
+                        <p:selectBooleanCheckbox id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>                        
 					</h:panelGrid>
 				</p:tab>
 				<p:tab title="Datos atencion">
