@@ -37,7 +37,7 @@
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeDireccion}"/>
                         <h:outputText value="#{emergenciaController.selected.emeDireccion}" title="#{bundle.ViewEmergenciaTitle_emeDireccion}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmuebleClase}"/>
-                        <p:selectBooleanCheckbox value="#{emergenciaController.selected.emeInmuebleClase}" disabled="true"/>
+                        <h:outputText value="#{emergenciaController.getClaseInmueble(emergenciaController.selected.emeInmuebleClase)}"/>                                                                        
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmueblePropietario}"/>
                         <h:outputText value="#{emergenciaController.selected.emeInmueblePropietario}" title="#{bundle.ViewEmergenciaTitle_emeInmueblePropietario}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmuebleAdministrador}"/>

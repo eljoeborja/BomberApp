@@ -39,7 +39,10 @@
                         <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeDireccion}" for="emeDireccion" />
                         <p:inputText id="emeDireccion" value="#{emergenciaController.selected.emeDireccion}" title="#{bundle.EditEmergenciaTitle_emeDireccion}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeDireccion}"/>
                         <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeInmuebleClase}" for="emeInmuebleClase" />
-                        <p:selectBooleanCheckbox id="emeInmuebleClase" value="#{emergenciaController.selected.emeInmuebleClase}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeInmuebleClase}"/>
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeInmuebleClase}" id="emeInmuebleClase">
+                            <f:selectItem itemLabel="Seleccione la Clase de Inmueble"/>
+                            <f:selectItems value="#{emergenciaController.mapaClaseInmueble}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                                                
                         <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeInmueblePropietario}" for="emeInmueblePropietario" />
                         <p:inputText id="emeInmueblePropietario" value="#{emergenciaController.selected.emeInmueblePropietario}" title="#{bundle.EditEmergenciaTitle_emeInmueblePropietario}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeInmueblePropietario}"/>
                         <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeInmuebleAdministrador}" for="emeInmuebleAdministrador" />
