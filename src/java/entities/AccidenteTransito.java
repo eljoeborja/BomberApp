@@ -198,7 +198,7 @@ public class AccidenteTransito implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.AccidenteTransito[ accId=" + accId + " ]";
+        return "[ accId=" + accId + " ]";
     }
     
 }

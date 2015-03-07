@@ -81,18 +81,6 @@
                             </f:facet>
                             <h:outputText value="#{item.accEmeId}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAccidenteTransitoTitle_vehiculoComprometido}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.vehiculoComprometido}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListAccidenteTransitoTitle_victimaAccidente}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.victimaAccidente}"/>
-                        </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{accidenteTransitoController.prepareCreate}" update=":AccidenteTransitoCreateForm" oncomplete="PF('AccidenteTransitoCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AccidenteTransitoViewForm" oncomplete="PF('AccidenteTransitoViewDialog').show()" disabled="#{empty accidenteTransitoController.selected}"/>
