@@ -6,7 +6,7 @@ import java.util.Map;
 public enum TipoMedioInformacion {
 
     PERSONALMENTE(0, "Personalmente"),
-    TELEFONO(1, "Teléfono"),
+    TELEFONO(1, "Telefono"),
     OTROS(2, "Otro medio");
     
     private int valor;
@@ -47,6 +47,7 @@ public enum TipoMedioInformacion {
     }
 
     public int getValor() {
+        System.out.println(valor);
         return valor;
     }
 

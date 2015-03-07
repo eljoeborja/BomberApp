@@ -79,8 +79,7 @@ public class Emergencia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "eme_medio_informacion")
-    private boolean emeMedioInformacion;
-    @Basic(optional = false)
+    private Integer emeMedioInformacion;
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "eme_descripcion_otro_medio")
@@ -165,7 +164,7 @@ public class Emergencia implements Serializable {
         this.emeId = emeId;
     }
 
-    public Emergencia(String emeId, Date emeFecha, Date emeHora, String emeInformacionRecibida, boolean emeMedioInformacion, String emeDescripcionOtroMedio, String emePersonaConfirmacion, boolean emeMedioConfirmacion, String emeDescripcionOtroMedioC, String emeDireccion, boolean emeInmuebleClase, String emeInmueblePropietario, String emeInmuebleAdministrador, String emeInmuebleArrendatario, String emeNovedades, boolean emeEstado) {
+    public Emergencia(String emeId, Date emeFecha, Date emeHora, String emeInformacionRecibida, Integer emeMedioInformacion, String emeDescripcionOtroMedio, String emePersonaConfirmacion, boolean emeMedioConfirmacion, String emeDescripcionOtroMedioC, String emeDireccion, boolean emeInmuebleClase, String emeInmueblePropietario, String emeInmuebleAdministrador, String emeInmuebleArrendatario, String emeNovedades, boolean emeEstado) {
         this.emeId = emeId;
         this.emeFecha = emeFecha;
         this.emeHora = emeHora;
@@ -216,11 +215,11 @@ public class Emergencia implements Serializable {
         this.emeInformacionRecibida = emeInformacionRecibida;
     }
 
-    public boolean getEmeMedioInformacion() {
+    public Integer getEmeMedioInformacion() {
         return emeMedioInformacion;
     }
 
-    public void setEmeMedioInformacion(boolean emeMedioInformacion) {
+    public void setEmeMedioInformacion(Integer emeMedioInformacion) {
         this.emeMedioInformacion = emeMedioInformacion;
     }
 

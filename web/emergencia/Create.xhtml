@@ -24,7 +24,7 @@
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformacionRecibida}" for="emeInformacionRecibida" />
                         <p:inputText id="emeInformacionRecibida" value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.CreateEmergenciaTitle_emeInformacionRecibida}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInformacionRecibida}"/>                            
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioInformacion}" for="emeMedioInformacion" />
-                        <p:selectOneMenu value="#{emergenciaController.selected.emeMedioInformacion}" id="emeMedioInformacion">
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeMedioInformacion}" id="emeMedioInformacion" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioInformacion}">
                             <f:selectItem itemLabel="Seleccione el Medio de Informacion"/>
                             <f:selectItems value="#{emergenciaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
                         </p:selectOneMenu>
