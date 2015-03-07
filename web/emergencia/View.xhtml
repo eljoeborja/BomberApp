@@ -30,8 +30,8 @@
                         <h:outputText value="#{emergenciaController.selected.emeDescripcionOtroMedio}" title="#{bundle.ViewEmergenciaTitle_emeDescripcionOtroMedio}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emePersonaConfirmacion}"/>
                         <h:outputText value="#{emergenciaController.selected.emePersonaConfirmacion}" title="#{bundle.ViewEmergenciaTitle_emePersonaConfirmacion}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeMedioConfirmacion}"/>
-                        <p:selectBooleanCheckbox value="#{emergenciaController.selected.emeMedioConfirmacion}" disabled="true"/>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeMedioConfirmacion}"/>                       
+                        <h:outputText value="#{emergenciaController.getTipoMedioInformacion(emergenciaController.selected.emeMedioConfirmacion)}"/>                                                
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeDescripcionOtroMedioC}"/>
                         <h:outputText value="#{emergenciaController.selected.emeDescripcionOtroMedioC}" title="#{bundle.ViewEmergenciaTitle_emeDescripcionOtroMedioC}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeDireccion}"/>

@@ -24,8 +24,8 @@
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformacionRecibida}" for="emeInformacionRecibida" />
                         <p:inputText id="emeInformacionRecibida" value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.CreateEmergenciaTitle_emeInformacionRecibida}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInformacionRecibida}"/>                            
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioInformacion}" for="emeMedioInformacion" />
-                        <p:selectOneMenu value="#{emergenciaController.selected.emeMedioInformacion}" id="emeMedioInformacion" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioInformacion}">
-                            <f:selectItem itemLabel="Seleccione el Medio de Informacion"/>
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeMedioInformacion}" id="emeMedioInformacion">
+                            <f:selectItem itemLabel="Seleccione el Medio de Información"/>
                             <f:selectItems value="#{emergenciaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDescripcionOtroMedio}" for="emeDescripcionOtroMedio" />
@@ -33,7 +33,10 @@
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emePersonaConfirmacion}" for="emePersonaConfirmacion" />
                         <p:inputText id="emePersonaConfirmacion" value="#{emergenciaController.selected.emePersonaConfirmacion}" title="#{bundle.CreateEmergenciaTitle_emePersonaConfirmacion}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emePersonaConfirmacion}"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioConfirmacion}" for="emeMedioConfirmacion" />
-                        <p:selectBooleanCheckbox id="emeMedioConfirmacion" value="#{emergenciaController.selected.emeMedioConfirmacion}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeMedioConfirmacion}"/>
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeMedioConfirmacion}" id="emeMedioConfirmacion">
+                            <f:selectItem itemLabel="Seleccione el Medio de Confirmación"/>
+                            <f:selectItems value="#{emergenciaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                        
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeDescripcionOtroMedioC}" for="emeDescripcionOtroMedioC" />
                         <p:inputText id="emeDescripcionOtroMedioC" value="#{emergenciaController.selected.emeDescripcionOtroMedioC}" title="#{bundle.CreateEmergenciaTitle_emeDescripcionOtroMedioC}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeDescripcionOtroMedioC}"/>
 					</h:panelGrid>
