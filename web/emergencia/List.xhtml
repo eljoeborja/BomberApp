@@ -73,43 +73,7 @@
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleArrendatario}"/>
                             </f:facet>
                             <h:outputText value="#{item.emeInmuebleArrendatario}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeEstado}"/>
-                            </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.emeEstado}" disabled="true"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_accidenteTransito}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.accidenteTransito}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_inundacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.inundacion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_incendioForestal}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incendioForestal}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_otrosIncidentes}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.otrosIncidentes}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_incendioEstructural}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incendioEstructural}"/>
-                        </p:column>
+                        </p:column>                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformante}"/>
@@ -122,6 +86,12 @@
                             </f:facet>
                             <h:outputText value="#{item.emeComandante}"/>
                         </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emeEstado}"/>
+                        </p:column>                                                                                                                        
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{emergenciaController.prepareCreate}" update=":EmergenciaCreateForm" oncomplete="PF('EmergenciaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EmergenciaViewForm" oncomplete="PF('EmergenciaViewDialog').show()" disabled="#{empty emergenciaController.selected}"/>

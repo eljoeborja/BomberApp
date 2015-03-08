@@ -132,7 +132,11 @@ public class Emergencia implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "eme_estado")
-    private boolean emeEstado;
+    private Integer emeEstado;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "eme_tipoe")
+    private Integer emeTipoe;
     @OneToOne(mappedBy = "accEmeId", fetch = FetchType.LAZY)
     private AccidenteTransito accidenteTransito;
     @OneToOne(mappedBy = "costoEmeId", fetch = FetchType.LAZY)
@@ -165,7 +169,7 @@ public class Emergencia implements Serializable {
         this.emeId = emeId;
     }
 
-    public Emergencia(String emeId, Date emeFecha, Date emeHora, String emeInformacionRecibida, Integer emeMedioInformacion, String emeDescripcionOtroMedio, String emePersonaConfirmacion, Integer emeMedioConfirmacion, String emeDescripcionOtroMedioC, String emeDireccion, Integer emeInmuebleClase, String emeInmueblePropietario, String emeInmuebleAdministrador, String emeInmuebleArrendatario, String emeNovedades, boolean emeEstado) {
+    public Emergencia(String emeId, Date emeFecha, Date emeHora, String emeInformacionRecibida, Integer emeMedioInformacion, String emeDescripcionOtroMedio, String emePersonaConfirmacion, Integer emeMedioConfirmacion, String emeDescripcionOtroMedioC, String emeDireccion, Integer emeInmuebleClase, String emeInmueblePropietario, String emeInmuebleAdministrador, String emeInmuebleArrendatario, String emeNovedades, Integer emeEstado, Integer emeTipoe) {
         this.emeId = emeId;
         this.emeFecha = emeFecha;
         this.emeHora = emeHora;
@@ -182,6 +186,7 @@ public class Emergencia implements Serializable {
         this.emeInmuebleArrendatario = emeInmuebleArrendatario;
         this.emeNovedades = emeNovedades;
         this.emeEstado = emeEstado;
+        this.emeTipoe = emeEstado;
     }
 
     public String getEmeId() {
@@ -304,12 +309,20 @@ public class Emergencia implements Serializable {
         this.emeNovedades = emeNovedades;
     }
 
-    public boolean getEmeEstado() {
+    public Integer getEmeEstado() {
         return emeEstado;
     }
 
-    public void setEmeEstado(boolean emeEstado) {
+    public void setEmeEstado(Integer emeEstado) {
         this.emeEstado = emeEstado;
+    }
+
+    public Integer getEmeTipoe() {
+        return emeTipoe;
+    }
+
+    public void setEmeTipoe(Integer emeTipoe) {
+        this.emeTipoe = emeTipoe;
     }
 
     public AccidenteTransito getAccidenteTransito() {

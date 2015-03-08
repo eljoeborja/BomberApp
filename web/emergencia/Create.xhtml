@@ -63,7 +63,7 @@
                         <p:tab title="Datos tipo de incidente">
 					<h:panelGrid columns="2" cellpadding="10">
 						<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />
-                        <p:selectBooleanCheckbox id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>                        
+                        <p:inputText id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>                        
 					</h:panelGrid>
 				</p:tab>
 				<p:tab title="Datos atencion">
