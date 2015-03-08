@@ -35,7 +35,7 @@
                         <h:outputText value="#{bundle.ViewVehiculoLabel_vehCompaniaSeguro}"/>
                         <h:outputText value="#{vehiculoController.selected.vehCompaniaSeguro}" title="#{bundle.ViewVehiculoTitle_vehCompaniaSeguro}"/>
                         <h:outputText value="#{bundle.ViewVehiculoLabel_vehEstado}"/>
-                        <p:selectBooleanCheckbox value="#{vehiculoController.selected.vehEstado}" disabled="true"/>                        
+                        <h:outputText value="#{vehiculoController.selected.vehEstado}" title="#{bundle.ViewVehiculoTitle_vehEstado}"/>                        
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="VehiculoViewDialog.hide()"/>
                 </h:panelGroup>

@@ -16,13 +16,13 @@
     margin-top: 10px !important;
 }
 
-#logo{
+#logofooter{
     /*background: url("src/logo.jpg");*/
     background-image: url("http://localhost:8080/BomberApp/faces/resources/utils/img/banner.jpg");
     background-repeat: no-repeat;
-    background-size: auto 40px;
+    background-size: auto 100%;
     background-position: center;
-    height: 40px;
+    height: 80px;
     margin-bottom: 5px;
     position: static;
 }
