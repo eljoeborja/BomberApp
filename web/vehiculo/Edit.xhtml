@@ -34,8 +34,8 @@
                         <p:inputText id="vehConductor" value="#{vehiculoController.selected.vehConductor}" title="#{bundle.EditVehiculoTitle_vehConductor}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehConductor}"/>
                         <p:outputLabel value="#{bundle.EditVehiculoLabel_vehCompaniaSeguro}" for="vehCompaniaSeguro" />
                         <p:inputText id="vehCompaniaSeguro" value="#{vehiculoController.selected.vehCompaniaSeguro}" title="#{bundle.EditVehiculoTitle_vehCompaniaSeguro}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehCompaniaSeguro}"/>
-                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehEstado}" for="vehEstado" />
-                        <p:selectBooleanCheckbox id="vehEstado" value="#{vehiculoController.selected.vehEstado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEstado}"/>                        
+                        <p:outputLabel value="#{bundle.EditVehiculoLabel_vehEstado}" for="vehEstado" />                        
+                        <p:inputText id="vehEstado" value="#{vehiculoController.selected.vehEstado}" title="#{bundle.EditVehiculoRequiredMessage_vehEstado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEstado}"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{vehiculoController.update}" value="#{bundle.Save}" update="display,:VehiculoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehiculoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PF('VehiculoEditDialog').hide()" type="button"/>

@@ -20,7 +20,7 @@
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeFecha}" for="emeFecha" />
                         <p:calendar id="emeFecha" mindate="#{emergenciaController.minYear()}" pattern="MM/dd/yyyy" navigator="true" value="#{emergenciaController.selected.emeFecha}" title="#{bundle.EditEmergenciaTitle_emeFecha}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeFecha}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeHora}" for="emeHora" />
-                        <p:calendar id="emeHora" pattern="HH:mm:ss" value="#{emergenciaController.selected.emeHora}" title="#{bundle.EditEmergenciaTitle_emeHora}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeHora}" showOn="button"/>
+                        <p:calendar id="emeHora" pattern="HH:mm" timeOnly="true" value="#{emergenciaController.selected.emeHora}" title="#{bundle.EditEmergenciaTitle_emeHora}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeHora}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeInformacionRecibida}" for="emeInformacionRecibida" />
                         <p:inputText id="emeInformacionRecibida" value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.CreateEmergenciaTitle_emeInformacionRecibida}" required="true" requiredMessage="#{bundle.CreateEmergenciaRequiredMessage_emeInformacionRecibida}"/>                            
                         <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeMedioInformacion}" for="emeMedioInformacion" />
