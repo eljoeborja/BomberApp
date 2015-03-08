@@ -25,7 +25,7 @@ import javax.faces.convert.FacesConverter;
 import jsf.util.TipoPersona;
 
 @Named("personaController")
-@RequestScoped
+@SessionScoped
 public class PersonaController implements Serializable {
 
     @EJB

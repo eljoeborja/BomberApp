@@ -21,7 +21,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("unidadController")
-@RequestScoped
+@SessionScoped
 public class UnidadController implements Serializable {
 
     @EJB
