@@ -38,7 +38,7 @@
                         <p:selectBooleanCheckbox id="vehEstado" value="#{vehiculoController.selected.vehEstado}" required="true" requiredMessage="#{bundle.EditVehiculoRequiredMessage_vehEstado}"/>                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{vehiculoController.update}" value="#{bundle.Save}" update="display,:VehiculoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehiculoEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="VehiculoEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('VehiculoEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

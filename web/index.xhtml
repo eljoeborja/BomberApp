@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
         <h:head>
-            <title>CBVRV</title>
+            <title>BCBVRV</title>
 
             <h:outputStylesheet name="/utils/css/screen.css"/>
             <link href="/utils/css/screen.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -17,44 +17,10 @@
 
                 <div id="header">
 
-                    <h1 id="logo"><a href="#" title="#">CBV<span>Roldanillo</span></a></h1>
+                    <h1 id="logo"><a href="#" title="#">BCBV<span>Roldanillo</span></a></h1>
                 </div>
                 <div id="main">
-                    <img src="resources/utils/img/banner.jpg" width=""/>   
-                    <h:form>            
-    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-        <p:graphicImage url="http://localhost:8080/BomberApp/resources/utils/img/login.png" />
-    </h:outputLink>
-                        
-    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
- 
-    <p:dialog header="Login" widgetVar="dlg" resizable="false">
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputLabel for="username" value="Username:" />
-            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
- 
-            <h:outputLabel for="password" value="Password:" />
-            <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
- 
-            <f:facet name="footer">
-                <p:commandButton value="Login" update="growl" actionListener="#{userLoginView.login}"
-                                 oncomplete="handleLoginRequest(xhr, status, args)" />
-            </f:facet>  
-        </h:panelGrid>
-    </p:dialog>
-</h:form>
- 
-<script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-        }
-        else {
-            PF('dlg').hide();
-            $('#loginLink').fadeOut();
-        }
-    }
-</script>
+                    <img src="resources/utils/img/banner.jpg" width=""/>                 
                     <h:form id="menuForm">
                     <p:menubar>
                         <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
@@ -133,18 +99,7 @@
                             </f:facet>
                             <h:outputText value="#{item.emeInmueblePropietario}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeEstado}"/>
-                            </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.emeEstado}" disabled="true"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformante}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeInformante}"/>
-                        </p:column>                      
+                                             
                     </p:dataTable>
                 </p:panel>
             </h:form>                                       

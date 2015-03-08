@@ -30,7 +30,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{vehiculoComprometidoController.update}" value="#{bundle.Save}" update="display,:VehiculoComprometidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'VehiculoComprometidoEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="VehiculoComprometidoEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('VehiculoComprometidoEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

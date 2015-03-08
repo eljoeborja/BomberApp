@@ -35,7 +35,7 @@
                         
                     </p:panelGrid>
                     <p:commandButton actionListener="#{otrosIncidentesController.create}" value="#{bundle.Save}" update="display,:OtrosIncidentesListForm:datalist,:growl" oncomplete="handleSubmit(args,'OtrosIncidentesCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="OtrosIncidentesCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('OtrosIncidentesCreateDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

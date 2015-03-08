@@ -25,14 +25,22 @@
                         <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseEmail}" for="aseEmail" />
                         <p:inputText id="aseEmail" value="#{aseguradoraController.selected.aseEmail}" title="#{bundle.EditAseguradoraTitle_aseEmail}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseEmail}"/>
                         <p:outputLabel value="#{bundle.EditAseguradoraLabel_asePaginaWeb}" for="asePaginaWeb" />
-                        <p:inputText id="asePaginaWeb" value="#{aseguradoraController.selected.asePaginaWeb}" title="#{bundle.EditAseguradoraTitle_asePaginaWeb}" />
-                        <p:outputLabel value="#{bundle.EditAseguradoraLabel_aseMunId}" for="aseMunId" />
-                        <p:selectOneMenu id="aseMunId" value="#{aseguradoraController.selected.aseMunId}" required="true" requiredMessage="#{bundle.EditAseguradoraRequiredMessage_aseMunId}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{municipioController.itemsAvailableSelectOne}"
-                                           var="aseMunIdItem"
-                                           itemValue="#{aseMunIdItem}"/>
-                        </p:selectOneMenu>
+                        <p:inputText id="asePaginaWeb" value="#{aseguradoraController.selected.asePaginaWeb}" title="#{bundle.EditAseguradoraTitle_asePaginaWeb}" />                        
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseDep}" for="aseDepCodigo" />
+                        <p:selectOneMenu id="aseDepCodigo" value="#{municipioController.departamento}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_munDepCodigo}">
+                            <p:ajax listener="#{municipioController.getMunicipiosByDepartamento()}" update="aseMunicipio"/>
+                            <f:selectItem itemLabel="Seleccione el Departamento" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
+                                           var="aseDepCodigoItem"
+                                           itemValue="#{munDepCodigoItem}"/>
+                        </p:selectOneMenu>                        
+                        <p:outputLabel value="#{bundle.CreatePersonaLabel_perMunicipio}" for="aseMunicipio" />
+                        <p:selectOneMenu id="aseMunicipio" value="#{aseguradoraController.selected.aseMunId}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perMunicipio}">
+                            <f:selectItem itemLabel="Seleccione el Municipio" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{municipioController.itemsFilter}"
+                                           var="aseMunicipioItem"
+                                           itemValue="#{aseMunicipioItem}"/>
+                        </p:selectOneMenu>                                                
                     </p:panelGrid>
                     <p:commandButton actionListener="#{aseguradoraController.update}" value="#{bundle.Save}" update="display,:AseguradoraListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AseguradoraEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="AseguradoraEditDialog.hide()"/>

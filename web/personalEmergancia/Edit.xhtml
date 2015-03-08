@@ -30,7 +30,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personalEmerganciaController.update}" value="#{bundle.Save}" update="display,:PersonalEmerganciaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PersonalEmerganciaEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonalEmerganciaEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('PersonalEmerganciaEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

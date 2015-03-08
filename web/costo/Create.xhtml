@@ -38,7 +38,7 @@
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{costoController.create}" value="#{bundle.Save}" update="display,:CostoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CostoCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="CostoCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('CostoCreateDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

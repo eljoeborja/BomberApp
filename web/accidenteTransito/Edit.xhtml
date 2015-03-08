@@ -35,23 +35,9 @@
                                            var="accEmeIdItem"
                                            itemValue="#{accEmeIdItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditAccidenteTransitoLabel_vehiculoComprometido}" for="vehiculoComprometido" />
-                        <p:selectOneMenu id="vehiculoComprometido" value="#{accidenteTransitoController.selected.vehiculoComprometido}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{vehiculoComprometidoController.itemsAvailableSelectOne}"
-                                           var="vehiculoComprometidoItem"
-                                           itemValue="#{vehiculoComprometidoItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditAccidenteTransitoLabel_victimaAccidente}" for="victimaAccidente" />
-                        <p:selectOneMenu id="victimaAccidente" value="#{accidenteTransitoController.selected.victimaAccidente}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{victimaAccidenteController.itemsAvailableSelectOne}"
-                                           var="victimaAccidenteItem"
-                                           itemValue="#{victimaAccidenteItem}"/>
-                        </p:selectOneMenu>
-                    </p:panelGrid>
+                        </p:panelGrid>
                     <p:commandButton actionListener="#{accidenteTransitoController.update}" value="#{bundle.Save}" update="display,:AccidenteTransitoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AccidenteTransitoEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="AccidenteTransitoEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('AccidenteTransitoEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

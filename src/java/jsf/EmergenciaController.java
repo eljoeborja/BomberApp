@@ -6,6 +6,9 @@ import jsf.util.JsfUtil.PersistAction;
 import entities.session.EmergenciaFacade;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -163,6 +166,7 @@ public class EmergenciaController implements Serializable {
         }
 
     }
+
     public TipoMedioInformacion[] getMapaTipos() {
         return TipoMedioInformacion.values();
     }
@@ -170,12 +174,19 @@ public class EmergenciaController implements Serializable {
     public String getTipoMedioInformacion(int value) {
         return TipoMedioInformacion.getFromValue(value).toString();
     }
+
     public ClaseInmueble[] getMapaClaseInmueble() {
         return ClaseInmueble.values();
     }
 
     public String getClaseInmueble(int value) {
         return ClaseInmueble.getFromValue(value).toString();
+    }
+
+    public Date minYear(){
+        Calendar fechaMinima = Calendar.getInstance();
+        fechaMinima.set(1900, 01, 01);
+        return fechaMinima.getTime();
     }
 
 }

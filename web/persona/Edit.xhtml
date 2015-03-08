@@ -32,7 +32,7 @@
                         <p:calendar id="perFechanac" pattern="MM/dd/yyyy" value="#{personaController.selected.perFechanac}" title="#{bundle.EditPersonaTitle_perFechanac}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perFechanac}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditPersonaLabel_perEstado}" for="perEstado" />
                         <p:selectBooleanCheckbox id="perEstado" value="#{personaController.selected.perEstado}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perEstado}"/>                        
-                         <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseDep}" for="munDepCodigo" />
+                        <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseDep}" for="munDepCodigo" />
                         <p:selectOneMenu id="munDepCodigo" value="#{municipioController.departamento}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_munDepCodigo}">
                             <p:ajax listener="#{municipioController.getMunicipiosByDepartamento()}" update="perMunicipio"/>
                             <f:selectItem itemLabel="Seleccione el Departamento" itemValue="" noSelectionOption="true"/>
@@ -49,7 +49,7 @@
                         </p:selectOneMenu>                                                                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personaController.update}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PersonaEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonaEditDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('PersonaEditDialog').hide()" type="button"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

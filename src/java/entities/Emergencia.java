@@ -6,6 +6,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -423,7 +424,9 @@ public class Emergencia implements Serializable {
 
     @Override
     public String toString() {
-        return "[ Fecha: " + emeFecha +", Hora: "+ emeHora + ", Direccion: "+emeDireccion+" ]";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat sdfHora = new SimpleDateFormat("h:mm a");
+        return "[ Fecha: " + sdf.format(emeFecha) +", Hora: "+ sdfHora.format(emeHora) + ", Direccion: "+emeDireccion+" ]";
     }
     
 }

@@ -26,8 +26,8 @@
                         <h:outputText value="#{aseguradoraController.selected.aseEmail}" title="#{bundle.ViewAseguradoraTitle_aseEmail}"/>
                         <h:outputText value="#{bundle.ViewAseguradoraLabel_asePaginaWeb}"/>
                         <h:outputText value="#{aseguradoraController.selected.asePaginaWeb}" title="#{bundle.ViewAseguradoraTitle_asePaginaWeb}"/>
-                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseMunId}"/>
-                        <h:outputText value="#{aseguradoraController.selected.aseMunId}" title="#{bundle.ViewAseguradoraTitle_aseMunId}"/>
+                        <h:outputText value="#{bundle.ViewAseguradoraLabel_aseMunId}"/>                        
+                        <h:outputText value="#{municipioController.getNombreMunicipio(aseguradoraController.selected.aseMunId)}" title="#{bundle.ViewAseguradoraTitle_aseMunId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="AseguradoraViewDialog.hide()"/>
                 </h:panelGroup>
