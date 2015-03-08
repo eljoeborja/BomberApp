@@ -97,7 +97,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListVehiculoTitle_vehEstado}"/>
                             </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.vehEstado}" disabled="true"/>
+                            <h:outputText value="#{item.vehEstado}"/>
                         </p:column>                        
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{vehiculoController.prepareCreate}" update=":VehiculoCreateForm" oncomplete="PF('VehiculoCreateDialog').show()"/>

@@ -7,14 +7,9 @@ package entities;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,20 +22,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "vehiculo")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Vehiculo.findAll", query = "SELECT v FROM Vehiculo v"),
-    @NamedQuery(name = "Vehiculo.findByVehId", query = "SELECT v FROM Vehiculo v WHERE v.vehId = :vehId"),
-    @NamedQuery(name = "Vehiculo.findByVehClase", query = "SELECT v FROM Vehiculo v WHERE v.vehClase = :vehClase"),
-    @NamedQuery(name = "Vehiculo.findByVehPlaca", query = "SELECT v FROM Vehiculo v WHERE v.vehPlaca = :vehPlaca"),
-    @NamedQuery(name = "Vehiculo.findByVehModelo", query = "SELECT v FROM Vehiculo v WHERE v.vehModelo = :vehModelo"),
-    @NamedQuery(name = "Vehiculo.findByVehPropietario", query = "SELECT v FROM Vehiculo v WHERE v.vehPropietario = :vehPropietario"),
-    @NamedQuery(name = "Vehiculo.findByVehSoat", query = "SELECT v FROM Vehiculo v WHERE v.vehSoat = :vehSoat"),
-    @NamedQuery(name = "Vehiculo.findByVehServicio", query = "SELECT v FROM Vehiculo v WHERE v.vehServicio = :vehServicio"),
-    @NamedQuery(name = "Vehiculo.findByVahMarca", query = "SELECT v FROM Vehiculo v WHERE v.vahMarca = :vahMarca"),
-    @NamedQuery(name = "Vehiculo.findByVehEmpresa", query = "SELECT v FROM Vehiculo v WHERE v.vehEmpresa = :vehEmpresa"),
-    @NamedQuery(name = "Vehiculo.findByVehConductor", query = "SELECT v FROM Vehiculo v WHERE v.vehConductor = :vehConductor"),
-    @NamedQuery(name = "Vehiculo.findByVehCompaniaSeguro", query = "SELECT v FROM Vehiculo v WHERE v.vehCompaniaSeguro = :vehCompaniaSeguro"),
-    @NamedQuery(name = "Vehiculo.findByVehEstado", query = "SELECT v FROM Vehiculo v WHERE v.vehEstado = :vehEstado")})
 public class Vehiculo implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -83,9 +64,8 @@ public class Vehiculo implements Serializable {
     @NotNull
     @Size(min = 1, max = 30)
     @Column(name = "vah_marca")
-    private String vahMarca;
-    @Basic(optional = false)
-    @NotNull
+    private String vehMarca;
+    @Basic(optional = true)
     @Size(min = 1, max = 50)
     @Column(name = "veh_empresa")
     private String vehEmpresa;
@@ -102,7 +82,7 @@ public class Vehiculo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "veh_estado")
-    private boolean vehEstado;
+    private Integer vehEstado;
     
     public Vehiculo() {
     }
@@ -111,7 +91,7 @@ public class Vehiculo implements Serializable {
         this.vehId = vehId;
     }
 
-    public Vehiculo(String vehId, String vehClase, String vehPlaca, String vehModelo, String vehPropietario, String vehSoat, String vehServicio, String vahMarca, String vehEmpresa, String vehConductor, String vehCompaniaSeguro, boolean vehEstado) {
+    public Vehiculo(String vehId, String vehClase, String vehPlaca, String vehModelo, String vehPropietario, String vehSoat, String vehServicio, String vahMarca, String vehEmpresa, String vehConductor, String vehCompaniaSeguro, Integer vehEstado) {
         this.vehId = vehId;
         this.vehClase = vehClase;
         this.vehPlaca = vehPlaca;
@@ -119,7 +99,7 @@ public class Vehiculo implements Serializable {
         this.vehPropietario = vehPropietario;
         this.vehSoat = vehSoat;
         this.vehServicio = vehServicio;
-        this.vahMarca = vahMarca;
+        this.vehMarca = vahMarca;
         this.vehEmpresa = vehEmpresa;
         this.vehConductor = vehConductor;
         this.vehCompaniaSeguro = vehCompaniaSeguro;
@@ -183,11 +163,11 @@ public class Vehiculo implements Serializable {
     }
 
     public String getVahMarca() {
-        return vahMarca;
+        return vehMarca;
     }
 
     public void setVahMarca(String vahMarca) {
-        this.vahMarca = vahMarca;
+        this.vehMarca = vahMarca;
     }
 
     public String getVehEmpresa() {
@@ -214,11 +194,11 @@ public class Vehiculo implements Serializable {
         this.vehCompaniaSeguro = vehCompaniaSeguro;
     }
 
-    public boolean getVehEstado() {
+    public Integer getVehEstado() {
         return vehEstado;
     }
 
-    public void setVehEstado(boolean vehEstado) {
+    public void setVehEstado(Integer vehEstado) {
         this.vehEstado = vehEstado;
     }
    
@@ -244,7 +224,7 @@ public class Vehiculo implements Serializable {
 
     @Override
     public String toString() {
-        return "[ Placa: " + vehPlaca + ", Propietario: "+vehPropietario +", Marca: " +vahMarca +" ]";
+        return "[ Placa: " + vehPlaca + ", Propietario: "+vehPropietario +", Marca: " +vehMarca +" ]";
     }
     
 }
