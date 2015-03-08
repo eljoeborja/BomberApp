@@ -24,7 +24,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("municipioController")
-@RequestScoped
+@SessionScoped
 public class MunicipioController implements Serializable {
 
     @EJB
