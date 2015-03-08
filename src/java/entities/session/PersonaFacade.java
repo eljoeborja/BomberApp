@@ -42,5 +42,5 @@ public class PersonaFacade extends AbstractFacade<Persona> {
             return null;                
         }
         return personas;
-    }               
+    }      
 }

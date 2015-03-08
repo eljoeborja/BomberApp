@@ -78,13 +78,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformante}"/>
                             </f:facet>
-                            <h:outputText value="#{item.emeInformante}"/>
+                            <h:outputText value="#{item.emeInformante.perNombres} #{item.emeInformante.perApellidos}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeComandante}"/>
                             </f:facet>
-                            <h:outputText value="#{item.emeComandante}"/>
+                            <h:outputText value="#{item.emeComandante.uniRango.toUpperCase()} #{item.emeComandante.uniPerId.perNombres} #{item.emeComandante.uniPerId.perApellidos}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
