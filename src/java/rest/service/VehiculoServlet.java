@@ -43,14 +43,17 @@ public class VehiculoServlet extends HttpServlet {
 //        response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String body = convertInputStreamToString(request.getReader());
-            System.out.println(body);
+            String dispositivo = request.getParameter("dispositivo");
+            if(dispositivo==null || dispositivo.trim().isEmpty()){
+                dispositivo = "PRUEBA";
+            }
             try {
                 Vehiculo[] vehiculos = new Gson().fromJson(body,Vehiculo[].class);
+                
                 for (Vehiculo vehiculo : vehiculos) {
-                        vehiculo.setVehId("PRUEBA-"+vehiculo.getVehId());
+                        vehiculo.setVehId(dispositivo+"-"+vehiculo.getVehId());
                         ejbFacade.create(vehiculo);
                 }
-                System.out.println("Vehiculos: "+vehiculos.length);
                 
             } catch (Exception e) {
                 e.printStackTrace();
