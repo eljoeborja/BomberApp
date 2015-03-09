@@ -4,9 +4,10 @@ import entities.Emergencia;
 import jsf.util.JsfUtil;
 import jsf.util.JsfUtil.PersistAction;
 import entities.session.EmergenciaFacade;
+import java.io.File;
+import java.io.IOException;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -16,17 +17,25 @@ import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.faces.event.ActionEvent;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import jsf.util.ClaseInmueble;
 import jsf.util.TipoMedioInformacion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperRunManager;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
-@Named("emergenciaController")
-@RequestScoped
+@ManagedBean(name = "emergenciaController")
+@SessionScoped
 public class EmergenciaController implements Serializable {
 
     @EJB
@@ -184,10 +193,39 @@ public class EmergenciaController implements Serializable {
         return ClaseInmueble.getFromValue(value).toString();
     }
 
-    public Date minYear(){
+    public Date minYear() {
         Calendar fechaMinima = Calendar.getInstance();
         fechaMinima.set(1900, 01, 01);
         return fechaMinima.getTime();
+    }
+
+    public void verPDF(ActionEvent actionEvent) {
+        System.out.println("viendo el reporte");
+        try {
+            ServletContext context = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+            String ruta = context.getRealPath("/resources/reportes/reporte.jasper");
+            System.out.println("RUTA-> " + ruta);
+            
+            File jasper = new File(ruta);
+            
+            byte[] bytes = JasperRunManager.runReportToPdf(jasper.getPath(), null, new JRBeanCollectionDataSource(this.getItems()));
+            HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+            response.setContentType("application/pdf");
+            response.setContentLength(bytes.length);
+
+            ServletOutputStream outStream = response.getOutputStream();
+            outStream.write(bytes, 0, bytes.length);
+            outStream.flush();
+            outStream.close();
+
+            FacesContext.getCurrentInstance().responseComplete();
+        } catch (JRException jre) {
+            jre.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
