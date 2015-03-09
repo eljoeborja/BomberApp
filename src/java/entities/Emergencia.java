@@ -135,7 +135,7 @@ public class Emergencia implements Serializable {
     @OneToOne(mappedBy = "inuEmeId", fetch = FetchType.LAZY)
     private Inundacion inundacion;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "peremeEmId", fetch = FetchType.LAZY)
-    private PersonalEmergancia personalEmergancia;
+    private Collection<PersonalEmergancia> personalEmerganciaCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maqEmeEme", fetch = FetchType.LAZY)
     private Collection<MaquinaEmergencia> maquinaEmergenciaCollection;
     @OneToOne(mappedBy = "incfEmeId", fetch = FetchType.LAZY)
@@ -340,12 +340,13 @@ public class Emergencia implements Serializable {
         this.inundacion = inundacion;
     }
 
-    public PersonalEmergancia getPersonalEmergancia() {
-        return personalEmergancia;
+    @XmlTransient
+    public Collection<PersonalEmergancia> getPersonalEmergancia() {
+        return personalEmerganciaCollection;
     }
 
-    public void setPersonalEmergancia(PersonalEmergancia personalEmergancia) {
-        this.personalEmergancia = personalEmergancia;
+    public void setPersonalEmergancia(Collection<PersonalEmergancia> personalEmerganciaCollection) {
+        this.personalEmerganciaCollection = personalEmerganciaCollection;
     }
 
     @XmlTransient
