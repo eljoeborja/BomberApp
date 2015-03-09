@@ -16,11 +16,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
 import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
@@ -31,6 +30,8 @@ import javax.servlet.http.HttpServletResponse;
 import jsf.util.ClaseInmueble;
 import jsf.util.TipoMedioInformacion;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
@@ -200,30 +201,27 @@ public class EmergenciaController implements Serializable {
     }
 
     public void verPDF(ActionEvent actionEvent) {
-        System.out.println("viendo el reporte");
+        FacesContext facesContext = FacesContext.getCurrentInstance();
         try {
+
             ServletContext context = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
             String ruta = context.getRealPath("/resources/reportes/reporte.jasper");
-            System.out.println("RUTA-> " + ruta);
-            
+
             File jasper = new File(ruta);
-            
+
             byte[] bytes = JasperRunManager.runReportToPdf(jasper.getPath(), null, new JRBeanCollectionDataSource(this.getItems()));
-            HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+            HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+
+            response.reset();
             response.setContentType("application/pdf");
             response.setContentLength(bytes.length);
 
-            ServletOutputStream outStream = response.getOutputStream();
-            outStream.write(bytes, 0, bytes.length);
-            outStream.flush();
-            outStream.close();
+            try (ServletOutputStream outStream = response.getOutputStream()) {
+                outStream.write(bytes, 0, bytes.length);
+            }
 
-            FacesContext.getCurrentInstance().responseComplete();
-        } catch (JRException jre) {
-            jre.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        } catch (Exception e) {
+            facesContext.responseComplete();
+        } catch (JRException | IOException e) {
             e.printStackTrace();
         }
     }

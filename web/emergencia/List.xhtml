@@ -14,7 +14,7 @@
         </ui:define>
 
         <ui:define name="body">
-            <h:form id="EmergenciaListForm">
+            <h:form id="EmergenciaListForm" target="_blank">
                 <p:panel header="#{bundle.ListEmergenciaTitle}">
                     <p:dataTable id="datalist" value="#{emergenciaController.items}" var="item"
                                  selectionMode="single" selection="#{emergenciaController.selected}"
@@ -97,7 +97,7 @@
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EmergenciaViewForm" oncomplete="PF('EmergenciaViewDialog').show()" disabled="#{empty emergenciaController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":EmergenciaEditForm" oncomplete="PF('EmergenciaEditDialog').show()" disabled="#{empty emergenciaController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{emergenciaController.destroy}" update=":growl,datalist" disabled="#{empty emergenciaController.selected}"/>
-                            <p:commandButton id="exportButton" icon="ui-icon-document" value="#{bundle.Export}" actionListener="#{emergenciaController.verPDF}"/>
+                            <p:commandButton ajax="false" id="exportButton" icon="ui-icon-document" value="#{bundle.Export}" actionListener="#{emergenciaController.verPDF}"/>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
