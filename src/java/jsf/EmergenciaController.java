@@ -205,7 +205,7 @@ public class EmergenciaController implements Serializable {
         try {
 
             ServletContext context = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-            String ruta = context.getRealPath("/resources/reportes/reporte.jasper");
+            String ruta = context.getRealPath("/resources/reportes/reporte1.jasper");
 
             File jasper = new File(ruta);
 
