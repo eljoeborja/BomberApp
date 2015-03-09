@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
-<!-- 2015-03-09T03:03:26 -->
+<!-- 2015-03-09T03:40:12 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte1" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="192d5111-65bb-4bd9-ba54-344270807373">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
@@ -43,18 +43,17 @@
 	<field name="emeInformante.perCedula" class="java.lang.String"/>
 	<field name="emeInformante.perDireccion" class="java.lang.String"/>
 	<field name="emeInformante.perTelefono" class="java.lang.String"/>
-	<field name="emeInformante.per" class="java.lang.String"/>
 	<field name="emeTipoe" class="java.lang.Integer"/>
 	<field name="emeInformacionRecibida" class="java.lang.String"/>
 	<field name="emeDescripcionOtroMedio" class="java.lang.String"/>
 	<field name="emeDescripcionOtroMedioC" class="java.lang.String"/>
-	<field name="emePersonoConfirmacion" class="java.lang.String"/>
+	<field name="emePersonaConfirmacion" class="java.lang.String"/>
 	<field name="emeDireccion" class="java.lang.String"/>
-	<field name="emeInmuebleClase" class="java.lang.String"/>
+	<field name="emeInmuebleClase" class="java.lang.Integer"/>
 	<field name="emeInmueblePropietario" class="java.lang.String"/>
 	<field name="emeInmuebleAdministrador" class="java.lang.String"/>
 	<field name="emeInmuebleArrendatario" class="java.lang.String"/>
-	<field name="emeComandante" class="java.lang.String"/>
+	<field name="emeComandante.uniPerId.perNombres" class="java.lang.String"/>
 	<variable name="nombre_informante" class="java.lang.String"/>
 	<variable name="ident_informante" class="java.lang.String"/>
 	<variable name="direcc_informante" class="java.lang.String"/>
@@ -151,7 +150,7 @@
 				<textFieldExpression><![CDATA[$F{emeInformante.perDireccion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="111" y="80" width="169" height="20" uuid="8c07ea15-88b6-46a5-bbef-4d54a83a7d0b"/>
+				<reportElement x="111" y="80" width="189" height="20" uuid="8c07ea15-88b6-46a5-bbef-4d54a83a7d0b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -278,7 +277,7 @@
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emePersonoConfirmacion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emePersonaConfirmacion}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="120" y="80" width="310" height="21" uuid="78c19729-c6d0-45a1-8f35-6e68228a9156"/>
@@ -338,7 +337,7 @@
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{emeComandante}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{emeComandante.uniPerId.perNombres}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
