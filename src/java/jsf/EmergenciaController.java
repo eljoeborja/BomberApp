@@ -28,6 +28,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import jsf.util.ClaseInmueble;
+import jsf.util.EstadoSync;
+import jsf.util.TipoEmergencia;
 import jsf.util.TipoMedioInformacion;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -193,7 +195,23 @@ public class EmergenciaController implements Serializable {
     public String getClaseInmueble(int value) {
         return ClaseInmueble.getFromValue(value).toString();
     }
+    
+    public TipoEmergencia[] getMapaTipoEmergencias() {
+        return TipoEmergencia.values();
+    }
 
+    public String getTipoEmergencia(int value) {
+        return TipoEmergencia.getFromValue(value).toString();
+    }
+    
+    public EstadoSync[] getMapaEstado() {
+        return EstadoSync.values();
+    }
+
+    public String getEstadoSync(int value) {
+        return EstadoSync.getFromValue(value).toString();
+    }
+    
     public Date minYear() {
         Calendar fechaMinima = Calendar.getInstance();
         fechaMinima.set(1900, 01, 01);
