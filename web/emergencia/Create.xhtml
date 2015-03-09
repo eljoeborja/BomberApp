@@ -61,9 +61,17 @@
 					</h:panelGrid>
 				</p:tab>
                         <p:tab title="Datos tipo de incidente">
-					<h:panelGrid columns="2" cellpadding="10">
-						<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />
-                        <p:inputText id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>                        
+			<h:panelGrid columns="2" cellpadding="10">
+			<p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeEstado}" for="emeEstado" />                                                
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeEstado}" id="emeEstado">
+                            <f:selectItem itemLabel="Seleccione el Estado del Registro"/>
+                            <f:selectItems value="#{emergenciaController.mapaEstado}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                        
+                        <p:outputLabel value="#{bundle.CreateEmergenciaLabel_emeTipoe}" for="emeTipoe" />                                                
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeTipoe}" id="emeTipoe">
+                            <f:selectItem itemLabel="Seleccione el Tipo de Emergencia"/>
+                            <f:selectItems value="#{emergenciaController.mapaTipoEmergencias}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                        
 					</h:panelGrid>
 				</p:tab>
 				<p:tab title="Datos atencion">

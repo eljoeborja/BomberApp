@@ -62,45 +62,18 @@
                        </h:panelGrid>
 				</p:tab>
                         <p:tab title="Datos tipo de incidente">
-					<h:panelGrid columns="2" cellpadding="10">
-                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeEstado}" for="emeEstado" />
-                        <p:inputText id="emeEstado" value="#{emergenciaController.selected.emeEstado}" required="true" requiredMessage="#{bundle.EditEmergenciaRequiredMessage_emeEstado}"/>
-                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_accidenteTransito}" for="accidenteTransito" />
-                        <p:selectOneMenu id="accidenteTransito" value="#{emergenciaController.selected.accidenteTransito}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{accidenteTransitoController.itemsAvailableSelectOne}"
-                                           var="accidenteTransitoItem"
-                                           itemValue="#{accidenteTransitoItem}"/>
-                        </p:selectOneMenu>
+			<h:panelGrid columns="2" cellpadding="10">                                                                        
+                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeEstado}" for="emeEstado" />                                                
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeEstado}" id="emeEstado">
+                            <f:selectItem itemLabel="Seleccione el Estado del Registro"/>
+                            <f:selectItems value="#{emergenciaController.mapaEstado}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                        
+                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_emeTipoe}" for="emeTipoe" />                                                
+                        <p:selectOneMenu value="#{emergenciaController.selected.emeTipoe}" id="emeTipoe">
+                            <f:selectItem itemLabel="Seleccione el Tipo de Emergencia"/>
+                            <f:selectItems value="#{emergenciaController.mapaTipoEmergencias}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                        
                         
-                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_inundacion}" for="inundacion" />
-                        <p:selectOneMenu id="inundacion" value="#{emergenciaController.selected.inundacion}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{inundacionController.itemsAvailableSelectOne}"
-                                           var="inundacionItem"
-                                           itemValue="#{inundacionItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_incendioForestal}" for="incendioForestal" />
-                        <p:selectOneMenu id="incendioForestal" value="#{emergenciaController.selected.incendioForestal}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{incendioForestalController.itemsAvailableSelectOne}"
-                                           var="incendioForestalItem"
-                                           itemValue="#{incendioForestalItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_otrosIncidentes}" for="otrosIncidentes" />
-                        <p:selectOneMenu id="otrosIncidentes" value="#{emergenciaController.selected.otrosIncidentes}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{otrosIncidentesController.itemsAvailableSelectOne}"
-                                           var="otrosIncidentesItem"
-                                           itemValue="#{otrosIncidentesItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditEmergenciaLabel_incendioEstructural}" for="incendioEstructural" />
-                        <p:selectOneMenu id="incendioEstructural" value="#{emergenciaController.selected.incendioEstructural}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{incendioEstructuralController.itemsAvailableSelectOne}"
-                                           var="incendioEstructuralItem"
-                                           itemValue="#{incendioEstructuralItem}"/>
-                        </p:selectOneMenu>
                         </h:panelGrid>
 				</p:tab>
 				<p:tab title="Datos atencion">

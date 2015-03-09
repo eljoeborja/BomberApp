@@ -45,9 +45,11 @@
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInmuebleArrendatario}"/>
                         <h:outputText value="#{emergenciaController.selected.emeInmuebleArrendatario}" title="#{bundle.ViewEmergenciaTitle_emeInmuebleArrendatario}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeNovedades}"/>
-                        <h:outputText value="#{emergenciaController.selected.emeNovedades}" title="#{bundle.ViewEmergenciaTitle_emeNovedades}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeNovedades}" title="#{bundle.ViewEmergenciaTitle_emeNovedades}"/>                        
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeEstado}"/>
-                        <h:outputText value="#{emergenciaController.selected.emeEstado}" title="#{bundle.ViewEmergenciaTitle_emeEstado}"/>
+                        <h:outputText value="#{emergenciaController.getEstadoSync(emergenciaController.selected.emeEstado)}" title="#{bundle.ViewEmergenciaTitle_emeEstado}"/>                        
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeTipoe}"/>
+                        <h:outputText value="#{emergenciaController.getTipoEmergencia(emergenciaController.selected.emeTipoe)}" title="#{bundle.ViewEmergenciaTitle_emeTipoe}"/>                        
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_accidenteTransito}"/>
                         <h:outputText value="#{emergenciaController.selected.accidenteTransito}" title="#{bundle.ViewEmergenciaTitle_accidenteTransito}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_costo}"/>

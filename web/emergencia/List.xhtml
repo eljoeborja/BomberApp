@@ -26,9 +26,8 @@
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton exportButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton exportButton"/>
-
-                        
-                        <p:column>
+                                                   
+                        <p:column>    
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeFecha}"/>
                             </f:facet>
@@ -90,8 +89,14 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEmergenciaTitle_emeEstado}"/>
                             </f:facet>
-                            <h:outputText value="#{item.emeEstado}"/>
-                        </p:column>                                                                                                                        
+                            <h:outputText value="#{emergenciaController.getEstadoSync(item.emeEstado)}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeTipoe}"/>
+                            </f:facet>
+                            <h:outputText value="#{emergenciaController.getTipoEmergencia(item.emeTipoe)}"/>
+                        </p:column>       
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{emergenciaController.prepareCreate}" update=":EmergenciaCreateForm" oncomplete="PF('EmergenciaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EmergenciaViewForm" oncomplete="PF('EmergenciaViewDialog').show()" disabled="#{empty emergenciaController.selected}"/>
