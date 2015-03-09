@@ -17,6 +17,10 @@
         <servlet-name>VehiculoServlet</servlet-name>
         <servlet-class>rest.service.VehiculoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmergenciaServlet</servlet-name>
+        <servlet-class>rest.service.EmergenciaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>VehiculoServlet</servlet-name>
         <url-pattern>/ws/vehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmergenciaServlet</servlet-name>
+        <url-pattern>/ws/emergencia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
