@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.0.final using JasperReports Library version 6.0.0  -->
-<!-- 2015-03-09T02:52:06 -->
+<!-- 2015-03-09T03:03:26 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte1" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="192d5111-65bb-4bd9-ba54-344270807373">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
@@ -88,7 +88,7 @@
 			</staticText>
 			<image>
 				<reportElement x="40" y="0" width="78" height="85" uuid="4798766c-9f26-470c-874d-66e11d805467"/>
-				<imageExpression><![CDATA["C:/Users/BuRr0X/Documents/NetBeansProjects/BomberApp/web/resources/utils/logo.png"]]></imageExpression>
+				<imageExpression><![CDATA["../utils/logo.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
