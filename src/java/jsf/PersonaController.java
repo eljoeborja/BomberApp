@@ -22,6 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import jsf.util.EstadoSync;
 import jsf.util.TipoPersona;
 
 @Named("personaController")
@@ -174,6 +175,13 @@ public class PersonaController implements Serializable {
     public String getTipoPersona(int value) {
         return TipoPersona.getFromValue(value).toString();
     }
+    public EstadoSync[] getMapaEstado() {
+        return EstadoSync.values();
+    }
+
+    public String getEstadoSync(int value) {
+        return EstadoSync.getFromValue(value).toString();
+    }   
     //Implementar la busqueda de acuerdo a la query del input y los resultados de la consulta personalizada
     public List<Persona> completePersona(String query) {
         List<Persona> allPersons = ejbFacade.getPersonas();
@@ -189,5 +197,5 @@ public class PersonaController implements Serializable {
             }            
         }         
         return filteredPersons;
-    }   
+    }    
 }

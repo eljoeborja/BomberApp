@@ -66,7 +66,7 @@ public class Unidad implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "uni_maquinista")
-    private Character uniMaquinista;
+    private Integer uniMaquinista;
     @Basic(optional = false)
     @NotNull
     @Column(name = "uni_estado")
@@ -90,7 +90,7 @@ public class Unidad implements Serializable {
         this.uniNpib = uniNpib;
     }
 
-    public Unidad(String uniNpib, String uniCbv, String uniRango, String uniGsrh, Character uniMaquinista, boolean uniEstado) {
+    public Unidad(String uniNpib, String uniCbv, String uniRango, String uniGsrh, Integer uniMaquinista, boolean uniEstado) {
         this.uniNpib = uniNpib;
         this.uniCbv = uniCbv;
         this.uniRango = uniRango;
@@ -131,11 +131,11 @@ public class Unidad implements Serializable {
         this.uniGsrh = uniGsrh;
     }
 
-    public Character getUniMaquinista() {
+    public Integer getUniMaquinista() {
         return uniMaquinista;
     }
 
-    public void setUniMaquinista(Character uniMaquinista) {
+    public void setUniMaquinista(Integer uniMaquinista) {
         this.uniMaquinista = uniMaquinista;
     }
 

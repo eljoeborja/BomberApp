@@ -87,7 +87,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListPersonaTitle_perEstado}"/>
                             </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.perEstado}" disabled="true"/>
+                            <h:outputText value="#{personaController.getEstadoSync(item.perEstado)}"/>                                                                                   
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{personaController.prepareCreate}" update=":PersonaCreateForm" oncomplete="PF('PersonaCreateDialog').show()"/>

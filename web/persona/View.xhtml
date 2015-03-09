@@ -33,7 +33,7 @@
                         <h:outputText value="#{bundle.ViewPersonaLabel_perMunicipio}"/>
                         <h:outputText value="#{municipioController.getNombreMunicipio(personaController.selected.perMunicipio)}" title="#{bundle.ViewPersonaTitle_perMunicipio}"/>                        
                         <h:outputText value="#{bundle.ViewPersonaLabel_perEstado}"/>
-                        <p:selectBooleanCheckbox value="#{personaController.selected.perEstado}" disabled="true"/>
+                        <h:outputText value="#{personaController.getEstadoSync(personaController.selected.perEstado)}"/>                                                                                                           
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="PersonaViewDialog.hide()"/>
                 </h:panelGroup>

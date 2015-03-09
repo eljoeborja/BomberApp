@@ -91,7 +91,7 @@ public class Persona implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "per_estado")
-    private boolean perEstado;
+    private Integer perEstado;
     @JoinColumn(name = "per_municipio", referencedColumnName = "mun_id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Municipio perMunicipio;
@@ -109,7 +109,7 @@ public class Persona implements Serializable {
         this.perId = perId;
     }
 
-    public Persona(String perId, String perCedula, String perApellidos, String perNombres, String perDireccion, String perTelefono, Integer perTipo, Date perFechanac, boolean perEstado) {
+    public Persona(String perId, String perCedula, String perApellidos, String perNombres, String perDireccion, String perTelefono, Integer perTipo, Date perFechanac, Integer perEstado) {
         this.perId = perId;
         this.perCedula = perCedula;
         this.perApellidos = perApellidos;
@@ -185,11 +185,11 @@ public class Persona implements Serializable {
         this.perFechanac = perFechanac;
     }
 
-    public boolean getPerEstado() {
+    public Integer getPerEstado() {
         return perEstado;
     }
 
-    public void setPerEstado(boolean perEstado) {
+    public void setPerEstado(Integer perEstado) {
         this.perEstado = perEstado;
     }
 

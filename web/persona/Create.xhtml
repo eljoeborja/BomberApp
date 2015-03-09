@@ -30,9 +30,7 @@
                             <f:selectItems value="#{personaController.mapaTipos}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perFechanac}" for="perFechanac" />
-                        <p:calendar id="perFechanac" pattern="MM/dd/yyyy" value="#{personaController.selected.perFechanac}" title="#{bundle.EditPersonaTitle_perFechanac}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perFechanac}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_perEstado}" for="perEstado" />
-                        <p:selectBooleanCheckbox id="perEstado" value="#{personaController.selected.perEstado}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perEstado}"/>
+                        <p:calendar id="perFechanac" pattern="MM/dd/yyyy" value="#{personaController.selected.perFechanac}" title="#{bundle.EditPersonaTitle_perFechanac}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perFechanac}" showOn="button"/>                        
                         <p:outputLabel value="#{bundle.CreateAseguradoraLabel_aseDep}" for="munDepCodigo" />
                         <p:selectOneMenu id="munDepCodigo" value="#{municipioController.departamento}" required="true" requiredMessage="#{bundle.EditMunicipioRequiredMessage_munDepCodigo}">
                             <p:ajax listener="#{municipioController.getMunicipiosByDepartamento()}" update="perMunicipio"/>
@@ -40,21 +38,19 @@
                             <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"
                                            var="munDepCodigoItem"
                                            itemValue="#{munDepCodigoItem}"/>
-                        </p:selectOneMenu>
-                        
+                        </p:selectOneMenu>                        
                         <p:outputLabel value="#{bundle.CreatePersonaLabel_perMunicipio}" for="perMunicipio" />
                         <p:selectOneMenu id="perMunicipio" value="#{personaController.selected.perMunicipio}" required="true" requiredMessage="#{bundle.EditPersonaRequiredMessage_perMunicipio}">
                             <f:selectItem itemLabel="Seleccione el Municipio" itemValue="" noSelectionOption="true"/>
                             <f:selectItems value="#{municipioController.itemsFilter}"
                                            var="perMunicipioItem"
                                            itemValue="#{perMunicipioItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreatePersonaLabel_victimaAccidente}" for="victimaAccidente" />
-                        <p:selectOneMenu id="victimaAccidente" value="#{personaController.selected.victimaAccidente}" >
-                            <f:selectItems value="#{victimaAccidenteController.itemsAvailableSelectOne}"
-                                           var="victimaAccidenteItem"
-                                           itemValue="#{victimaAccidenteItem}"/>
-                        </p:selectOneMenu>
+                        </p:selectOneMenu>                        
+                        <p:outputLabel value="#{bundle.CreatePersonaLabel_perEstado}" for="perEstado" />
+                        <p:selectOneMenu value="#{personaController.selected.perEstado}" id="perEstado">
+                            <f:selectItem itemLabel="Seleccione el Estado del Registro"/>
+                            <f:selectItems value="#{personaController.mapaEstado}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{personaController.create}" value="#{bundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PersonaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PF('PersonaCreateDialog').hide()" type="button"/>
