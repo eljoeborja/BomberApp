@@ -21,7 +21,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("accidenteTransitoController")
-@RequestScoped
+@SessionScoped
 public class AccidenteTransitoController implements Serializable {
 
     @EJB

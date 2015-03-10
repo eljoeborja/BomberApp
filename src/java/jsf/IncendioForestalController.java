@@ -21,7 +21,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("incendioForestalController")
-@RequestScoped
+@SessionScoped
 public class IncendioForestalController implements Serializable {
 
     @EJB

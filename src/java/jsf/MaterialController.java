@@ -21,7 +21,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("materialController")
-@RequestScoped
+@SessionScoped
 public class MaterialController implements Serializable {
 
     @EJB
