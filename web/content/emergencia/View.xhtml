@@ -22,6 +22,8 @@
                         <h:outputText value="#{emergenciaController.selected.emeHora}" title="#{bundle.ViewEmergenciaTitle_emeHora}">
                             <f:convertDateTime pattern="HH:mm:ss" />
                         </h:outputText>
+                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInformante}"/>
+                        <h:outputText value="#{emergenciaController.selected.emeInformante.perApellidos} #{emergenciaController.selected.emeInformante.perNombres}" title="#{bundle.ViewEmergenciaTitle_emeInformante}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInformacionRecibida}"/>
                         <h:outputText value="#{emergenciaController.selected.emeInformacionRecibida}" title="#{bundle.ViewEmergenciaTitle_emeInformacionRecibida}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeMedioInformacion}"/>
@@ -50,24 +52,8 @@
                         <h:outputText value="#{emergenciaController.getEstadoSync(emergenciaController.selected.emeEstado)}" title="#{bundle.ViewEmergenciaTitle_emeEstado}"/>                        
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeTipoe}"/>
                         <h:outputText value="#{emergenciaController.getTipoEmergencia(emergenciaController.selected.emeTipoe)}" title="#{bundle.ViewEmergenciaTitle_emeTipoe}"/>                        
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_accidenteTransito}"/>
-                        <h:outputText value="#{emergenciaController.selected.accidenteTransito}" title="#{bundle.ViewEmergenciaTitle_accidenteTransito}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_costo}"/>
-                        <h:outputText value="#{emergenciaController.selected.costo}" title="#{bundle.ViewEmergenciaTitle_costo}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_inundacion}"/>
-                        <h:outputText value="#{emergenciaController.selected.inundacion}" title="#{bundle.ViewEmergenciaTitle_inundacion}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_personalEmergancia}"/>
-                        <h:outputText value="#{emergenciaController.selected.personalEmergancia}" title="#{bundle.ViewEmergenciaTitle_personalEmergancia}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_incendioForestal}"/>
-                        <h:outputText value="#{emergenciaController.selected.incendioForestal}" title="#{bundle.ViewEmergenciaTitle_incendioForestal}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_otrosIncidentes}"/>
-                        <h:outputText value="#{emergenciaController.selected.otrosIncidentes}" title="#{bundle.ViewEmergenciaTitle_otrosIncidentes}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_incendioEstructural}"/>
-                        <h:outputText value="#{emergenciaController.selected.incendioEstructural}" title="#{bundle.ViewEmergenciaTitle_incendioEstructural}"/>
-                        <h:outputText value="#{bundle.ViewEmergenciaLabel_emeInformante}"/>
-                        <h:outputText value="#{emergenciaController.selected.emeInformante}" title="#{bundle.ViewEmergenciaTitle_emeInformante}"/>
                         <h:outputText value="#{bundle.ViewEmergenciaLabel_emeComandante}"/>
-                        <h:outputText value="#{emergenciaController.selected.emeComandante}" title="#{bundle.ViewEmergenciaTitle_emeComandante}"/>                                                
+                        <h:outputText value="#{emergenciaController.selected.emeComandante.uniRango} #{emergenciaController.selected.emeComandante.uniPerId.perApellidos} #{emergenciaController.selected.emeComandante.uniPerId.perNombres}" title="#{bundle.ViewEmergenciaTitle_emeComandante}"/>                                                
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EmergenciaViewDialog.hide()"/>
                 </h:panelGroup>

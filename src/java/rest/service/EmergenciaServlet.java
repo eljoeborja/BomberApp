@@ -80,8 +80,8 @@ public class EmergenciaServlet extends HttpServlet {
                     //Informante 
                     //Casting de Informate al tipo de Objeto Persona
                     String idPersona = temp.getEmeInformante().toString();
-                    if(idPersona.equals("1"))
-                        idPersona="001";
+//                    if(idPersona.equals("1"))
+//                        idPersona="001";
                     Persona persona = personaFacade.find(idPersona);
                     emergencia.setEmeInformante(persona);
                     //Informacion Recibida
@@ -111,8 +111,8 @@ public class EmergenciaServlet extends HttpServlet {
                     //Informante 
                     //Casting de Comandante al tipo de Objeto Unidad
                     String idComandante = temp.getEmeComandante().toString();
-                    if(idComandante.equals("1"))
-                        idComandante="12cvb";
+//                    if(idComandante.equals("1"))
+//                        idComandante="12cvb";
                     Unidad unidad = unidadFacade.find(idComandante);
                     emergencia.setEmeComandante(unidad);
                     //Estado                    

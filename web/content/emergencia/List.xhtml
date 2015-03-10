@@ -59,6 +59,12 @@
                     </p:column>
                     <p:column>
                         <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformante}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.emeInformante.perNombres} #{item.emeInformante.perApellidos}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
                             <h:outputText value="#{bundle.ListEmergenciaTitle_emeMedioInformacion}"/>
                         </f:facet>
                         <h:outputText value="#{emergenciaController.getTipoMedioInformacion(item.emeMedioInformacion)}"/>
@@ -74,42 +80,24 @@
                             <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleClase}"/>
                         </f:facet>
                         <h:outputText value="#{emergenciaController.getClaseInmueble(item.emeInmuebleClase)}"/>                
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmueblePropietario}"/>
-                        </f:facet>
-                        <h:outputText value="#{item.emeInmueblePropietario}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleArrendatario}"/>
-                        </f:facet>
-                        <h:outputText value="#{item.emeInmuebleArrendatario}"/>
-                    </p:column>                        
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{bundle.ListEmergenciaTitle_emeInformante}"/>
-                        </f:facet>
-                        <h:outputText value="#{item.emeInformante.perNombres} #{item.emeInformante.perApellidos}"/>
-                    </p:column>
+                    </p:column>                    
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListEmergenciaTitle_emeComandante}"/>
                         </f:facet>
                         <h:outputText value="#{item.emeComandante.uniRango.toUpperCase()} #{item.emeComandante.uniPerId.perApellidos.toUpperCase()} #{item.emeComandante.uniPerId.perNombres.toUpperCase()} "/>
+                    </p:column>                    
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListEmergenciaTitle_emeTipoe}"/>
+                        </f:facet>
+                        <h:outputText value="#{emergenciaController.getTipoEmergencia(item.emeTipoe)}"/>
                     </p:column>
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListEmergenciaTitle_emeEstado}"/>
                         </f:facet>
                         <h:outputText value="#{emergenciaController.getEstadoSync(item.emeEstado)}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="#{bundle.ListEmergenciaTitle_emeTipoe}"/>
-                        </f:facet>
-                        <h:outputText value="#{emergenciaController.getTipoEmergencia(item.emeTipoe)}"/>
                     </p:column>
                 </p:dataTable>
                 <!--</p:panel>-->
