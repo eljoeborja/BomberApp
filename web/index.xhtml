@@ -49,7 +49,7 @@
                             <p:menuitem value="Vehiculo Comprometido" outcome="/content/vehiculoComprometido/List.xhtml" />
                         </p:submenu>
                         
-                        <p:submenu class="menuPrincipal" label="#{loginController.user.usuName}" style="float: right;" rendered="#{loginController.user != null}">
+                        <p:submenu styleClass="menuPrincipal" label="#{loginController.user.usuName}" style="float: right;" rendered="#{loginController.user != null}">
                             <p:menuitem action="#{loginController.logoutLink()}" icon="ui-icon-power" value="#{bundle.LogOut}" />
                         </p:submenu>
                     </p:menubar>
