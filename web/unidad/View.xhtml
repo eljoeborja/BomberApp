@@ -11,9 +11,11 @@
         <p:dialog id="UnidadViewDlg" widgetVar="UnidadViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUnidadTitle}">
             <h:form id="UnidadViewForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{unidadController.selected != null}">
+                    <p:panelGrid columns="2" rendered="#{unidadController.selected != null}">                        
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniNpib}"/>
                         <h:outputText value="#{unidadController.selected.uniNpib}" title="#{bundle.ViewUnidadTitle_uniNpib}"/>
+                        <h:outputText value="#{bundle.ViewUnidadLabel_uniPerId}"/>
+                        <h:outputText value="#{unidadController.selected.uniPerId.perApellidos} #{unidadController.selected.uniPerId.perNombres}" title="#{bundle.ViewUnidadTitle_uniPerId}"/>                        
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniCbv}"/>
                         <h:outputText value="#{unidadController.selected.uniCbv}" title="#{bundle.ViewUnidadTitle_uniCbv}"/>
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniRango}"/>
@@ -23,9 +25,7 @@
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniMaquinista}"/>
                         <h:outputText value="#{unidadController.selected.uniMaquinista}" title="#{bundle.ViewUnidadTitle_uniMaquinista}"/>
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniEstado}"/>
-                        <h:outputText value="#{unidadController.getEstadoSync(unidadController.selected.uniEstado)}" />                        
-                        <h:outputText value="#{bundle.ViewUnidadLabel_uniPerId}"/>
-                        <h:outputText value="#{unidadController.selected.uniPerId.perApellidos} #{unidadController.selected.uniPerId.perNombres}" title="#{bundle.ViewUnidadTitle_uniPerId}"/>                        
+                        <h:outputText value="#{unidadController.getEstadoSync(unidadController.selected.uniEstado)}" />                                                
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="UnidadViewDialog.hide()"/>
                 </h:panelGroup>

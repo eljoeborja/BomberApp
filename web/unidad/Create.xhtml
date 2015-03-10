@@ -14,6 +14,8 @@
                     <p:panelGrid columns="2" rendered="#{unidadController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniNpib}" for="uniNpib" />
                         <p:inputText id="uniNpib" value="#{unidadController.selected.uniNpib}" title="#{bundle.CreateUnidadTitle_uniNpib}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniNpib}"/>
+                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniPerId}" for="uniPerId" />
+                        <p:autoComplete id="uniPerId" value="#{unidadController.selected.uniPerId}" completeMethod="#{personaController.completePersona(unidadController.selected.uniPerId)}" />                       
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniCbv}" for="uniCbv" />
                         <p:inputText id="uniCbv" value="#{unidadController.selected.uniCbv}" title="#{bundle.CreateUnidadTitle_uniCbv}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniCbv}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniRango}" for="uniRango" />
@@ -21,9 +23,7 @@
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniGsrh}" for="uniGsrh" />
                         <p:inputText id="uniGsrh" value="#{unidadController.selected.uniGsrh}" title="#{bundle.CreateUnidadTitle_uniGsrh}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniGsrh}"/>
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniMaquinista}" for="uniMaquinista" />
-                        <p:inputText id="uniMaquinista" value="#{unidadController.selected.uniMaquinista}" title="#{bundle.CreateUnidadTitle_uniMaquinista}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniMaquinista}"/>                                                
-                        <p:outputLabel value="#{bundle.CreateUnidadLabel_uniPerId}" for="uniPerId" />
-                        <p:autoComplete id="uniPerId" value="#{unidadController.selected.uniPerId}" completeMethod="#{personaController.completePersona(unidadController.selected.uniPerId)}" />                       
+                        <p:inputText id="uniMaquinista" value="#{unidadController.selected.uniMaquinista}" title="#{bundle.CreateUnidadTitle_uniMaquinista}" required="true" requiredMessage="#{bundle.CreateUnidadRequiredMessage_uniMaquinista}"/>                                                                        
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniEstado}" for="uniEstado" />
                         <p:selectOneMenu value="#{unidadController.selected.uniEstado}" id="uniEstado">
                             <f:selectItem itemLabel="Seleccione el Estado del Registro"/>

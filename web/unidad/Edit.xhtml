@@ -14,6 +14,8 @@
                     <p:panelGrid columns="2" rendered="#{unidadController.selected != null}">
                         <p:outputLabel value="#{bundle.EditUnidadLabel_uniNpib}" for="uniNpib" />
                         <p:inputText id="uniNpib" value="#{unidadController.selected.uniNpib}" title="#{bundle.EditUnidadTitle_uniNpib}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniNpib}"/>
+                        <p:outputLabel value="#{bundle.EditUnidadLabel_uniPerId}" for="uniPerId" />
+                        <h:inputText id="uniPerId" value="#{unidadController.selected.uniPerId.perId}" required="true"/>
                         <p:outputLabel value="#{bundle.EditUnidadLabel_uniCbv}" for="uniCbv" />
                         <p:inputText id="uniCbv" value="#{unidadController.selected.uniCbv}" title="#{bundle.EditUnidadTitle_uniCbv}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniCbv}"/>
                         <p:outputLabel value="#{bundle.EditUnidadLabel_uniRango}" for="uniRango" />
@@ -26,9 +28,7 @@
                         <p:selectOneMenu value="#{unidadController.selected.uniEstado}" id="uniEstado" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}">
                             <f:selectItem itemLabel="Seleccione el Estado del Registro"/>
                             <f:selectItems value="#{unidadController.mapaEstado}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
-                        </p:selectOneMenu>                                                                         
-                        <p:outputLabel value="#{bundle.EditUnidadLabel_uniPerId}" for="uniPerId" />
-                        <h:inputText id="uniPerId" value="#{unidadController.selected.uniPerId.perId}" required="true"/>
+                        </p:selectOneMenu>                                                                                                 
                     </p:panelGrid>
                     <p:commandButton actionListener="#{unidadController.update}" value="#{bundle.Save}" update="display,:UnidadListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PF('UnidadEditDialog').hide()" type="button"/>
