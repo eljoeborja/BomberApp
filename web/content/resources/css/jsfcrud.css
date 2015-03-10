@@ -17,6 +17,7 @@
 }
 
 #logofooter{
+    /*background: url("src/logo.jpg");*/
     background-image: url("http://localhost:8080/BomberApp/faces/resources/utils/img/banner.jpg");
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -61,6 +62,7 @@ div#banner div.ui-layout-unit-content.ui-widget-content{
 
 div#banner2{
     height: 98px;
+    /* border: 1px solid #fff; */
     width: 800px;
     margin: auto;
     display: table;
@@ -68,7 +70,7 @@ div#banner2{
 
 
 /* hlavicka ------------------------------------------------------------------ */
-#header2 { background: none; margin-right: -258px;}
+#header2 { /* position:relative; */ /* background: #303030; */ /* margin-bottom: -3px; */ /* display: table-cell; */ background: none; margin-right: -258px;}
 
 #logo {
     font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif;
@@ -80,6 +82,7 @@ div#banner2{
     margin: 0;
     line-height: 90px;
     text-align: center;
+    /* border: 1px solid #fff; */
 }
 #logo a{
     text-decoration: none;
@@ -156,11 +159,21 @@ div#acciones button.ui-button {
 
 #logo2{
     background-image: url(utils/bannersinfondo.png);
+    /* float: left; */
+    /* border: 1px solid #fff; */
+    /* height: 94px; */
     background-repeat: no-repeat;
     background-size: 390px 75px;
     display: table-cell;
+    /* border: 1px solid #fff; */
+    /* margin: -122px; */
+    /* display: table-cell; */
     width: 390px;
+    /* margin-top: 82px; */
     padding-top: -226px;
+    /* height: 9px; */
+    /* vertical-align: bottom; */
+    /* vertical-align: middle; */
     background-position-y: 17px;
 }
 
