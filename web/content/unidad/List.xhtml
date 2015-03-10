@@ -35,6 +35,12 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUnidadTitle_uniPerId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.uniPerId.perApellidos} #{item.uniPerId.perNombres}"/>
+                        </p:column>                        
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUnidadTitle_uniCbv}"/>
                             </f:facet>
                             <h:outputText value="#{item.uniCbv}"/>
@@ -56,18 +62,12 @@
                                 <h:outputText value="#{bundle.ListUnidadTitle_uniMaquinista}"/>
                             </f:facet>
                             <h:outputText value="#{item.uniMaquinista}"/>
-                        </p:column>
+                        </p:column>                                               
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUnidadTitle_uniEstado}"/>
                             </f:facet>
-                            <p:selectBooleanCheckbox value="#{item.uniEstado}" disabled="true"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUnidadTitle_uniPerId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.uniPerId}"/>
+                            <h:outputText value="#{unidadController.getEstadoSync(item.uniEstado)}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{unidadController.prepareCreate}" update=":UnidadCreateForm" oncomplete="PF('UnidadCreateDialog').show()"/>

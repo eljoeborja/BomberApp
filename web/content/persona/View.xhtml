@@ -21,6 +21,8 @@
                         <h:outputText value="#{bundle.ViewPersonaLabel_perNombres}"/>
                         <h:outputText value="#{personaController.selected.perNombres}" title="#{bundle.ViewPersonaTitle_perNombres}"/>
                         <h:outputText value="#{bundle.ViewPersonaLabel_perDireccion}"/>
+                        <h:outputText value="#{bundle.ViewPersonaLabel_perMunicipio}"/>
+                        <h:outputText value="#{municipioController.getNombreMunicipio(personaController.selected.perMunicipio)}" title="#{bundle.ViewPersonaTitle_perMunicipio}"/>                        
                         <h:outputText value="#{personaController.selected.perDireccion}" title="#{bundle.ViewPersonaTitle_perDireccion}"/>
                         <h:outputText value="#{bundle.ViewPersonaLabel_perTelefono}"/>
                         <h:outputText value="#{personaController.selected.perTelefono}" title="#{bundle.ViewPersonaTitle_perTelefono}"/>
@@ -29,9 +31,7 @@
                         <h:outputText value="#{bundle.ViewPersonaLabel_perFechanac}"/>
                         <h:outputText value="#{personaController.selected.perFechanac}" title="#{bundle.ViewPersonaTitle_perFechanac}">
                             <f:convertDateTime pattern="MM/dd/yyyy" />
-                        </h:outputText>                        
-                        <h:outputText value="#{bundle.ViewPersonaLabel_perMunicipio}"/>
-                        <h:outputText value="#{municipioController.getNombreMunicipio(personaController.selected.perMunicipio)}" title="#{bundle.ViewPersonaTitle_perMunicipio}"/>                        
+                        </h:outputText>                                                
                         <h:outputText value="#{bundle.ViewPersonaLabel_perEstado}"/>
                         <h:outputText value="#{personaController.getEstadoSync(personaController.selected.perEstado)}"/>                                                                                                           
                     </p:panelGrid>
