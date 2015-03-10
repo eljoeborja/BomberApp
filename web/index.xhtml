@@ -1,121 +1,69 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
-        <h:head>
-            <title>BCBVRV</title>
-            <h:outputStylesheet name="/utils/css/screen.css"/>
-            <link href="/utils/css/screen.css" type="text/css" rel="stylesheet" media="screen,projection" />
-        </h:head>
-        <h:body>
-            <div id="layout">
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title><ui:insert name="title">BCBVRV</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
+    </h:head>
+    <h:body>
+        <p:growl id="growl" life="3000" />
 
-                <div id="header">
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="65" id="banner">
 
-                    <h1 id="logo"><a href="#" title="#">BCBV<span>Roldanillo</span></a></h1>
+                <div id="banner2">
+                    <div id="header">
+                        <h1 id="logo"><a href="#" title="#">BCBV<span>Roldanillo</span></a></h1>
+                    </div>
+                    <div id="logo2"></div>
                 </div>
-                <div id="main">
-                    <img src="resources/utils/img/banner.jpg" width=""/>                 
-                    <h:form id="menuForm">
+
+                <h:form id="menuForm">
                     <p:menubar>
                         <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
                         <p:submenu label="#{bundle.Incidentes}">
-                            <p:menuitem value="Emergencia" outcome="/emergencia/List.xhtml" />
-                            <p:menuitem value="Accidente Transito" outcome="/accidenteTransito/List.xhtml" />
-                            <p:menuitem value="Incendio Estructural" outcome="/incendioEstructural/List.xhtml" />
-                            <p:menuitem value="Incendio Forestal" outcome="/incendioForestal/List.xhtml" />
-                            <p:menuitem value="Inundacion" outcome="/inundacion/List.xhtml" />
-                            <p:menuitem value="Otros Incidentes" outcome="/otrosIncidentes/List.xhtml" />
-                            </p:submenu> <p:submenu label="#{bundle.Personal}">
-                            <p:menuitem value="Persona" outcome="/persona/List.xhtml" />
-                            <p:menuitem value="Personal Emergencia" outcome="/personalEmergancia/List.xhtml" />
-                            <p:menuitem value="Unidad" outcome="/unidad/List.xhtml" />
-                            <p:menuitem value="Usuario" outcome="/usuario/List.xhtml" />
-                            <p:menuitem value="Victima Accidente" outcome="/victimaAccidente/List.xhtml" />
-                            </p:submenu><p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Aseguradora" outcome="/aseguradora/List.xhtml" />
-                            <p:menuitem value="Costo" outcome="/costo/List.xhtml" />                                                  
-                            <p:menuitem value="Maquina" outcome="/maquina/List.xhtml" />
-                            <p:menuitem value="Maquina Emergencia" outcome="/maquinaEmergencia/List.xhtml" />
-                            <p:menuitem value="Material" outcome="/material/List.xhtml" />
-                            <p:menuitem value="Material Utilizado" outcome="/materialUtilizado/List.xhtml" />                          
-                            <p:menuitem value="Vehiculo" outcome="/vehiculo/List.xhtml" />
-                            <p:menuitem value="Vehiculo Comprometido" outcome="/vehiculoComprometido/List.xhtml" />
-                            </p:submenu> 
+                            <p:menuitem value="Emergencia" outcome="/content/emergencia/List.xhtml" />
+                            <p:menuitem value="Accidente Transito" outcome="/content/accidenteTransito/List.xhtml" />
+                            <p:menuitem value="Incendio Estructural" outcome="/content/incendioEstructural/List.xhtml" />
+                            <p:menuitem value="Incendio Forestal" outcome="/content/incendioForestal/List.xhtml" />
+                            <p:menuitem value="Inundacion" outcome="/content/inundacion/List.xhtml" />
+                            <p:menuitem value="Otros Incidentes" outcome="/content/otrosIncidentes/List.xhtml" />
+                        </p:submenu><p:submenu label="#{bundle.Personal}">
+                            <p:menuitem value="Persona" outcome="/content/persona/List.xhtml" />
+                            <p:menuitem value="Personal Emergencia" outcome="/content/personalEmergancia/List.xhtml" />
+                            <p:menuitem value="Unidad" outcome="/content/unidad/List.xhtml" />
+                            <p:menuitem value="Usuario" outcome="/content/usuario/List.xhtml" />
+                            <p:menuitem value="Victima Accidente" outcome="/content/victimaAccidente/List.xhtml" />
+                        </p:submenu><p:submenu label="#{bundle.Maintenance}">
+                            <p:menuitem value="Aseguradora" outcome="/content/aseguradora/List.xhtml" />
+                            <p:menuitem value="Costo" outcome="/content/costo/List.xhtml" />                                                  
+                            <p:menuitem value="Maquina" outcome="/content/maquina/List.xhtml" />
+                            <p:menuitem value="Maquina Emergencia" outcome="/content/maquinaEmergencia/List.xhtml" />
+                            <p:menuitem value="Material" outcome="/content/material/List.xhtml" />
+                            <p:menuitem value="Material Utilizado" outcome="/content/materialUtilizado/List.xhtml" />                          
+                            <p:menuitem value="Vehiculo" outcome="/content/vehiculo/List.xhtml" />
+                            <p:menuitem value="Vehiculo Comprometido" outcome="/content/vehiculoComprometido/List.xhtml" />
+                        </p:submenu>
                     </p:menubar>
                 </h:form>
-               
-                    <h:form id="EmergenciaListForm">
-                <p:panel header="#{bundle.ListEmergenciaTitle}">
-                    <p:dataTable id="datalist" value="#{emergenciaController.items}" var="item"
-                                 selectionMode="single" selection="#{emergenciaController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.emeId}"
-                                 rows="5"
-                                 rowsPerPageTemplate="5,10,15,20,25"
-                                 >
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeFecha}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeFecha}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeHora}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeHora}">
-                                <f:convertDateTime pattern="HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeMedioInformacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{emergenciaController.getTipoMedioInformacion(item.emeMedioInformacion)}"/>                            
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeDireccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeDireccion}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmuebleClase}"/>
-                            </f:facet>
-                            <h:outputText value="#{emergenciaController.getClaseInmueble(item.emeInmuebleClase)}"/>                                                        
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEmergenciaTitle_emeInmueblePropietario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.emeInmueblePropietario}"/>
-                        </p:column>
-                                             
-                    </p:dataTable>
-                </p:panel>
-            </h:form>                                       
-                <p>ADMINISTRACION DE SISTEMAS INFORMATICOS</p>        
-                </div>                               
-            </div>
-            <div id="footer">
-                <div id="footer-inside">
-                    <p id="copyright">&copy; 2015 - <a href="/">intep</a></p>
-
-                    <!-- Please don't delete this. You can use this template for free and this is the only way that you can say thanks to me -->
-                    <p id="dont-delete-this">JOSE EDUARDO BORJA, EDUARDO JOSE PADILLA, MILTON VANEGAS | CBVRV</p>
-                    <!-- Thank you :) -->
-
-                </div><div style="clear: both;"></div></div>
-            <br />               
-
-        </h:body>
-   
+            </p:layoutUnit>
+            <p:layoutUnit position="south" size="100">
+                <ui:insert name="footer"/>
+                <div class="pie">
+                    JOSE EDUARDO BORJA, EDUARDO JOSE PADILLA, MILTON VANEGAS | CBVRV
+                    <br />
+                    ADMINISTRACION DE SISTEMAS INFORMATICOS
+                    <br />
+                    &copy; 2015 - INTEP
+                </div>
+            </p:layoutUnit>
+            <p:layoutUnit styleClass="contenido" position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
 </html>
-
