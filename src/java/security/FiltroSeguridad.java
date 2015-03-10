@@ -33,14 +33,6 @@ public class FiltroSeguridad implements Filter {
                 LoginController.AUTH_KEY) == null) {
             ((HttpServletResponse) response).sendRedirect("../../index.xhtml");
         } else {
-
-//            Usuario user = (Usuario) req.getSession().getAttribute(LoginController.AUTH_KEY);
-//
-//            if (req.getRequestURI().startsWith("/Road2RoldanilloWS/faces/content/usuario") && !user.isAdmin()) {
-//                ((HttpServletResponse) response).sendRedirect("../../index.xhtml");
-//                return;
-//            }
-
             chain.doFilter(request, response);
         }
     }

@@ -15,86 +15,92 @@
 
         <ui:define name="body">
             <h:form id="CostoListForm">
-                <p:panel header="#{bundle.ListCostoTitle}">
-                    <p:dataTable id="datalist" value="#{costoController.items}" var="item"
-                                 selectionMode="single" selection="#{costoController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.costoId}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 >
+                <!--<p:panel header="#{bundle.ListCostoTitle}">-->
+                <p:dataTable styleClass="tabla" paginatorPosition="bottom" id="datalist" value="#{costoController.items}" var="item"
+                             selectionMode="single" selection="#{costoController.selected}"
+                             paginator="true"
+                             rowKey="#{item.costoId}"
+                             rows="10"
+                             rowsPerPageTemplate="10,20,30,40,50"
+                             >
 
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                    <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                    <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoId}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoCombustible}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoCombustible}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoGalones}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoGalones}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoAlimentos}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoAlimentos}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoDanos}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoDanos}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoOtrosdes}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoOtrosdes}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoOtros}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoOtros}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoTotal}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoTotal}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoObservaciones}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoObservaciones}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCostoTitle_costoEmeId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.costoEmeId}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                    <f:facet name="header">
+                        <div id="titulo">
+                            #{bundle.ListCostoTitle}
+                        </div>
+                        <div id="acciones">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{costoController.prepareCreate}" update=":CostoCreateForm" oncomplete="PF('CostoCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":CostoViewForm" oncomplete="PF('CostoViewDialog').show()" disabled="#{empty costoController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CostoEditForm" oncomplete="PF('CostoEditDialog').show()" disabled="#{empty costoController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{costoController.destroy}" update=":growl,datalist" disabled="#{empty costoController.selected}"/>
+                        </div>
+                    </f:facet>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoId}"/>
                         </f:facet>
-                    </p:dataTable>
-                </p:panel>
+                        <h:outputText value="#{item.costoId}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoCombustible}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoCombustible}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoGalones}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoGalones}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoAlimentos}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoAlimentos}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoDanos}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoDanos}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoOtrosdes}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoOtrosdes}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoOtros}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoOtros}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoTotal}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoTotal}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoObservaciones}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoObservaciones}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListCostoTitle_costoEmeId}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.costoEmeId}"/>
+                    </p:column>
+                </p:dataTable>
+                <!--</p:panel>-->
             </h:form>
 
             <ui:include src="Create.xhtml"/>

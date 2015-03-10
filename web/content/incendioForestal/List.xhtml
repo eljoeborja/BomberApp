@@ -15,68 +15,74 @@
 
         <ui:define name="body">
             <h:form id="IncendioForestalListForm">
-                <p:panel header="#{bundle.ListIncendioForestalTitle}">
-                    <p:dataTable id="datalist" value="#{incendioForestalController.items}" var="item"
-                                 selectionMode="single" selection="#{incendioForestalController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.incfId}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 >
+                <!--<p:panel header="#{bundle.ListIncendioForestalTitle}">-->
+                <p:dataTable styleClass="tabla" paginatorPosition="bottom" id="datalist" value="#{incendioForestalController.items}" var="item"
+                             selectionMode="single" selection="#{incendioForestalController.selected}"
+                             paginator="true"
+                             rowKey="#{item.incfId}"
+                             rows="10"
+                             rowsPerPageTemplate="10,20,30,40,50"
+                             >
 
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                    <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                    <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfId}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfArea}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfArea}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfTipoArea}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfTipoArea}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfOtro}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfOtro}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfCanAfectados}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfCanAfectados}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfObservaciones}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfObservaciones}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListIncendioForestalTitle_incfEmeId}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.incfEmeId}"/>
-                        </p:column>
-                        <f:facet name="footer">
+                    <f:facet name="header">
+                        <div id="titulo">
+                            #{bundle.ListIncendioForestalTitle}
+                        </div>
+                        <div id="acciones">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{incendioForestalController.prepareCreate}" update=":IncendioForestalCreateForm" oncomplete="PF('IncendioForestalCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":IncendioForestalViewForm" oncomplete="PF('IncendioForestalViewDialog').show()" disabled="#{empty incendioForestalController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":IncendioForestalEditForm" oncomplete="PF('IncendioForestalEditDialog').show()" disabled="#{empty incendioForestalController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{incendioForestalController.destroy}" update=":growl,datalist" disabled="#{empty incendioForestalController.selected}"/>
+                        </div>
+                    </f:facet>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfId}"/>
                         </f:facet>
-                    </p:dataTable>
-                </p:panel>
+                        <h:outputText value="#{item.incfId}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfArea}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.incfArea}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfTipoArea}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.incfTipoArea}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfOtro}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.incfOtro}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfCanAfectados}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.incfCanAfectados}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfObservaciones}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.incfObservaciones}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListIncendioForestalTitle_incfEmeId}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.incfEmeId}"/>
+                    </p:column>
+                </p:dataTable>
+                <!--</p:panel>-->
             </h:form>
 
             <ui:include src="Create.xhtml"/>

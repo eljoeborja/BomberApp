@@ -16,12 +16,11 @@
         <ui:define name="body">
             <h:form id="EmergenciaListForm" >
                 <!--<p:panel header="#{bundle.ListEmergenciaTitle}">-->
-                <p:dataTable styleClass="tabla" id="datalist" value="#{emergenciaController.items}" var="item"
+                <p:dataTable styleClass="tabla" paginatorPosition="bottom" id="datalist" value="#{emergenciaController.items}" var="item"
                              selectionMode="single" selection="#{emergenciaController.selected}"
                              paginator="true"
                              rowKey="#{item.emeId}"
-                             rows="10"
-                             paginatorPosition="bottom"
+                             rows="10"                             
                              rowsPerPageTemplate="10,20,30,40,50"
                              >
 
