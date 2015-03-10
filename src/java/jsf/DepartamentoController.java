@@ -21,7 +21,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("departamentoController")
-@RequestScoped
+@SessionScoped
 public class DepartamentoController implements Serializable {
 
     @EJB

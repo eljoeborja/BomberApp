@@ -21,7 +21,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @Named("costoController")
-@RequestScoped
+@SessionScoped
 public class CostoController implements Serializable {
 
     @EJB
