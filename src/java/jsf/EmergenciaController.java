@@ -8,8 +8,10 @@ import java.io.File;
 import java.io.IOException;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -32,6 +34,7 @@ import jsf.util.EstadoSync;
 import jsf.util.TipoEmergencia;
 import jsf.util.TipoMedioInformacion;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperRunManager;
@@ -195,7 +198,7 @@ public class EmergenciaController implements Serializable {
     public String getClaseInmueble(int value) {
         return ClaseInmueble.getFromValue(value).toString();
     }
-    
+
     public TipoEmergencia[] getMapaTipoEmergencias() {
         return TipoEmergencia.values();
     }
@@ -203,7 +206,7 @@ public class EmergenciaController implements Serializable {
     public String getTipoEmergencia(int value) {
         return TipoEmergencia.getFromValue(value).toString();
     }
-    
+
     public EstadoSync[] getMapaEstado() {
         return EstadoSync.values();
     }
@@ -211,7 +214,7 @@ public class EmergenciaController implements Serializable {
     public String getEstadoSync(int value) {
         return EstadoSync.getFromValue(value).toString();
     }
-    
+
     public Date minYear() {
         Calendar fechaMinima = Calendar.getInstance();
         fechaMinima.set(1900, 01, 01);
@@ -223,19 +226,20 @@ public class EmergenciaController implements Serializable {
         try {
 
             ServletContext context = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-            String ruta = context.getRealPath("/resources/reportes/reporte1.jasper");
+            String ruta = context.getRealPath("/resources/reportes/reporte.jasper");
 
             File jasper = new File(ruta);
 
-            byte[] bytes = JasperRunManager.runReportToPdf(jasper.getPath(), null, new JRBeanCollectionDataSource(this.getItems()));
+            List<Emergencia> emergenciasTMP = new ArrayList<>();
+            emergenciasTMP.add(selected);
+
+            JRBeanCollectionDataSource beanCollectionDataSource = new JRBeanCollectionDataSource(emergenciasTMP);  
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasper.getPath(), new HashMap(), beanCollectionDataSource);  
             HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
 
-            response.reset();
-            response.setContentType("application/pdf");
-            response.setContentLength(bytes.length);
-
             try (ServletOutputStream outStream = response.getOutputStream()) {
-                outStream.write(bytes, 0, bytes.length);
+                JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);  
             }
 
             facesContext.responseComplete();

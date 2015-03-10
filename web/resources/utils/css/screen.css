@@ -47,7 +47,8 @@ h5 { font-size:100%; }
         font-family: 'Trebuchet MS', 'Geneva CE', lucida, sans-serif;
         position: relative; 
         overflow: hidden; 
-        width: 250px; height: 108px;
+        width: 250px; 
+        height: 108px;
         font-size:230%;
         margin: 0;
         line-height: 108px;
@@ -82,7 +83,7 @@ h5 { font-size:100%; }
 	//float:left;
 }
 #navi li a {
-	display:block; //Convertimos el vÃ­nculo en un bloque.
+	display:block; //Convertimos el vínculo en un bloque.
 	width:100px;
 	padding:4px 0;
 	text-decoration:none;

@@ -6,7 +6,7 @@ import java.util.Map;
 public enum TipoEmergencia {
 
     INCENDIOFORESTAL(0, "Incendio Forestal"),
-    INCENDIOESTRUCTURAL(1, "Incendio Estrcutural"),
+    INCENDIOESTRUCTURAL(1, "Incendio Estructural"),
     INUNDACION(2, "Inundacion"),
     ACCIDENTETRANSITO(3, "Accidente de Transito"),
     OTROSINCIDENTES(4, "Otros incidentes");

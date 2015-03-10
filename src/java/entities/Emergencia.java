@@ -46,6 +46,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Emergencia.findByEmeInmuebleArrendatario", query = "SELECT e FROM Emergencia e WHERE e.emeInmuebleArrendatario = :emeInmuebleArrendatario"),
     @NamedQuery(name = "Emergencia.findByEmeEstado", query = "SELECT e FROM Emergencia e WHERE e.emeEstado = :emeEstado")})
 public class Emergencia implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -421,17 +422,14 @@ public class Emergencia implements Serializable {
             return false;
         }
         Emergencia other = (Emergencia) object;
-        if ((this.emeId == null && other.emeId != null) || (this.emeId != null && !this.emeId.equals(other.emeId))) {
-            return false;
-        }
-        return true;
+        return !((this.emeId == null && other.emeId != null) || (this.emeId != null && !this.emeId.equals(other.emeId)));
     }
 
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
         SimpleDateFormat sdfHora = new SimpleDateFormat("h:mm a");
-        return "[ Fecha: " + sdf.format(emeFecha) +", Hora: "+ sdfHora.format(emeHora) + ", Direccion: "+emeDireccion+" ]";
+        return "[ Fecha: " + sdf.format(emeFecha) + ", Hora: " + sdfHora.format(emeHora) + ", Direccion: " + emeDireccion + " ]";
     }
-    
+
 }

@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package entities;
 
+package entities;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -122,10 +117,7 @@ public class MaterialUtilizado implements Serializable {
             return false;
         }
         MaterialUtilizado other = (MaterialUtilizado) object;
-        if ((this.matUtiId == null && other.matUtiId != null) || (this.matUtiId != null && !this.matUtiId.equals(other.matUtiId))) {
-            return false;
-        }
-        return true;
+        return !((this.matUtiId == null && other.matUtiId != null) || (this.matUtiId != null && !this.matUtiId.equals(other.matUtiId)));
     }
 
     @Override
