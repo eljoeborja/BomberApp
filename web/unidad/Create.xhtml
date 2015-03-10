@@ -25,7 +25,10 @@
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniPerId}" for="uniPerId" />
                         <p:autoComplete id="uniPerId" value="#{unidadController.selected.uniPerId}" completeMethod="#{personaController.completePersona(unidadController.selected.uniPerId)}" />                       
                         <p:outputLabel value="#{bundle.CreateUnidadLabel_uniEstado}" for="uniEstado" />
-                        <p:selectBooleanCheckbox id="uniEstado" value="#{unidadController.selected.uniEstado}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}"/>
+                        <p:selectOneMenu value="#{unidadController.selected.uniEstado}" id="uniEstado">
+                            <f:selectItem itemLabel="Seleccione el Estado del Registro"/>
+                            <f:selectItems value="#{unidadController.mapaEstado}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                         
                     </p:panelGrid>
                     <p:commandButton actionListener="#{unidadController.create}" value="#{bundle.Save}" update="display,:UnidadListForm:datalist,:growl" oncomplete="handleSubmit(args,'UnidadCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PF('UnidadCreateDialog').hide()" type="button"/>

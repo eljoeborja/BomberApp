@@ -19,6 +19,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import jsf.util.EstadoSync;
 
 @Named("unidadController")
 @SessionScoped
@@ -159,8 +160,14 @@ public class UnidadController implements Serializable {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Unidad.class.getName()});
                 return null;
             }
-        }
-
+        }                    
+    }
+    public EstadoSync[] getMapaEstado() {
+       return EstadoSync.values();
+    }
+    
+    public String getEstadoSync(int value) {
+        return EstadoSync.getFromValue(value).toString();
     }
 
 }

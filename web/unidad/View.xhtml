@@ -23,13 +23,9 @@
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniMaquinista}"/>
                         <h:outputText value="#{unidadController.selected.uniMaquinista}" title="#{bundle.ViewUnidadTitle_uniMaquinista}"/>
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniEstado}"/>
-                        <p:selectBooleanCheckbox value="#{unidadController.selected.uniEstado}" disabled="true"/>
-                        <h:outputText value="#{bundle.ViewUnidadLabel_personalEmergancia}"/>
-                        <h:outputText value="#{unidadController.selected.personalEmergancia}" title="#{bundle.ViewUnidadTitle_personalEmergancia}"/>
+                        <h:outputText value="#{unidadController.getEstadoSync(unidadController.selected.uniEstado)}" />                        
                         <h:outputText value="#{bundle.ViewUnidadLabel_uniPerId}"/>
-                        <h:outputText value="#{unidadController.selected.uniPerId}" title="#{bundle.ViewUnidadTitle_uniPerId}"/>
-                        <h:outputText value="#{bundle.ViewUnidadLabel_usuario}"/>
-                        <h:outputText value="#{unidadController.selected.usuario}" title="#{bundle.ViewUnidadTitle_usuario}"/>
+                        <h:outputText value="#{unidadController.selected.uniPerId.perApellidos} #{unidadController.selected.uniPerId.perNombres}" title="#{bundle.ViewUnidadTitle_uniPerId}"/>                        
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="UnidadViewDialog.hide()"/>
                 </h:panelGroup>

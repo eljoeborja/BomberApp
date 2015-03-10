@@ -23,28 +23,12 @@
                         <p:outputLabel value="#{bundle.EditUnidadLabel_uniMaquinista}" for="uniMaquinista" />
                         <p:inputText id="uniMaquinista" value="#{unidadController.selected.uniMaquinista}" title="#{bundle.EditUnidadTitle_uniMaquinista}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniMaquinista}"/>
                         <p:outputLabel value="#{bundle.EditUnidadLabel_uniEstado}" for="uniEstado" />
-                        <p:selectBooleanCheckbox id="uniEstado" value="#{unidadController.selected.uniEstado}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}"/>
-                        <p:outputLabel value="#{bundle.EditUnidadLabel_personalEmergancia}" for="personalEmergancia" />
-                        <p:selectOneMenu id="personalEmergancia" value="#{unidadController.selected.personalEmergancia}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{personalEmerganciaController.itemsAvailableSelectOne}"
-                                           var="personalEmerganciaItem"
-                                           itemValue="#{personalEmerganciaItem}"/>
-                        </p:selectOneMenu>
+                        <p:selectOneMenu value="#{unidadController.selected.uniEstado}" id="uniEstado" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniEstado}">
+                            <f:selectItem itemLabel="Seleccione el Estado del Registro"/>
+                            <f:selectItems value="#{unidadController.mapaEstado}" var="item" itemLabel="#{item.detalle}" itemValue="#{item.valor}"/>
+                        </p:selectOneMenu>                                                                         
                         <p:outputLabel value="#{bundle.EditUnidadLabel_uniPerId}" for="uniPerId" />
-                        <p:selectOneMenu id="uniPerId" value="#{unidadController.selected.uniPerId}" required="true" requiredMessage="#{bundle.EditUnidadRequiredMessage_uniPerId}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{personaController.itemsAvailableSelectOne}"
-                                           var="uniPerIdItem"
-                                           itemValue="#{uniPerIdItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditUnidadLabel_usuario}" for="usuario" />
-                        <p:selectOneMenu id="usuario" value="#{unidadController.selected.usuario}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"
-                                           var="usuarioItem"
-                                           itemValue="#{usuarioItem}"/>
-                        </p:selectOneMenu>
+                        <h:inputText id="uniPerId" value="#{unidadController.selected.uniPerId.perId}" required="true"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{unidadController.update}" value="#{bundle.Save}" update="display,:UnidadListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UnidadEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PF('UnidadEditDialog').hide()" type="button"/>

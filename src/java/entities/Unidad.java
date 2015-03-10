@@ -70,7 +70,7 @@ public class Unidad implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "uni_estado")
-    private boolean uniEstado;
+    private Integer uniEstado;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "peremeNpid", fetch = FetchType.LAZY)
     private PersonalEmergancia personalEmergancia;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "maqEmeNpib", fetch = FetchType.LAZY)
@@ -90,7 +90,7 @@ public class Unidad implements Serializable {
         this.uniNpib = uniNpib;
     }
 
-    public Unidad(String uniNpib, String uniCbv, String uniRango, String uniGsrh, Integer uniMaquinista, boolean uniEstado) {
+    public Unidad(String uniNpib, String uniCbv, String uniRango, String uniGsrh, Integer uniMaquinista, Integer uniEstado) {
         this.uniNpib = uniNpib;
         this.uniCbv = uniCbv;
         this.uniRango = uniRango;
@@ -139,11 +139,11 @@ public class Unidad implements Serializable {
         this.uniMaquinista = uniMaquinista;
     }
 
-    public boolean getUniEstado() {
+    public Integer getUniEstado() {
         return uniEstado;
     }
 
-    public void setUniEstado(boolean uniEstado) {
+    public void setUniEstado(Integer uniEstado) {
         this.uniEstado = uniEstado;
     }
 
