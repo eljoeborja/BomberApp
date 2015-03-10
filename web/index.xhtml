@@ -25,20 +25,20 @@
                 <h:form id="menuForm">
                     <p:menubar>
                         <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Incidentes}">
+                        <p:submenu label="#{bundle.Incidentes}" rendered="#{loginController.user != null}">
                             <p:menuitem value="Emergencia" outcome="/content/emergencia/List.xhtml" />
                             <p:menuitem value="Accidente Transito" outcome="/content/accidenteTransito/List.xhtml" />
                             <p:menuitem value="Incendio Estructural" outcome="/content/incendioEstructural/List.xhtml" />
                             <p:menuitem value="Incendio Forestal" outcome="/content/incendioForestal/List.xhtml" />
                             <p:menuitem value="Inundacion" outcome="/content/inundacion/List.xhtml" />
                             <p:menuitem value="Otros Incidentes" outcome="/content/otrosIncidentes/List.xhtml" />
-                        </p:submenu><p:submenu label="#{bundle.Personal}">
+                        </p:submenu><p:submenu label="#{bundle.Personal}" rendered="#{loginController.user != null}">
                             <p:menuitem value="Persona" outcome="/content/persona/List.xhtml" />
                             <p:menuitem value="Personal Emergencia" outcome="/content/personalEmergancia/List.xhtml" />
                             <p:menuitem value="Unidad" outcome="/content/unidad/List.xhtml" />
                             <p:menuitem value="Usuario" outcome="/content/usuario/List.xhtml" />
                             <p:menuitem value="Victima Accidente" outcome="/content/victimaAccidente/List.xhtml" />
-                        </p:submenu><p:submenu label="#{bundle.Maintenance}">
+                        </p:submenu><p:submenu label="#{bundle.Maintenance}" rendered="#{loginController.user != null}">
                             <p:menuitem value="Aseguradora" outcome="/content/aseguradora/List.xhtml" />
                             <p:menuitem value="Costo" outcome="/content/costo/List.xhtml" />                                                  
                             <p:menuitem value="Maquina" outcome="/content/maquina/List.xhtml" />
@@ -47,6 +47,10 @@
                             <p:menuitem value="Material Utilizado" outcome="/content/materialUtilizado/List.xhtml" />                          
                             <p:menuitem value="Vehiculo" outcome="/content/vehiculo/List.xhtml" />
                             <p:menuitem value="Vehiculo Comprometido" outcome="/content/vehiculoComprometido/List.xhtml" />
+                        </p:submenu>
+                        
+                        <p:submenu class="menuPrincipal" label="#{loginController.user.usuName}" style="float: right;" rendered="#{loginController.user != null}">
+                            <p:menuitem action="#{loginController.logoutLink()}" icon="ui-icon-power" value="#{bundle.LogOut}" />
                         </p:submenu>
                     </p:menubar>
                 </h:form>
@@ -63,6 +67,21 @@
             </p:layoutUnit>
             <p:layoutUnit styleClass="contenido" position="center">
                 <ui:insert name="body"/>
+
+                <p:outputPanel id="panelCentral">
+                    <h:form id="UserLoginForm" rendered="#{loginController.user==null}">
+                        <p:panel id="login" header="Ingresar a la Aplicación" style="width: 350px; margin: 0px auto;">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuName}" for="username" />
+                                <p:inputText id="username" value="#{loginController.userName}" title="#{bundle.CreateUsuarioTitle_usuName}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuName}"/>
+                                <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuPassword}" for="password" />
+                                <p:inputText type="password" id="password" value="#{loginController.password}" title="#{bundle.CreateUsuarioTitle_usuPassword}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuPassword}"/>
+                                <p:commandButton actionListener="#{loginController.login()}" value="#{bundle.Login}" update=":growl,:menuForm,:panelCentral"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </p:outputPanel>
+
             </p:layoutUnit>
         </p:layout>
     </h:body>
